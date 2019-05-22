@@ -4,8 +4,9 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
+
+import { AppComponent } from './components/app/app.component';
 
 @NgModule({
   declarations: [AppComponent],
