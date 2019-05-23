@@ -1,11 +1,17 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
+import { MatchRoutingModule } from './math-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 import { MatchListComponent } from './components/match-list/match-list.component';
-import { MatchRoutingModule } from './math-routing.module';
+import { MatchListItemComponent } from './components/match-list-item/match-list-item.component';
+import { MatchItemComponent } from './components/match-item/match-item.component';
+import { MatchService } from './services/match.service';
+import { MatchResolver } from './services/match.resolver';
 
 @NgModule({
-  declarations: [MatchListComponent],
-  imports: [CommonModule, MatchRoutingModule]
+    declarations: [MatchListComponent, MatchListItemComponent, MatchItemComponent],
+    imports: [SharedModule, MatchRoutingModule],
+    providers: [MatchService, MatchResolver]
 })
 export class MatchModule {}
