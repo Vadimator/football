@@ -13,6 +13,10 @@ const routes: Routes = [
         loadChildren: './modules/player/player.module#PlayerModule'
     },
     {
+        path: 'field',
+        loadChildren: './modules/field/field.module#FieldModule'
+    },
+    {
         path: '',
         redirectTo: '/match',
         pathMatch: 'full'
