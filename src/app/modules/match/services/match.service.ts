@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection, DocumentChangeAction } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { MatchModel } from '../models/match.model';
 
@@ -13,7 +14,14 @@ export class MatchService {
     }
 
     getList(): Observable<MatchModel[]> {
-        return this.matchesCollection$.valueChanges();
+        return this.matchesCollection$.snapshotChanges().pipe(
+            map((actions: DocumentChangeAction<MatchModel>[]) =>
+                actions.map((action: DocumentChangeAction<MatchModel>) => {
+                    const match = action.payload.doc.data() as MatchModel;
+                    const id: string = action.payload.doc.id;
+                    return { ...match, id };
+                }))
+        );
     }
 
     getById(matchId: string): Observable<MatchModel> {
