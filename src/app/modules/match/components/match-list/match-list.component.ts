@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 
 import { MatchModel } from '../../models/match.model';
 import { MatchService } from '../../services/match.service';
+import { DocumentReference } from '@angular/fire/firestore';
 
 @Component({
     selector: 'app-match-list',
@@ -17,5 +18,14 @@ export class MatchListComponent implements OnInit {
 
     ngOnInit(): void {
         this.matches$ = this.matchService.getList();
+
+        // this.matches$.subscribe(matches => {
+            // const field: DocumentReference = matches[0].field;
+            //
+            // field.get({}).then(doc => {
+            //     console.log(doc.data());
+            //
+            // })
+        // });
     }
 }
