@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { MatchModel } from '../../models/match.model';
-import { MatchService } from '../../services/match.service';
+import { MatchService } from '../../../../shared/services/match.service';
 
 @Component({
   selector: 'app-match-list',

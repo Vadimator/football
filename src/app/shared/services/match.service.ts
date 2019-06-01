@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
-import { MatchModel } from '../models/match.model';
+import { MatchModel } from '../../modules/match/models/match.model';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class MatchService {
   private readonly url = 'match';
 

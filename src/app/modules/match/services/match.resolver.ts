@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { first } from 'rxjs/operators';
 
 import { MatchModel } from '../models/match.model';
-import { MatchService } from './match.service';
+import { MatchService } from '../../../shared/services/match.service';
 
 @Injectable()
 export class MatchResolver implements Resolve<MatchModel> {
