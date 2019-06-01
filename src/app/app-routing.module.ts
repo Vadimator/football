@@ -2,35 +2,41 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { MainComponent } from './components/main/main.component';
 
 const routes: Routes = [
-    {
+  {
+    path: '',
+    component: MainComponent,
+    children: [
+      {
         path: 'match',
-        loadChildren: './modules/match/match.module#MatchModule'
-    },
-    {
+        loadChildren: () => import('./modules/match/match.module').then(m => m.MatchModule)
+      },
+      {
         path: 'player',
-        loadChildren: './modules/player/player.module#PlayerModule'
-    },
-    {
+        loadChildren: () => import('./modules/player/player.module').then(m => m.PlayerModule)
+      },
+      {
         path: 'field',
-        loadChildren: './modules/field/field.module#FieldModule'
-    },
-    {
-        path: 'admin',
-        loadChildren: './modules/admin/admin.module#AdminModule'
-    },
-    {
+        loadChildren: () => import('./modules/field/field.module').then(m => m.FieldModule)
+      },
+      {
         path: '',
         redirectTo: '/match',
         pathMatch: 'full'
-    },
-    { path: '**', component: PageNotFoundComponent }
+      }
+    ]
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)
+  },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}
