@@ -3,29 +3,28 @@ import { Observable } from 'rxjs';
 
 import { MatchModel } from '../../models/match.model';
 import { MatchService } from '../../services/match.service';
-import { DocumentReference } from '@angular/fire/firestore';
 
 @Component({
-    selector: 'app-match-list',
-    templateUrl: './match-list.component.html',
-    styleUrls: ['./match-list.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'app-match-list',
+  templateUrl: './match-list.component.html',
+  styleUrls: ['./match-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MatchListComponent implements OnInit {
-    public matches$: Observable<MatchModel[]>;
+  public matches$: Observable<MatchModel[]>;
 
-    constructor(private matchService: MatchService) {}
+  constructor(private matchService: MatchService) {}
 
-    ngOnInit(): void {
-        this.matches$ = this.matchService.getList();
+  ngOnInit(): void {
+    this.matches$ = this.matchService.getList();
 
-        // this.matches$.subscribe(matches => {
-            // const field: DocumentReference = matches[0].field;
-            //
-            // field.get({}).then(doc => {
-            //     console.log(doc.data());
-            //
-            // })
-        // });
-    }
+    // this.matches$.subscribe(matches => {
+    // const field: DocumentReference = matches[0].field;
+    //
+    // field.get({}).then(doc => {
+    //     console.log(doc.data());
+    //
+    // })
+    // });
+  }
 }
