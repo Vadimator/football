@@ -1,5 +1,6 @@
-<h2>this is match component</h2>
-duration: {{ match?.duration }}
-price: {{ match?.price }}
-score: {{ match?.score }}
-created Date  {{ match?.createdDate?.toMillis() | date:'yyyy/MM/dd h:mm:ss' }}
+<h2>Информация о матче</h2>
+<h3>продолжительность: {{ match?.duration }} минут</h3>
+<h3>цена: {{ match?.duration * match?.field?.pricePerMinute }} грн</h3>
+<h3>счет: {{ match?.score }}</h3>
+<h3>дата проведения: {{ match?.createdDate?.toMillis() | date: 'yyyy/MM/dd h:mm' }}</h3>
+<h3>поле: {{ match?.field?.name }}</h3>
