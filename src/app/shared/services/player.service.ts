@@ -15,4 +15,11 @@ export class PlayerService {
   getOneById(playerId: number): Observable<any> {
     return this.http.get<any>(`${this.url}/${playerId}`);
   }
+
+  create(firstName: string, lastName: string): Observable<any> {
+    return this.http.post(this.url, {
+      firstName,
+      lastName
+    });
+  }
 }
