@@ -11,6 +11,6 @@ export class MatchResolver implements Resolve<MatchModel> {
   constructor(private matchService: MatchService) {}
 
   resolve(route: ActivatedRouteSnapshot): Observable<MatchModel> {
-    return this.matchService.getById(route.params.id).pipe(first());
+    return this.matchService.getById(route.params.id);
   }
 }
