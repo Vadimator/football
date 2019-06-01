@@ -11,4 +11,8 @@ export class PlayerService {
   getList(): Observable<any[]> {
     return this.http.get<any>(this.url);
   }
+
+  getOneById(playerId: number): Observable<any> {
+    return this.http.get<any>(`${this.url}/${playerId}`);
+  }
 }

@@ -1,15 +1,18 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ChangeDetectionStrategy, Component, OnInit, Input } from '@angular/core';
 
 @Component({
-    selector: 'app-player-item',
-    templateUrl: 'player-item.component.html',
-    styleUrls: ['player-item.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'app-player-item',
+  templateUrl: 'player-item.component.html',
+  styleUrls: ['player-item.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlayerItemComponent implements OnInit {
-    constructor() {
-    }
+  public player: any;
 
-    ngOnInit() {
-    }
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.player = this.route.snapshot.data.player;
+  }
 }

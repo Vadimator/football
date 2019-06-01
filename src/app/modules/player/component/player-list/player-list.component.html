@@ -1,1 +1,5 @@
-<h2>player list component</h2>
+<app-player-list-item
+  *ngFor="let player of players$ | async"
+  [player]="player"
+  [routerLink]="[player?.id]"
+></app-player-list-item>
