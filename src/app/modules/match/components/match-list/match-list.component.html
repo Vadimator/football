@@ -1,15 +1,15 @@
-<mat-list
-        class="match-list"
-        role="list"
+<ul
+    class="match-list"
+    role="list"
 >
-    <mat-list-item
-            role="listitem"
-            *ngFor="let match of matches$ | async"
+    <li
+        class="match-list__item"
+        role="listitem"
+        *ngFor="let match of matches$ | async"
     >
         <app-match-list-item
-                class="match-list__item"
-                [match]="match"
-                [routerLink]="[match?.id]"
+            [match]="match"
+            [routerLink]="[match?.id]"
         ></app-match-list-item>
-    </mat-list-item>
-</mat-list>
+    </li>
+</ul>

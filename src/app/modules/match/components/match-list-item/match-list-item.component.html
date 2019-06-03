@@ -1,4 +1,15 @@
 <div class="match-list-item">
-  <div class="match-list-item__date">{{ match?.createdAt | date: 'dd/MM/yyyy' }}</div>
-  <div class="match-list-item__score">{{ match?.firstScore }} - {{ match?.secondScore }}</div>
+  <div class="match-list-item__item">
+    <mat-icon class="match-list-item__icon">date_range</mat-icon>
+    <span class="match-list-item__text">
+      {{ match?.createdAt | date: 'dd/MM/yyyy' }}
+    </span>
+  </div>
+  <div class="match-list-item__item">
+    <mat-icon class="match-list-item__icon">timer</mat-icon>
+    <span class="match-list-item__text">
+      {{ match?.duration }}
+    </span>
+  </div>
+  <div class="match-list-item__item">Счет: {{ match?.firstScore }} - {{ match?.secondScore }}</div>
 </div>
