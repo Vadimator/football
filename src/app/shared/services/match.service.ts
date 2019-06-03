@@ -16,8 +16,10 @@ export class MatchService {
   }
 
   getById(matchId: string): Observable<any> {
-    const params: HttpParams = new HttpParams()
-        .set('join', 'winner');
+    let params: HttpParams = new HttpParams();
+
+    params = params.append('join', 'winner');
+    params = params.append('join', 'loser');
 
     return this.http.get<any>(`${this.url}/${matchId}`, { params });
   }
