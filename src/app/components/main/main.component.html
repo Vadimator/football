@@ -1,6 +1,6 @@
 <div class="main" fxLayout="column">
   <mat-toolbar color="primary">
-    <mat-toolbar-row>
+    <mat-toolbar-row class="container">
       <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
         <mat-icon>menu</mat-icon>
       </button>
@@ -24,7 +24,9 @@
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content fxFlexFill>
-      <router-outlet></router-outlet>
+      <div class="container">
+        <router-outlet></router-outlet>
+      </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
