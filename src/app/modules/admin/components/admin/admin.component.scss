@@ -1,0 +1,9 @@
+.admin {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__container {
+    flex-grow: 1;
+  }
+}
