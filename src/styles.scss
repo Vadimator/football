@@ -3,6 +3,8 @@
 @import "~bootstrap/scss/bootstrap-grid";
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
+@import "app/modules/material/styles/material";
+
 html,
 body {
   height: 100%;

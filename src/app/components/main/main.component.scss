@@ -4,4 +4,12 @@
   &__menu {
     margin-left: auto;
   }
+
+  &__link {
+    text-transform: uppercase;
+
+    &--active {
+      background: rgba(black, .075);
+    }
+  }
 }

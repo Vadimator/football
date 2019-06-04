@@ -1,0 +1,11 @@
+.mat-list-base .mat-list-item,
+.mat-list-base .mat-list-option {
+  background-color: #fff;
+  border-radius: 1px;
+  border: 1px solid #3f51b5;
+  cursor: pointer;
+
+  &:not(:last-child) {
+    margin-bottom: 5px;
+  }
+}
