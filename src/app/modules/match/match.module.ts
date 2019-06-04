@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
+import { SharedModule } from '@shared/shared.module';
 import { MatchRoutingModule } from './math-routing.module';
-import { SharedModule } from '../../shared/shared.module';
 
 import { MatchListComponent } from './components/match-list/match-list.component';
 import { MatchListItemComponent } from './components/match-list-item/match-list-item.component';

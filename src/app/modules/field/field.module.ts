@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { SharedModule } from '../../shared/shared.module';
+import { SharedModule } from '@shared/shared.module';
 import { FieldRoutingModule } from './field-routing.module';
 
 import { FieldListComponent } from './components/field-list/field-list.component';

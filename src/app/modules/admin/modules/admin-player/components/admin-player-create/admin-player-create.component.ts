@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
-import { PlayerService } from '../../../../../../shared/services/player.service';
+import { PlayerService } from '@shared/services/player.service';
 
 @Component({
   selector: 'app-admin-player-create',

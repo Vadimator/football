@@ -1,6 +1,5 @@
 import { ActivatedRoute } from '@angular/router';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { MatchModel } from '../../models/match.model';
 
 @Component({
   selector: 'app-match-item',

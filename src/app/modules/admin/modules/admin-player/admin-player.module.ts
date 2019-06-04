@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { SharedModule } from '../../../../shared/shared.module';
+import { SharedModule } from '@shared/shared.module';
 import { AdminPlayerRoutingModule } from './admin-player-routing.module';
 
 import { AdminPlayerTableComponent } from './components/admin-player-table/admin-player-table.component';

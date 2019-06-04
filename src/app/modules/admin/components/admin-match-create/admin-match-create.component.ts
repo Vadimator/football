@@ -2,8 +2,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { MatchService } from './../../../../shared/services/match.service';
-import { PlayerService } from './../../../../shared/services/player.service';
+import { MatchService } from '@shared/services/match.service';
+import { PlayerService } from '@shared/services/player.service';
 
 @Component({
   selector: 'app-admin-match-create',

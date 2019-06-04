@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { PlayerService } from './../../../../shared/services/player.service';
+import { PlayerService } from '@shared/services/player.service';
 
 @Component({
   selector: 'app-player-list',

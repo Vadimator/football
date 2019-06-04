@@ -4,8 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+import { SharedModule } from '@shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
-import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './components/app/app.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { SharedModule } from '../../shared/shared.module';
+import { SharedModule } from '@shared/shared.module';
 import { PlayerRoutingModule } from './player-routing.module';
 
 import { PlayerListComponent } from './component/player-list/player-list.component';
