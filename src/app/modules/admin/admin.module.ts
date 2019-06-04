@@ -4,9 +4,7 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { SharedModule } from '../../shared/shared.module';
 
 import { AdminComponent } from './components/admin/admin.component';
-import { AdminPlayerCreateComponent } from './components/admin-player-create/admin-player-create.component';
 import { AdminMatchCreateComponent } from './components/admin-match-create/admin-match-create.component';
-import { AdminPlayerTableComponent } from './components/admin-player-table/admin-player-table.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { AdminAuthGuard } from './guards/admin-auth.guard';
 
@@ -14,9 +12,7 @@ import { AdminAuthGuard } from './guards/admin-auth.guard';
     imports: [SharedModule, AdminRoutingModule],
     declarations: [
         AdminComponent,
-        AdminPlayerCreateComponent,
         AdminMatchCreateComponent,
-        AdminPlayerTableComponent,
         AdminLoginComponent
     ],
     providers: [
