@@ -10,9 +10,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app/app.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { MainComponent } from './components/main/main.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
-  declarations: [AppComponent, PageNotFoundComponent, MainComponent],
+  declarations: [AppComponent, PageNotFoundComponent, MainComponent, FooterComponent],
   imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, SharedModule, HttpClientModule, FlexLayoutModule],
   bootstrap: [AppComponent]
 })

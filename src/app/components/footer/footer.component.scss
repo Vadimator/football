@@ -1,0 +1,10 @@
+@import "../../styles/variables";
+
+.footer {
+  background-color: map-get($color, primary);
+  min-height: 64px;
+  color: white;
+  display: flex;
+  align-items: center;
+  text-align: right;
+}
