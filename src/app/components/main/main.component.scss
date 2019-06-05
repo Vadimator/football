@@ -1,5 +1,7 @@
 @import "../../styles/variables";
 
+$vertical-margin: 20px;
+
 .main {
   height: 100%;
 
@@ -20,13 +22,25 @@
   }
 
   &__container {
-    $vertical-margin: 20px;
-
     margin-top: $vertical-margin;
     margin-bottom: $vertical-margin;
     height: calc(100% - #{$vertical-margin} - #{$vertical-margin});
     background-color: map-get($color, primary);
     border-radius: 5px;
     padding: $vertical-margin / 2;
+  }
+
+  &__sidenav {
+    width: 200px;
+    padding: $vertical-margin / 2;
+    background-color: map-get($color, primary);
+  }
+
+  &__sidenav-link {
+    padding: 5px 10px;
+    width: 100%;
+    display: block;
+    color: white;
+    text-decoration: none;
   }
 }

@@ -6,16 +6,16 @@
       </button>
       <span>Football</span>
       <div class="main__menu" fxShow="true" fxHide.lt-md>
-        <a routerLink="/match"  class="main__link" routerLinkActive="main__link--active" mat-button>
+        <a routerLink="/match" class="main__link" routerLinkActive="main__link--active" mat-button>
             Матчи
         </a>
         <a routerLink="/player" class="main__link" routerLinkActive="main__link--active" mat-button>
             Игроки
         </a>
-        <a routerLink="/field"  class="main__link" routerLinkActive="main__link--active" mat-button>
+        <a routerLink="/field" class="main__link" routerLinkActive="main__link--active" mat-button>
             Поля
         </a>
-        <a routerLink="/team"   class="main__link" routerLinkActive="main__link--active" mat-button>
+        <a routerLink="/team" class="main__link" routerLinkActive="main__link--active" mat-button>
             Команды
         </a>
       </div>
@@ -23,13 +23,11 @@
   </mat-toolbar>
 
   <mat-sidenav-container fxFlexFill fxFlex="1 0 0">
-    <mat-sidenav #sidenav>
-      <mat-nav-list>
-        <a mat-list-item routerLink="/match">Матчи</a>
-        <a mat-list-item routerLink="/player">Игроки</a>
-        <a mat-list-item routerLink="/field">Поля</a>
-        <a mat-list-item routerLink="/team">Команды</a>
-      </mat-nav-list>
+    <mat-sidenav class="main__sidenav" #sidenav>
+        <a class="main__sidenav-link" routerLink="/match" (click)="sidenav.close()">Матчи</a>
+        <a class="main__sidenav-link" routerLink="/player" (click)="sidenav.close()">Игроки</a>
+        <a class="main__sidenav-link" routerLink="/field" (click)="sidenav.close()">Поля</a>
+        <a class="main__sidenav-link" routerLink="/team" (click)="sidenav.close()">Команды</a>
     </mat-sidenav>
     <mat-sidenav-content class="main__content" fxFlexFill>
       <div class="container main__container">
