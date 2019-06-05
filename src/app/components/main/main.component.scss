@@ -1,3 +1,5 @@
+@import "../../styles/variables";
+
 .main {
   height: 100%;
 
@@ -11,5 +13,20 @@
     &--active {
       background: rgba(black, .075);
     }
+  }
+
+  &__content {
+    background-color: darken(map-get($color, primary), 15%);
+  }
+
+  &__container {
+    $vertical-margin: 20px;
+
+    margin-top: $vertical-margin;
+    margin-bottom: $vertical-margin;
+    height: calc(100% - #{$vertical-margin} - #{$vertical-margin});
+    background-color: map-get($color, primary);
+    border-radius: 5px;
+    padding: $vertical-margin / 2;
   }
 }

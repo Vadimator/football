@@ -39,7 +39,7 @@ $margin: 20px;
     background-color: $background-color;
     border-radius: $border-radius;
     margin: $margin;
-    padding: 5px;
+    padding: $margin / 2;
   }
 
   &__link {
