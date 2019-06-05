@@ -1,9 +1,54 @@
+@import "../../../../styles/variables";
+
+$border-radius: 5px;
+$background-color: map-get($color, primary);
+$margin: 20px;
+
 .admin {
   display: flex;
   flex-direction: column;
   height: 100%;
 
+  &__toolbar {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__logo {
+    font-weight: 500;
+    white-space: nowrap;
+    font-size: 24px;
+  }
+
   &__container {
     flex-grow: 1;
+    background-color: darken($background-color, 15%);
+  }
+
+  &__navbar {
+    width: 200px;
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+    background-color: $background-color;
+    margin: $margin 0;
+    padding: $margin / 2;
+  }
+
+  &__content {
+    height: calc(100% - #{$margin} - #{$margin});
+    background-color: $background-color;
+    border-radius: $border-radius;
+    margin: $margin;
+    padding: 5px;
+  }
+
+  &__link {
+    padding: 5px 10px;
+    display: block;
+    width: 100%;
+    color: white;
+    text-transform: capitalize;
+    text-decoration: none;
+    font-size: 14px;
   }
 }
