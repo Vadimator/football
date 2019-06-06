@@ -4,7 +4,6 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { CreateMatchDto } from '../models/create-match.dto';
 
-
 @Injectable({ providedIn: 'root' })
 export class MatchService {
   private readonly url = 'match';
@@ -15,11 +14,11 @@ export class MatchService {
     return this.http.get<any[]>(this.url);
   }
 
-  getById(matchId: string): Observable<any> {
+  getOneById(matchId: string): Observable<any> {
     let params: HttpParams = new HttpParams();
 
     params = params.append('join', 'winner');
-    params = params.append('join', 'loser')
+    params = params.append('join', 'loser');
 
     return this.http.get<any>(`${this.url}/${matchId}`, { params });
   }

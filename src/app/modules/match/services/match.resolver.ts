@@ -9,6 +9,6 @@ export class MatchResolver implements Resolve<any> {
   constructor(private matchService: MatchService) {}
 
   resolve(route: ActivatedRouteSnapshot): Observable<any> {
-    return this.matchService.getById(route.params.id);
+    return this.matchService.getOneById(route.params.id);
   }
 }
