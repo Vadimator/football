@@ -17,8 +17,8 @@ export class MatchService {
   getOneById(matchId: string): Observable<any> {
     let params: HttpParams = new HttpParams();
 
-    params = params.append('join', 'winner');
-    params = params.append('join', 'loser');
+    params = params.append('join', 'firstTeam');
+    params = params.append('join', 'secondTeam');
 
     return this.http.get<any>(`${this.url}/${matchId}`, { params });
   }
