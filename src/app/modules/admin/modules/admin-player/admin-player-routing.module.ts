@@ -1,13 +1,13 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
-import { AdminPlayerTableComponent } from './components/admin-player-table/admin-player-table.component';
 import { AdminPlayerCreateComponent } from './components/admin-player-create/admin-player-create.component';
+import { AdminPlayerComponent } from './components/admin-player/admin-player.component';
 
 const routes: Routes = [
     {
         path: '',
-        component: AdminPlayerTableComponent
+        component: AdminPlayerComponent
     },
     {
         path: 'create',
