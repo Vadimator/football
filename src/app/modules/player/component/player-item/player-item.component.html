@@ -1,2 +1,6 @@
-<h2>player item component</h2>
-{{ player | json }}
+<div class="player-item">
+    <h2 class="player-item__title">
+        Подробная информация об игроке
+    </h2>
+    Полное имя: {{ player?.firstName }} {{ player?.lastName }}
+</div>

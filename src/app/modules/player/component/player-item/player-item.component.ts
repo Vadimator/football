@@ -1,5 +1,5 @@
 import { ActivatedRoute } from '@angular/router';
-import { ChangeDetectionStrategy, Component, OnInit, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-player-item',
