@@ -1,15 +1,43 @@
-<h2>
-  Создание игрока
-</h2>
+<div class="admin-player-create">
+    <h2 class="admin-player-create__title">
+        Создание игрока
+    </h2>
 
-<form novalidate autocomplete="off" [formGroup]="form" (ngSubmit)="onSubmit()">
-  <mat-form-field>
-    <input matInput placeholder="Имя" formControlName="firstName" />
-  </mat-form-field>
+    <form
+            class="admin-player-create__form"
+            novalidate
+            autocomplete="off"
+            [formGroup]="form"
+            (ngSubmit)="onSubmit$.next()"
+    >
+        <mat-form-field class="admin-player-create__field">
+            <input
+                    matInput
+                    placeholder="Имя"
+                    formControlName="firstName"
+            />
+            <mat-error *ngIf="form.get('firstName').invalid">
+                Имя игрока поле обязательное
+            </mat-error>
+        </mat-form-field>
 
-  <mat-form-field>
-    <input matInput placeholder="Фамилия" formControlName="lastName" />
-  </mat-form-field>
+        <mat-form-field class="admin-player-create__field">
+            <input
+                    matInput
+                    placeholder="Фамилия"
+                    formControlName="lastName"
+            />
+            <mat-error *ngIf="form.get('lastName').invalid">
+                Имя игрока поле обязательное
+            </mat-error>
+        </mat-form-field>
 
-  <button mat-button>Создать игрока</button>
-</form>
+        <button
+                mat-button
+                role="button"
+                class="admin-player-create__button"
+        >
+            Создать игрока
+        </button>
+    </form>
+</div>
