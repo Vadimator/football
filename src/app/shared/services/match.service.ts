@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 import { CreateMatchDto } from '../models/create-match.dto';
 
@@ -15,12 +15,7 @@ export class MatchService {
   }
 
   getOneById(matchId: string): Observable<any> {
-    let params: HttpParams = new HttpParams();
-
-    params = params.append('join', 'firstTeam');
-    params = params.append('join', 'secondTeam');
-
-    return this.http.get<any>(`${this.url}/${matchId}`, { params });
+    return this.http.get<any>(`${this.url}/${matchId}`);
   }
 
   create(body: CreateMatchDto): Observable<any> {

@@ -1,11 +1,18 @@
 .match-list-item {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 
   &__item {
     display: flex;
     align-items: center;
+
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+
+    &:last-child {
+      margin-left: auto;
+    }
   }
 
   &__text {

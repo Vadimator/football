@@ -2,5 +2,45 @@
     <h2 class="match-item__header">
         Подробная информация о матче
     </h2>
-    duration: {{ match?.duration }} score: {{ match?.firstScore }} - {{ match?.secondScore }}
+    <mat-list role="list" class="match-item__list">
+        <mat-list-item role="listitem" class="match-item__list-item">
+            Продолжительность матча - {{ match?.duration }} минут
+        </mat-list-item>
+        <mat-list-item role="listitem" class="match-item__list-item">
+            Cчет - {{ match?.firstScore }} - {{ match?.secondScore }}
+        </mat-list-item>
+        <mat-list-item role="listitem" class="match-item__list-item">
+            Дата проведения - {{ match?.createdAt | date: 'dd/MM/yyyy' }}
+        </mat-list-item>
+    </mat-list>
+    <div class="match-item__container">
+        <div class="match-item__team">
+            <h4 class="match-item__title">
+                Первая команда
+            </h4>
+            <mat-list role="list">
+                <mat-list-item
+                        *ngFor="let player of match?.firstTeam?.players"
+                        role="listitem"
+                        [routerLink]="['/player', player?.id]"
+                >
+                    {{ player?.firstName }} {{ player?.lastName }}
+                </mat-list-item>
+            </mat-list>
+        </div>
+        <div class="match-item__team">
+            <h4 class="match-item__title">
+                Вторая команда
+            </h4>
+            <mat-list role="list">
+                <mat-list-item
+                        *ngFor="let player of match?.secondTeam?.players"
+                        role="listitem"
+                        [routerLink]="['/player', player?.id]"
+                >
+                    {{ player?.firstName }} {{ player?.lastName }}
+                </mat-list-item>
+            </mat-list>
+        </div>
+    </div>
 </div>
