@@ -1,0 +1,23 @@
+@import "../../../styles/variables";
+
+.confirm {
+  background-color: lighten(map-get($color, primary), 5%);
+  margin: -24px;
+  padding: 10px;
+  color: white;
+  text-align: center;
+
+  &__title {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  &__button {
+    border: 1px solid lighten(map-get($color, primary), 15%);
+    text-transform: capitalize;
+
+    &:not(:last-of-type) {
+      margin-right: 10px;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+<div class="confirm">
+    <h2 class="confirm__title">
+        Ты точно хочешь удалить?
+    </h2>
+    <div class="confirm__container">
+        <button
+                class="confirm__button"
+                type="button"
+                role="button"
+                mat-button
+                (click)="onConfirmed.emit()"
+
+        >
+            да
+        </button>
+        <button
+                class="confirm__button"
+                type="button"
+                role="button"
+                mat-button
+                mat-dialog-close
+        >
+            нет
+        </button>
+    </div>
+</div>

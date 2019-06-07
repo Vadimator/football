@@ -67,6 +67,7 @@
             <mat-slide-toggle
                 matTooltip="Активировать/Деактивировать"
                 color="primary"
+                [checked]="element?.isActive"
                 [disableRipple]="true"
             ></mat-slide-toggle>
             <button
@@ -82,6 +83,7 @@
                 role="button"
                 mat-button
                 matTooltip="Удалить"
+                (click)="onDelete(element?.id)"
             >
                 <mat-icon>clear</mat-icon>
             </button>

@@ -5,10 +5,15 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { UrlInterceptor } from './interceptors/url.interceptor';
 import { AngularMaterialModule } from '../modules/material/angular-material.module';
+import { ConfirmComponent } from './components/confirm/confirm.component';
+
+const components = [ConfirmComponent];
 
 @NgModule({
   imports: [CommonModule, FormsModule, ReactiveFormsModule, AngularMaterialModule],
-  exports: [CommonModule, FormsModule, ReactiveFormsModule, AngularMaterialModule],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: UrlInterceptor, multi: true }]
+  exports: [CommonModule, FormsModule, ReactiveFormsModule, AngularMaterialModule, ...components],
+  declarations: components,
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: UrlInterceptor, multi: true }],
+  entryComponents: [ConfirmComponent]
 })
 export class SharedModule {}

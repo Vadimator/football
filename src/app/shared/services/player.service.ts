@@ -22,4 +22,8 @@ export class PlayerService {
       lastName
     });
   }
+
+  removeOneById(playerId: number): Observable<any> {
+    return this.http.delete<any>(`${this.url}/${playerId}`);
+  }
 }

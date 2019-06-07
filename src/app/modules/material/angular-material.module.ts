@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 
 import {
     MatButtonModule,
+    MatDialogModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
@@ -25,7 +26,8 @@ const modules = [
     MatSidenavModule,
     MatTableModule,
     MatSlideToggleModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDialogModule
 ];
 
 @NgModule({
