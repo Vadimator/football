@@ -75,6 +75,7 @@
                 role="button"
                 mat-button
                 matTooltip="Редактировать"
+                [routerLink]="['/admin', 'player', element?.id]"
             >
                 <mat-icon>edit</mat-icon>
             </button>

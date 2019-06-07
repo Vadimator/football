@@ -27,7 +27,7 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/team',
+        redirectTo: '/match',
         pathMatch: 'full'
       }
     ]

@@ -1,0 +1,43 @@
+<div class="admin-player-edit">
+    <h2 class="admin-player-edit__title">
+        Редактирование игрока
+    </h2>
+
+    <form
+            class="admin-player-edit__form"
+            novalidate
+            autocomplete="off"
+            [formGroup]="form"
+            (ngSubmit)="onSubmit$.next()"
+    >
+        <mat-form-field class="admin-player-edit__field">
+            <input
+                    matInput
+                    placeholder="Имя"
+                    formControlName="firstName"
+            />
+            <mat-error *ngIf="form.get('firstName').invalid">
+                Имя игрока поле обязательное
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="admin-player-edit__field">
+            <input
+                    matInput
+                    placeholder="Фамилия"
+                    formControlName="lastName"
+            />
+            <mat-error *ngIf="form.get('lastName').invalid">
+                Имя игрока поле обязательное
+            </mat-error>
+        </mat-form-field>
+
+        <button
+                mat-button
+                role="button"
+                class="admin-player-edit__button"
+        >
+            Изменить игрока
+        </button>
+    </form>
+</div>

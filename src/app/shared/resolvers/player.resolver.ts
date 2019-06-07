@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { PlayerService } from '@shared/services/player.service';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class PlayerResolver implements Resolve<any> {
   constructor(private playerService: PlayerService) {}
 
