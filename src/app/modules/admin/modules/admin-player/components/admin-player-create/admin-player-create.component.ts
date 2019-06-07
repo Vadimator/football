@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import { filter, map, mergeMap, tap, withLatestFrom } from 'rxjs/operators';
+import { filter, map, mergeMap, withLatestFrom } from 'rxjs/operators';
 
 import { PlayerService } from '@shared/services/player.service';
 
@@ -24,7 +24,6 @@ export class AdminPlayerCreateComponent implements OnInit {
     this.onSubmit$
         .pipe(
             withLatestFrom(this.form.valueChanges, this.form.statusChanges, (_, value, status) => ({ value, status })),
-            tap(console.log),
             filter(({ status }) => status === 'VALID'),
             map(({ value }) => ({ firstName: value.firstName.toLowerCase(), lastName: value.lastName.toLowerCase() })),
             mergeMap(({ firstName, lastName }) => this.playerService.create(firstName, lastName))
