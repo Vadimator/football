@@ -1,0 +1,67 @@
+<table mat-table [dataSource]="fields$ | async" class="mat-elevation-z8">
+  <!-- Id Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>
+      Номер
+    </th>
+    <td mat-cell *matCellDef="let element">
+      {{ element?.id }}
+    </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>
+      Имя
+    </th>
+    <td mat-cell *matCellDef="let element">{{ element?.name }}</td>
+  </ng-container>
+
+  <!-- Address Column -->
+  <ng-container matColumnDef="address">
+    <th mat-header-cell *matHeaderCellDef>
+      Адрес
+    </th>
+    <td mat-cell *matCellDef="let element">{{ element?.street }}, {{ element?.zip }}, {{ element?.city }}</td>
+  </ng-container>
+
+  <!-- Website Column -->
+  <ng-container matColumnDef="website">
+    <th mat-header-cell *matHeaderCellDef>
+      Веб сайт
+    </th>
+    <td mat-cell *matCellDef="let element">{{ element?.website }}</td>
+  </ng-container>
+
+  <!-- PricePerMinute Column -->
+  <ng-container matColumnDef="pricePerMinute">
+    <th mat-header-cell *matHeaderCellDef>
+      Цена за минуту
+    </th>
+    <td mat-cell *matCellDef="let element">{{ element?.pricePerMinute }}</td>
+  </ng-container>
+
+  <!-- Action Column -->
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef>
+      Действия
+    </th>
+    <td mat-cell *matCellDef="let element">
+      <button
+        type="button"
+        role="button"
+        mat-button
+        matTooltip="Редактировать"
+        [routerLink]="['/admin', 'match', element?.id]"
+      >
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button type="button" role="button" mat-button matTooltip="Удалить" (click)="onDelete(element?.id)">
+        <mat-icon>clear</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
