@@ -1,40 +1,44 @@
-<h2>
-  Создание матча
-</h2>
+<div class="admin-match-create">
+  <h2 class="admin-match-create__title">
+    Создание матча
+  </h2>
 
-<form novalidate autocomplete="off" [formGroup]="form" (ngSubmit)="onSubmit()">
-  <mat-form-field>
-    <mat-label>Продолжительность матча в минутах</mat-label>
-    <input type="number" matInput placeholder="Продолжительность" formControlName="duration" />
-  </mat-form-field>
+  <form class="admin-match-create__form" novalidate autocomplete="off" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Продолжительность матча в минутах</mat-label>
+      <input type="number" matInput placeholder="Продолжительность" formControlName="duration" />
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Количество голов первой команды</mat-label>
-    <input type="number" matInput placeholder="количество голов" formControlName="firstScore" />
-  </mat-form-field>
+    <mat-form-field>
+      <mat-label>Количество голов первой команды</mat-label>
+      <input type="number" matInput placeholder="количество голов" formControlName="firstScore" />
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Первая команда</mat-label>
-    <mat-select formControlName="firstTeam" multiple>
-      <mat-option *ngFor="let player of players$ | async" [value]="player?.id">
-        {{ player?.firstName }} {{ player?.lastName }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+    <mat-form-field>
+      <mat-label>Первая команда</mat-label>
+      <mat-select formControlName="firstTeam" multiple>
+        <mat-option *ngFor="let player of players$ | async" [value]="player?.id">
+          {{ player?.firstName }} {{ player?.lastName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Количество голов второй команды</mat-label>
-    <input type="number" matInput placeholder="количество голов" formControlName="secondScore" />
-  </mat-form-field>
+    <mat-form-field>
+      <mat-label>Количество голов второй команды</mat-label>
+      <input type="number" matInput placeholder="количество голов" formControlName="secondScore" />
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Вторая команда</mat-label>
-    <mat-select formControlName="secondTeam" multiple>
-      <mat-option *ngFor="let player of players$ | async" [value]="player?.id">
-        {{ player?.firstName }} {{ player?.lastName }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+    <mat-form-field>
+      <mat-label>Вторая команда</mat-label>
+      <mat-select formControlName="secondTeam" multiple>
+        <mat-option *ngFor="let player of players$ | async" [value]="player?.id">
+          {{ player?.firstName }} {{ player?.lastName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-  <button mat-button>Создать матч</button>
-</form>
+    <button mat-button class="admin-match-create__button">
+      Создать матч
+    </button>
+  </form>
+</div>

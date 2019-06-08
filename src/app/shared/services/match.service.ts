@@ -21,4 +21,8 @@ export class MatchService {
   create(body: CreateMatchDto): Observable<any> {
     return this.http.post(this.url, body);
   }
+
+  removeOneById(matchId: number): Observable<any> {
+    return this.http.delete<any>(`${this.url}/${matchId}`);
+  }
 }

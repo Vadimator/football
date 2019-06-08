@@ -1,58 +1,28 @@
 <div class="admin">
-    <mat-toolbar
-            class="admin__toolbar"
-            color="primary"
-    >
-        <mat-toolbar-row class="container">
-            <span class="admin__logo">
-                Админ центр
-            </span>
-        </mat-toolbar-row>
-    </mat-toolbar>
+  <mat-toolbar class="admin__toolbar" color="primary">
+    <mat-toolbar-row class="container">
+      <span class="admin__logo">
+        Админ центр
+      </span>
+    </mat-toolbar-row>
+  </mat-toolbar>
 
-    <mat-drawer-container class="admin__container">
-        <mat-drawer
-                class="admin__navbar"
-                mode="side"
-                opened
-        >
-            <a
-                    mat-button
-                    class="admin__link"
-                    routerLink="/admin/match"
-                    routerLinkActive="admin__link--active"
-            >
-                Матчи
-            </a>
-            <a
-                    mat-button
-                    class="admin__link"
-                    routerLink="/admin/player"
-                    routerLinkActive="admin__link--active"
-            >
-                Игроки
-            </a>
-            <a
-                    mat-button
-                    class="admin__link"
-                    routerLink="/admin/field"
-                    routerLinkActive="admin__link--active"
-            >
-                Поля
-            </a>
-            <a
-                    mat-button
-                    class="admin__link"
-                    routerLink="/admin/team"
-                    routerLinkActive="admin__link--active"
-            >
-                Команды
-            </a>
-        </mat-drawer>
-        <mat-drawer-content>
-            <div class="admin__content">
-                <router-outlet></router-outlet>
-            </div>
-        </mat-drawer-content>
-    </mat-drawer-container>
+  <mat-drawer-container class="admin__container">
+    <mat-drawer class="admin__navbar" mode="side" opened>
+      <a mat-button class="admin__link" routerLink="/admin/match" routerLinkActive="admin__link--active">
+        Матчи
+      </a>
+      <a mat-button class="admin__link" routerLink="/admin/player" routerLinkActive="admin__link--active">
+        Игроки
+      </a>
+      <a mat-button class="admin__link" routerLink="/admin/field" routerLinkActive="admin__link--active">
+        Поля
+      </a>
+    </mat-drawer>
+    <mat-drawer-content>
+      <div class="admin__content">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
 </div>

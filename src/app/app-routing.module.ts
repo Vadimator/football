@@ -22,10 +22,6 @@ const routes: Routes = [
         loadChildren: () => import('./modules/field/field.module').then(m => m.FieldModule)
       },
       {
-        path: 'team',
-        loadChildren: () => import('./modules/team/team.module').then(m => m.TeamModule)
-      },
-      {
         path: '',
         redirectTo: '/match',
         pathMatch: 'full'
