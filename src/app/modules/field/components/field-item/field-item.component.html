@@ -1,1 +1,15 @@
-field item component
+<div class="field-item">
+  <h2 class="field-item__title">
+    Подробная информация об поле
+  </h2>
+  <mat-list role="list" class="field-item__list">
+    <mat-list-item role="listitem" class="field-item__list-item"> Имя - {{ field?.name }}</mat-list-item>
+    <mat-list-item role="listitem" class="field-item__list-item">
+      Адрес - {{ field?.street }}, {{ field?.zip }}, {{ field?.city }}
+    </mat-list-item>
+    <mat-list-item role="listitem" class="field-item__list-item"> Веб-сайт - {{ field?.website }} </mat-list-item>
+    <mat-list-item role="listitem" class="field-item__list-item">
+      Цена за минуту - {{ field?.pricePerMinute }}
+    </mat-list-item>
+  </mat-list>
+</div>

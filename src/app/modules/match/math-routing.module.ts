@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { MatchResolver } from '@shared/resolvers/match.resolver';
 import { MatchListComponent } from './components/match-list/match-list.component';
 import { MatchItemComponent } from './components/match-item/match-item.component';
-import { MatchResolver } from './services/match.resolver';
 
 const routes: Routes = [
   { path: '', component: MatchListComponent },
@@ -18,7 +18,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
-  providers: [MatchResolver]
+  exports: [RouterModule]
 })
 export class MatchRoutingModule {}

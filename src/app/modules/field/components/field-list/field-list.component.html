@@ -1,1 +1,5 @@
-field list component
+<mat-list role="list" class="field-list">
+  <mat-list-item role="listitem" *ngFor="let field of fields$ | async" [routerLink]="[field?.id]">
+    <app-field-list-item class="field-list__item" [field]="field"></app-field-list-item>
+  </mat-list-item>
+</mat-list>
