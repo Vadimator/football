@@ -1,4 +1,5 @@
 export class FieldModel {
+  id?: number;
   city: string;
   name: string;
   pricePerMinute: number;

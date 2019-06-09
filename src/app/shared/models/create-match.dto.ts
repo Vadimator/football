@@ -4,4 +4,5 @@ export class CreateMatchDto {
   firstTeam: number[];
   secondScore: number;
   secondTeam: number[];
+  field: number;
 }

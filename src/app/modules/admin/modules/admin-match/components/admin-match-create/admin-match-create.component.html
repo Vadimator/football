@@ -37,6 +37,15 @@
       </mat-select>
     </mat-form-field>
 
+    <mat-form-field>
+      <mat-label>Поле</mat-label>
+      <mat-select formControlName="field">
+        <mat-option *ngFor="let field of fields$ | async" [value]="field?.id">
+          {{ field?.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
     <button mat-button class="admin-match-create__button">
       Создать матч
     </button>
