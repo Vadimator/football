@@ -1,0 +1,53 @@
+<div class="admin-field-edit">
+  <h2 class="admin-field-edit__title">
+    Редактирование поля
+  </h2>
+
+  <form class="admin-field-edit__form" novalidate autocomplete="off" [formGroup]="form" (ngSubmit)="onSubmit$.next()">
+    <mat-form-field class="admin-field-edit__field">
+      <input matInput placeholder="Имя" formControlName="name" autocomplete="off" />
+      <mat-error *ngIf="form.get('name').invalid">
+        Имя поля обязательное
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="admin-field-edit__field">
+      <input matInput placeholder="Город" formControlName="city" autocomplete="off" />
+      <mat-error *ngIf="form.get('city').invalid">
+        Город поле обязательное
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="admin-field-edit__field">
+      <input matInput placeholder="Город" formControlName="street" autocomplete="off" />
+      <mat-error *ngIf="form.get('street').invalid">
+        Улица поле обязательное
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="admin-field-edit__field">
+      <input matInput placeholder="Почтовый индекс" formControlName="zip" autocomplete="off" />
+      <mat-error *ngIf="form.get('zip').invalid">
+        Почтовый индкекс поле обязательное
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="admin-field-edit__field">
+      <input matInput placeholder="Веб страница" formControlName="website" autocomplete="off" />
+      <mat-error *ngIf="form.get('website').invalid">
+        Веб страница поле обязательное
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="admin-field-edit__field">
+      <input type="number" matInput placeholder="Цена за минуту" formControlName="pricePerMinute" />
+      <mat-error *ngIf="form.get('pricePerMinute').invalid">
+        Цена за минуту поле обязательное
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-button role="button" class="admin-field-edit__button">
+      Изменить поле
+    </button>
+  </form>
+</div>
