@@ -42,7 +42,8 @@ export class AdminMatchCreateComponent implements OnInit {
       secondScore: 0,
       firstTeam: [],
       secondTeam: [],
-      field: []
+      field: [],
+      goals: []
     });
   }
 

@@ -18,7 +18,7 @@
       <mat-label>Первая команда</mat-label>
       <mat-select formControlName="firstTeam" multiple>
         <mat-option *ngFor="let player of players$ | async" [value]="player?.id">
-          {{ player?.firstName }} {{ player?.lastName }}
+          {{ player?.name }}
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -32,7 +32,7 @@
       <mat-label>Вторая команда</mat-label>
       <mat-select formControlName="secondTeam" multiple>
         <mat-option *ngFor="let player of players$ | async" [value]="player?.id">
-          {{ player?.firstName }} {{ player?.lastName }}
+          {{ player?.name }}
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -42,6 +42,15 @@
       <mat-select formControlName="field">
         <mat-option *ngFor="let field of fields$ | async" [value]="field?.id">
           {{ field?.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Вторая команда</mat-label>
+      <mat-select formControlName="goals" multiple>
+        <mat-option *ngFor="let player of players$ | async" [value]="player?.id">
+          {{ player?.name }}
         </mat-option>
       </mat-select>
     </mat-form-field>
