@@ -22,19 +22,18 @@ export class AdminPlayerCreateComponent implements OnInit {
     this.generateForm();
 
     this.onSubmit$
-        .pipe(
-            withLatestFrom(this.form.valueChanges, this.form.statusChanges, (_, value, status) => ({ value, status })),
-            filter(({ status }) => status === 'VALID'),
-            map(({ value }) => ({ firstName: value.firstName.toLowerCase(), lastName: value.lastName.toLowerCase() })),
-            mergeMap(({ firstName, lastName }) => this.playerService.create(firstName, lastName))
-        )
-        .subscribe(() => this.router.navigate(['/admin', 'player']));
+      .pipe(
+        withLatestFrom(this.form.valueChanges, this.form.statusChanges, (_, value, status) => ({ value, status })),
+        filter(({ status }) => status === 'VALID'),
+        map(({ value }) => ({ name: value.name.toLowerCase() })),
+        mergeMap(({ name }) => this.playerService.create(name))
+      )
+      .subscribe(() => this.router.navigate(['/admin', 'player']));
   }
 
   private generateForm(): void {
     this.form = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required]
+      name: ['', Validators.required]
     });
   }
 }

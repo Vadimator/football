@@ -16,11 +16,8 @@ export class PlayerService {
     return this.http.get<any>(`${this.url}/${playerId}`);
   }
 
-  create(firstName: string, lastName: string): Observable<any> {
-    return this.http.post(this.url, {
-      firstName,
-      lastName
-    });
+  create(name: string): Observable<any> {
+    return this.http.post(this.url, { name });
   }
 
   removeOneById(playerId: number): Observable<any> {
