@@ -12,5 +12,8 @@
             Создать нового игрока
         </button>
     </header>
-    <app-admin-player-table class="admin-player__table"></app-admin-player-table>
+    <app-admin-player-table
+            class="admin-player__table"
+            [dataSource]="collection$ | async"
+    ></app-admin-player-table>
 </div>

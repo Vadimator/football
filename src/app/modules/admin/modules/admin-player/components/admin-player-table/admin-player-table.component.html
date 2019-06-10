@@ -1,6 +1,6 @@
 <table
     mat-table
-    [dataSource]="players$ | async"
+    [dataSource]="dataSource"
     class="mat-elevation-z8"
 >
 
@@ -84,7 +84,7 @@
                 role="button"
                 mat-button
                 matTooltip="Удалить"
-                (click)="onDelete(element?.id)"
+                (click)="onDelete.emit(element?.id)"
             >
                 <mat-icon>clear</mat-icon>
             </button>

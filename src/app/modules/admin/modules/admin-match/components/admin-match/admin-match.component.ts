@@ -1,4 +1,9 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { MatDialog } from '@angular/material';
+
+import { MatchService } from '@shared/services/match.service';
+import { AdminCrud } from '../../../../services/admin-crud';
 
 @Component({
   selector: 'app-admin-match',
@@ -6,8 +11,16 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./admin-match.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AdminMatchComponent implements OnInit {
-  constructor() {}
+export class AdminMatchComponent extends AdminCrud<any> {
+  constructor(protected dialog: MatDialog, private matchService: MatchService) {
+    super(dialog);
+  }
 
-  ngOnInit(): void {}
+  protected getCollection(): Observable<any[]> {
+    return this.matchService.getList();
+  }
+
+  protected removeOneById(matchId: number): Observable<any> {
+    return this.matchService.removeOneById(matchId);
+  }
 }

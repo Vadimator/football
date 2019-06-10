@@ -1,4 +1,4 @@
-<table mat-table [dataSource]="fields$ | async" class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <!-- Id Column -->
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef>
@@ -58,7 +58,7 @@
       >
         <mat-icon>edit</mat-icon>
       </button>
-      <button type="button" role="button" mat-button matTooltip="Удалить" (click)="onDelete(element?.id)">
+      <button type="button" role="button" mat-button matTooltip="Удалить" (click)="onDelete.emit(element?.id)">
         <mat-icon>clear</mat-icon>
       </button>
     </td>
