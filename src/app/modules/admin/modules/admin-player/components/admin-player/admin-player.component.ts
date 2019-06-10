@@ -8,7 +8,6 @@ import { AdminCrud } from '../../../../services/admin-crud';
 @Component({
     selector: 'app-admin-player',
     templateUrl: 'admin-player.component.html',
-    styleUrls: ['admin-player.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AdminPlayerComponent extends AdminCrud<any> {

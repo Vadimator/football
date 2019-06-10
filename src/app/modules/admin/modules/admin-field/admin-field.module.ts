@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { SharedModule } from '@shared/shared.module';
+import { AdminSharedModule } from '../admin-shared/admin-shared.module';
 import { AdminFieldRoutingModule } from './admin-field-routing.module';
 
 import { AdminFieldComponent } from './components/admin-field/admin-field.component';
@@ -9,7 +9,7 @@ import { AdminFieldCreateComponent } from './components/admin-field-create/admin
 import { AdminFieldEditComponent } from './components/admin-field-edit/admin-field-edit.component';
 
 @NgModule({
-  imports: [SharedModule, AdminFieldRoutingModule],
+  imports: [AdminSharedModule, AdminFieldRoutingModule],
   declarations: [AdminFieldComponent, AdminFieldTableComponent, AdminFieldCreateComponent, AdminFieldEditComponent]
 })
 export class AdminFieldModule {}

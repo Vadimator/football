@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { SharedModule } from '@shared/shared.module';
+import { AdminSharedModule } from '../admin-shared/admin-shared.module';
 import { AdminPlayerRoutingModule } from './admin-player-routing.module';
 
 import { AdminPlayerTableComponent } from './components/admin-player-table/admin-player-table.component';
@@ -9,7 +9,7 @@ import { AdminPlayerComponent } from './components/admin-player/admin-player.com
 import { AdminPlayerEditComponent } from './components/admin-player-edit/admin-player-edit.component';
 
 @NgModule({
-    imports: [SharedModule, AdminPlayerRoutingModule],
+    imports: [AdminSharedModule, AdminPlayerRoutingModule],
     declarations: [AdminPlayerTableComponent, AdminPlayerCreateComponent, AdminPlayerComponent, AdminPlayerEditComponent],
 })
 export class AdminPlayerModule {

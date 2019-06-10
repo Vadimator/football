@@ -8,7 +8,6 @@ import { AdminCrud } from '../../../../services/admin-crud';
 @Component({
   selector: 'app-admin-match',
   templateUrl: './admin-match.component.html',
-  styleUrls: ['./admin-match.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AdminMatchComponent extends AdminCrud<any> {

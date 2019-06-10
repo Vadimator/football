@@ -9,7 +9,6 @@ import { AdminCrud } from '../../../../services/admin-crud';
 @Component({
   selector: 'app-admin-field',
   templateUrl: './admin-field.component.html',
-  styleUrls: ['./admin-field.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AdminFieldComponent extends AdminCrud<FieldModel> {

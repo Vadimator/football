@@ -1,0 +1,18 @@
+<div class="admin-wrapper">
+    <header class="admin-wrapper__header">
+        <h2 class="admin-wrapper__title">
+            {{ heading }}
+        </h2>
+        <button
+                class="admin-wrapper__button"
+                mat-button
+                role="link"
+                [routerLink]="buttonLink"
+        >
+            {{ buttonName }}
+        </button>
+    </header>
+    <div class="admin-wrapper__table">
+        <ng-content></ng-content>
+    </div>
+</div>

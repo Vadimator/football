@@ -1,19 +1,10 @@
-<div class="admin-player">
-    <header class="admin-player__header">
-        <h2 class="admin-player__title">
-            Информация об игроках
-        </h2>
-        <button
-                class="admin-player__button"
-                mat-button
-                role="link"
-                routerLink="/admin/player/create"
-        >
-            Создать нового игрока
-        </button>
-    </header>
+<app-admin-wrapper
+        heading="Информация об игроках"
+        buttonName="Создать нового игрока"
+        [buttonLink]="['/admin', 'player', 'create']"
+>
     <app-admin-player-table
-            class="admin-player__table"
             [dataSource]="collection$ | async"
+            (onDelete)="onDelete($event)"
     ></app-admin-player-table>
-</div>
+</app-admin-wrapper>
