@@ -30,6 +30,7 @@ $vertical-margin: 20px;
     background-color: map-get($color, primary);
     border-radius: 5px;
     padding: $vertical-margin / 2;
+    overflow-y: auto;
   }
 
   &__sidenav {
