@@ -1,0 +1,13 @@
+.admin-match-player-select {
+  &__title {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+
+  &__container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}

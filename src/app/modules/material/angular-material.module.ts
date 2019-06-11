@@ -14,6 +14,7 @@ import {
     MatToolbarModule,
     MatTooltipModule
 } from '@angular/material';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 const modules = [
     MatListModule,
@@ -27,7 +28,8 @@ const modules = [
     MatTableModule,
     MatSlideToggleModule,
     MatTooltipModule,
-    MatDialogModule
+    MatDialogModule,
+    DragDropModule
 ];
 
 @NgModule({

@@ -1,5 +1,9 @@
 @import "../../../styles/variables";
 
+.mat-form-field {
+  width: 100%;
+}
+
 .mat-form-field-appearance-legacy .mat-form-field-label,
 .mat-form-field.mat-focused .mat-form-field-label {
   color: white;

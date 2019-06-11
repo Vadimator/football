@@ -45,6 +45,7 @@ $margin: 20px;
     border-radius: $border-radius;
     margin: $margin;
     padding: $margin / 2;
+    overflow-y: auto;
   }
 
   &__link {
