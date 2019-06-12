@@ -1,4 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Subject } from 'rxjs';
+import { filter, withLatestFrom } from 'rxjs/operators';
 
 @Component({
     selector: 'app-admin-login',
@@ -7,9 +11,24 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AdminLoginComponent implements OnInit {
-    constructor() {
+    public form: FormGroup;
+    public onSubmit$: Subject<void> = new Subject<void>();
+
+    constructor(private formBuilder: FormBuilder, private router: Router) {}
+
+    ngOnInit(): void {
+        this.generateForm();
+
+        this.onSubmit$.pipe(
+            withLatestFrom(this.form.valueChanges, this.form.statusChanges, (_, value, status) => ({ value, status })),
+            filter(({ status }) => status === 'VALID')
+        ).subscribe(() => this.router.navigate(['/admin']));
     }
 
-    ngOnInit() {
+    private generateForm(): void {
+        this.form = this.formBuilder.group({
+            username: ['', Validators.required],
+            password: ['', Validators.required]
+        });
     }
 }
