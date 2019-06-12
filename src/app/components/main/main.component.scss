@@ -45,5 +45,10 @@ $vertical-margin: 20px;
     display: block;
     color: white;
     text-decoration: none;
+    border: 1px solid lighten(map-get($color, primary), 15%);
+
+    &:not(:last-of-type) {
+      margin-bottom: 5px;
+    }
   }
 }
