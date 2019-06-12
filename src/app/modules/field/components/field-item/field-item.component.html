@@ -7,7 +7,9 @@
     <mat-list-item role="listitem" class="field-item__list-item">
       Адрес - {{ field?.street }}, {{ field?.zip }}, {{ field?.city }}
     </mat-list-item>
-    <mat-list-item role="listitem" class="field-item__list-item"> Веб-сайт - {{ field?.website }} </mat-list-item>
+    <mat-list-item role="listitem" class="field-item__list-item">
+        Веб-сайт - <a class="field-item__link" [href]="field?.website" target="_blank">{{ field?.website }}</a>
+    </mat-list-item>
     <mat-list-item role="listitem" class="field-item__list-item">
       Цена за минуту - {{ field?.pricePerMinute }}
     </mat-list-item>
