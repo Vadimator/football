@@ -1,6 +1,8 @@
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Router } from '@angular/router';
+import { Component, OnInit, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs';
+import { untilDestroyed } from 'ngx-take-until-destroy';
 
 import { MatchService } from '@shared/services/match.service';
 import { PlayerService } from '@shared/services/player.service';
@@ -13,7 +15,7 @@ import { FieldModel } from '@shared/models/field/field.model';
   styleUrls: ['./admin-match-create.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AdminMatchCreateComponent implements OnInit {
+export class AdminMatchCreateComponent implements OnInit, OnDestroy {
   public form: FormGroup;
   public players$: Observable<any[]>;
   public fields$: Observable<FieldModel[]>;
@@ -22,7 +24,8 @@ export class AdminMatchCreateComponent implements OnInit {
     private formBuilder: FormBuilder,
     private playerService: PlayerService,
     private matchService: MatchService,
-    private fieldService: FieldService
+    private fieldService: FieldService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -31,8 +34,12 @@ export class AdminMatchCreateComponent implements OnInit {
     this.receiveFields();
   }
 
+  ngOnDestroy(): void {}
+
   onSubmit(): void {
-    this.matchService.create(this.form.value).subscribe();
+    this.matchService.create(this.form.value)
+        .pipe(untilDestroyed(this))
+        .subscribe(() => this.router.navigate(['/admin', 'match']));
   }
 
   private generateForm(): void {
