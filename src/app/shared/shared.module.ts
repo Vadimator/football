@@ -7,8 +7,9 @@ import { RouterModule } from '@angular/router';
 import { UrlInterceptor } from './interceptors/url.interceptor';
 import { AngularMaterialModule } from '../modules/material/angular-material.module';
 import { ConfirmComponent } from './components/confirm/confirm.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
-const components = [ConfirmComponent];
+const components = [ConfirmComponent, LoaderComponent];
 
 @NgModule({
   imports: [CommonModule, FormsModule, ReactiveFormsModule, AngularMaterialModule, RouterModule],
