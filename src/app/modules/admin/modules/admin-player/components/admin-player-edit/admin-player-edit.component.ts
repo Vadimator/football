@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
@@ -13,7 +13,7 @@ import { PlayerService } from '@shared/services/player.service';
     styleUrls: ['admin-player-edit.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AdminPlayerEditComponent implements OnInit {
+export class AdminPlayerEditComponent implements OnInit, OnDestroy {
     public form: FormGroup;
     public onSubmit$: Subject<void> = new Subject<void>();
 
@@ -45,6 +45,8 @@ export class AdminPlayerEditComponent implements OnInit {
             )
             .subscribe(() => this.router.navigate(['/admin', 'player']));
     }
+
+    ngOnDestroy(): void {}
 
     private generateForm(): void {
         this.form = this.formBuilder.group({
