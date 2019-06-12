@@ -7,6 +7,7 @@ import {
     MatIconModule,
     MatInputModule,
     MatListModule,
+    MatProgressSpinnerModule,
     MatSelectModule,
     MatSidenavModule,
     MatSlideToggleModule,
@@ -29,7 +30,8 @@ const modules = [
     MatSlideToggleModule,
     MatTooltipModule,
     MatDialogModule,
-    DragDropModule
+    DragDropModule,
+    MatProgressSpinnerModule
 ];
 
 @NgModule({
