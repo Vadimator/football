@@ -22,6 +22,10 @@ const routes: Routes = [
         loadChildren: () => import('./modules/admin-match/admin-match.module').then(m => m.AdminMatchModule)
       },
       {
+        path: 'team',
+        loadChildren: () => import('./modules/admin-team/admin-team.module').then(m => m.AdminTeamModule)
+      },
+      {
         path: 'field',
         loadChildren: () => import('./modules/admin-field/admin-field.module').then(m => m.AdminFieldModule)
       }

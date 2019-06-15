@@ -1,0 +1,7 @@
+<app-admin-wrapper
+  heading="Информация об командах"
+  buttonName="Создать новую команду"
+  [buttonLink]="['/admin', 'team', 'create']"
+>
+  <app-admin-team-table [dataSource]="collection$ | async" (onDelete)="onDelete($event)"></app-admin-team-table>
+</app-admin-wrapper>

@@ -16,9 +16,9 @@
 
     <mat-form-field>
       <mat-label>Первая команда</mat-label>
-      <mat-select formControlName="firstTeam" multiple>
-        <mat-option *ngFor="let player of players$ | async" [value]="player?.id">
-          {{ player?.name }}
+      <mat-select formControlName="firstTeamId">
+        <mat-option *ngFor="let team of teams$ | async" [value]="team?.id">
+          {{ team?.players | playerList }}
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -30,9 +30,9 @@
 
     <mat-form-field>
       <mat-label>Вторая команда</mat-label>
-      <mat-select formControlName="secondTeam" multiple>
-        <mat-option *ngFor="let player of players$ | async" [value]="player?.id">
-          {{ player?.name }}
+      <mat-select formControlName="secondTeamId">
+        <mat-option *ngFor="let team of teams$ | async" [value]="team?.id">
+          {{ team?.players | playerList }}
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -45,15 +45,6 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-
-<!--    <mat-form-field>-->
-<!--      <mat-label>Голы</mat-label>-->
-<!--      <mat-select formControlName="goals" multiple>-->
-<!--        <mat-option *ngFor="let player of players$ | async" [value]="player?.id">-->
-<!--          {{ player?.name }}-->
-<!--        </mat-option>-->
-<!--      </mat-select>-->
-<!--    </mat-form-field>-->
     <app-admin-match-player-select formControlName="goals"></app-admin-match-player-select>
 
     <button mat-button class="admin-match-create__button">

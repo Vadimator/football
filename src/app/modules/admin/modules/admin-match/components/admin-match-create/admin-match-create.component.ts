@@ -8,6 +8,7 @@ import { MatchService } from '@shared/services/match.service';
 import { PlayerService } from '@shared/services/player.service';
 import { FieldService } from '@shared/services/field.service';
 import { FieldModel } from '@shared/models/field/field.model';
+import { TeamService } from '@shared/services/team.service';
 
 @Component({
   selector: 'app-admin-match-create',
@@ -18,6 +19,7 @@ import { FieldModel } from '@shared/models/field/field.model';
 export class AdminMatchCreateComponent implements OnInit, OnDestroy {
   public form: FormGroup;
   public players$: Observable<any[]>;
+  public teams$: Observable<any[]>;
   public fields$: Observable<FieldModel[]>;
 
   constructor(
@@ -25,6 +27,7 @@ export class AdminMatchCreateComponent implements OnInit, OnDestroy {
     private playerService: PlayerService,
     private matchService: MatchService,
     private fieldService: FieldService,
+    private teamService: TeamService,
     private router: Router
   ) {}
 
@@ -32,14 +35,16 @@ export class AdminMatchCreateComponent implements OnInit, OnDestroy {
     this.generateForm();
     this.receivePlayers();
     this.receiveFields();
+    this.receiveTeams();
   }
 
   ngOnDestroy(): void {}
 
   onSubmit(): void {
-    this.matchService.create(this.form.value)
-        .pipe(untilDestroyed(this))
-        .subscribe(() => this.router.navigate(['/admin', 'match']));
+    this.matchService
+      .create(this.form.value)
+      .pipe(untilDestroyed(this))
+      .subscribe(() => this.router.navigate(['/admin', 'match']));
   }
 
   private generateForm(): void {
@@ -47,8 +52,8 @@ export class AdminMatchCreateComponent implements OnInit, OnDestroy {
       duration: [],
       firstScore: 0,
       secondScore: 0,
-      firstTeam: [],
-      secondTeam: [],
+      firstTeamId: [],
+      secondTeamId: [],
       field: [],
       goals: []
     });
@@ -60,5 +65,9 @@ export class AdminMatchCreateComponent implements OnInit, OnDestroy {
 
   private receiveFields(): void {
     this.fields$ = this.fieldService.getList();
+  }
+
+  private receiveTeams(): void {
+    this.teams$ = this.teamService.getList();
   }
 }

@@ -1,0 +1,23 @@
+<div class="admin-team-create">
+  <h2 class="admin-team-create__title">
+    Создание команды
+  </h2>
+
+  <form class="admin-team-create__form" novalidate autocomplete="off" [formGroup]="form" (ngSubmit)="onSubmit$.next()">
+    <mat-form-field class="admin-team-create__field">
+      <mat-label>Игроки</mat-label>
+      <mat-select formControlName="players" multiple>
+        <mat-option *ngFor="let player of players$ | async" [value]="player?.id">
+          {{ player?.name }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('players').invalid">
+        Игроки поле обязательное
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-button role="button" class="admin-team-create__button">
+      Создать команду
+    </button>
+  </form>
+</div>
