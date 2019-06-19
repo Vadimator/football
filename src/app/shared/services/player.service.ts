@@ -12,6 +12,10 @@ export class PlayerService {
     return this.http.get<any>(this.url);
   }
 
+  getListStatistic(): Observable<any[]> {
+    return this.http.get<any>(`${this.url}/statistic`);
+  }
+
   getOneById(playerId: number): Observable<any> {
     return this.http.get<any>(`${this.url}/${playerId}`);
   }
