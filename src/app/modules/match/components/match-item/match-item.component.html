@@ -12,6 +12,9 @@
         <mat-list-item role="listitem" class="match-item__list-item">
             Дата проведения - {{ match?.createdAt | date: 'dd/MM/yyyy' }}
         </mat-list-item>
+        <mat-list-item role="listitem" class="match-item__list-item">
+            Цена - {{ match?.duration * match?.field?.pricePerMinute }} грн
+        </mat-list-item>
     </mat-list>
     <div class="match-item__container">
         <div class="match-item__team">
