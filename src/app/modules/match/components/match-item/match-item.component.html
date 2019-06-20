@@ -2,17 +2,32 @@
     <h2 class="match-item__header">
         Подробная информация о матче
     </h2>
-    <mat-list role="list" class="match-item__list">
-        <mat-list-item role="listitem" class="match-item__list-item">
+    <mat-list
+            role="list"
+            class="match-item__list"
+    >
+        <mat-list-item
+                role="listitem"
+                class="match-item__list-item"
+        >
             Продолжительность матча - {{ match?.duration }} минут
         </mat-list-item>
-        <mat-list-item role="listitem" class="match-item__list-item">
+        <mat-list-item
+                role="listitem"
+                class="match-item__list-item"
+        >
             Cчет - {{ match?.firstScore }} - {{ match?.secondScore }}
         </mat-list-item>
-        <mat-list-item role="listitem" class="match-item__list-item">
+        <mat-list-item
+                role="listitem"
+                class="match-item__list-item"
+        >
             Дата проведения - {{ match?.createdAt | date: 'dd/MM/yyyy' }}
         </mat-list-item>
-        <mat-list-item role="listitem" class="match-item__list-item">
+        <mat-list-item
+                role="listitem"
+                class="match-item__list-item"
+        >
             Цена - {{ match?.duration * match?.field?.pricePerMinute }} грн
         </mat-list-item>
     </mat-list>
@@ -45,5 +60,28 @@
                 </mat-list-item>
             </mat-list>
         </div>
+    </div>
+    <div class="match-item__field">
+        <h4 class="match-item__title">
+            Футболе поле
+        </h4>
+        <mat-list
+                role="list"
+                class="match-item__list"
+        >
+            <mat-list-item
+                    role="listitem"
+                    [routerLink]="['/field', match?.field?.id]"
+            >
+                <div class="match-item__field-container">
+                    <span matTooltip="Название поля">
+                        {{ match?.field?.name }}
+                    </span>
+                    <span matTooltip="Адрес поля">
+                         {{ match?.field | fieldAddress }}
+                    </span>
+                </div>
+            </mat-list-item>
+        </mat-list>
     </div>
 </div>

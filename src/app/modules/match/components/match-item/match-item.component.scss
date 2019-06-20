@@ -36,4 +36,19 @@
     text-align: center;
     margin-bottom: 15px;
   }
+
+  &__field {
+    margin-top: 20px;
+    border: 1px solid lighten(map-get($color, primary), 15%);
+    background-color: lighten(map-get($color, primary), 5%);
+    border-radius: 4px;
+    padding: 10px;
+  }
+
+  &__field-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
