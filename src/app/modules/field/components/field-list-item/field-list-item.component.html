@@ -2,5 +2,7 @@
   <div class="field-list-item__item">
     {{ field?.name }}
   </div>
-  <div class="field-list-item__item">{{ field?.street }}, {{ field?.zip }}, {{ field?.city }}</div>
+  <div class="field-list-item__item">
+    {{ field | fieldAddress }}
+  </div>
 </div>

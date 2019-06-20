@@ -9,9 +9,10 @@ import { AngularMaterialModule } from '../modules/material/angular-material.modu
 import { ConfirmComponent } from './components/confirm/confirm.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { PlayerListPipe } from './pipes/player-list.pipe';
+import { FieldAddressPipe } from './pipes/field-address.pipe';
 
 const components = [ConfirmComponent, LoaderComponent];
-const pipes = [PlayerListPipe];
+const pipes = [PlayerListPipe, FieldAddressPipe];
 
 @NgModule({
   imports: [CommonModule, FormsModule, ReactiveFormsModule, AngularMaterialModule, RouterModule],

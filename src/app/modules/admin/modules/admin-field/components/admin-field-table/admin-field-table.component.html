@@ -22,7 +22,7 @@
     <th mat-header-cell *matHeaderCellDef>
       Адрес
     </th>
-    <td mat-cell *matCellDef="let element">{{ element?.street }}, {{ element?.zip }}, {{ element?.city }}</td>
+    <td mat-cell *matCellDef="let element">{{ element | fieldAddress }}</td>
   </ng-container>
 
   <!-- Website Column -->
