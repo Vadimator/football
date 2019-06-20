@@ -50,6 +50,15 @@
     </th>
     <td mat-cell *matCellDef="let element">
       <button
+              type="button"
+              role="link"
+              mat-button
+              matTooltip="Посмотреть"
+              [routerLink]="['/field', element?.id]"
+      >
+        <mat-icon>visibility</mat-icon>
+      </button>
+      <button
         type="button"
         role="button"
         mat-button

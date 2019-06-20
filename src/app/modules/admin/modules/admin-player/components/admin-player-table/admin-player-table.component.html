@@ -42,6 +42,15 @@
         [disableRipple]="true"
       ></mat-slide-toggle>
       <button
+              type="button"
+              role="link"
+              mat-button
+              matTooltip="Посмотреть"
+              [routerLink]="['/player', element?.id]"
+      >
+        <mat-icon>visibility</mat-icon>
+      </button>
+      <button
         type="button"
         role="button"
         mat-button
