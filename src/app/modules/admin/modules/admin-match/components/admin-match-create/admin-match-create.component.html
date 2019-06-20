@@ -37,13 +37,23 @@
                     </mat-error>
                 </mat-form-field>
 
-                <button
-                        class="admin-match-create__button"
-                        mat-button
-                        matStepperNext
-                >
-                    Вперед
-                </button>
+                <div class="admin-match-create__container">
+                    <button
+                            routerLink="/admin/match"
+                            role="link"
+                            class="admin-match-create__button"
+                            mat-button
+                    >
+                        Отмена
+                    </button>
+                    <button
+                            class="admin-match-create__button"
+                            mat-button
+                            matStepperNext
+                    >
+                        Вперед
+                    </button>
+                </div>
             </form>
         </mat-step>
         <mat-step [stepControl]="secondTeamForm">
