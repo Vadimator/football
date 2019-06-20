@@ -1,36 +1,47 @@
 <div class="admin-match-player-select">
     <mat-form-field>
         <mat-label>Голы</mat-label>
-        <mat-select (selectionChange)="onChangeSelection($event)">
+        <mat-select
+                [disabled]="countPlayers <= selectedPlayers?.length"
+                (selectionChange)="onChangeSelection($event)"
+        >
             <mat-option
-                    *ngFor="let player of players$ | async"
+                    *ngFor="let player of players"
                     [value]="player"
             >
                 {{ player?.name }}
             </mat-option>
         </mat-select>
     </mat-form-field>
-    <h6 class="admin-match-player-select__title">
-        Порядок голов
-    </h6>
-    <mat-list
-            role="list"
-            cdkDropList
-            (cdkDropListDropped)="drop($event)"
-    >
-        <mat-list-item
-                role="listitem"
-                cdkDrag
-                *ngFor="let player of selectedPlayers; let index = index"
+    <ng-container *ngIf="selectedPlayers?.length">
+        <h6 class="admin-match-player-select__title">
+            Порядок голов
+        </h6>
+        <mat-list
+                role="list"
+                cdkDropList
+                (cdkDropListDropped)="drop($event)"
         >
-            <div class="admin-match-player-select__container">
+            <mat-list-item
+                    role="listitem"
+                    cdkDrag
+                    *ngFor="let player of selectedPlayers; let index = index"
+            >
+                <div class="admin-match-player-select__container">
                 <span>
                     {{ player?.name }}
                 </span>
-                <span>
-                    {{ index + 1 }}
-                </span>
-            </div>
-        </mat-list-item>
-    </mat-list>
+                    <button
+                            mat-icon-button
+                            type="button"
+                            role="button"
+                            aria-label="delete"
+                            (click)="onDelete(index)"
+                    >
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </mat-list-item>
+        </mat-list>
+    </ng-container>
 </div>

@@ -11,6 +11,7 @@ import {
     MatSelectModule,
     MatSidenavModule,
     MatSlideToggleModule,
+    MatStepperModule,
     MatTableModule,
     MatToolbarModule,
     MatTooltipModule
@@ -31,11 +32,11 @@ const modules = [
     MatTooltipModule,
     MatDialogModule,
     DragDropModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatStepperModule
 ];
 
 @NgModule({
-    imports: modules,
     exports: modules
 })
 export class AngularMaterialModule {

@@ -1,54 +1,163 @@
 <div class="admin-match-create">
-  <h2 class="admin-match-create__title">
-    Создание матча
-  </h2>
+    <h2 class="admin-match-create__title">
+        Создание матча
+    </h2>
 
-  <form class="admin-match-create__form" novalidate autocomplete="off" [formGroup]="form" (ngSubmit)="onSubmit()">
-    <mat-form-field>
-      <mat-label>Продолжительность матча в минутах</mat-label>
-      <input type="number" matInput placeholder="Продолжительность" formControlName="duration" />
-    </mat-form-field>
+    <mat-horizontal-stepper [linear]="true">
+        <mat-step [stepControl]="firstTeamForm">
+            <form [formGroup]="firstTeamForm">
+                <ng-template matStepLabel>Первая команда</ng-template>
 
-    <mat-form-field>
-      <mat-label>Количество голов первой команды</mat-label>
-      <input type="number" matInput placeholder="количество голов" formControlName="firstScore" />
-    </mat-form-field>
+                <mat-form-field class="admin-match-create__field">
+                    <mat-label>Количество голов первой команды</mat-label>
+                    <input
+                            type="number"
+                            matInput
+                            placeholder="количество голов"
+                            formControlName="firstScore"
+                            autocomplete="off"
+                    />
+                    <mat-error *ngIf="firstTeamForm.get('firstScore').errors">
+                        Количество голов должно быть положительным
+                    </mat-error>
+                </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Первая команда</mat-label>
-      <mat-select formControlName="firstTeamId">
-        <mat-option *ngFor="let team of teams$ | async" [value]="team?.id">
-          {{ team?.players | playerList }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+                <mat-form-field class="admin-match-create__field">
+                    <mat-label>Первая команда</mat-label>
+                    <mat-select formControlName="firstTeamId">
+                        <mat-option
+                                *ngFor="let team of firstTeams$ | async"
+                                [value]="team?.id"
+                        >
+                            {{ team?.players | playerList }}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="firstTeamForm.get('firstTeamId').errors">
+                        Поле команда обязательное
+                    </mat-error>
+                </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Количество голов второй команды</mat-label>
-      <input type="number" matInput placeholder="количество голов" formControlName="secondScore" />
-    </mat-form-field>
+                <button
+                        class="admin-match-create__button"
+                        mat-button
+                        matStepperNext
+                >
+                    Вперед
+                </button>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="secondTeamForm">
+            <form [formGroup]="secondTeamForm">
+                <ng-template matStepLabel>Вторая команда</ng-template>
 
-    <mat-form-field>
-      <mat-label>Вторая команда</mat-label>
-      <mat-select formControlName="secondTeamId">
-        <mat-option *ngFor="let team of teams$ | async" [value]="team?.id">
-          {{ team?.players | playerList }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+                <mat-form-field class="admin-match-create__field">
+                    <mat-label>Количество голов второй команды</mat-label>
+                    <input
+                            type="number"
+                            matInput
+                            placeholder="количество голов"
+                            formControlName="secondScore"
+                            autocomplete="off"
+                    />
+                    <mat-error *ngIf="secondTeamForm.get('secondScore').errors">
+                        Количество голов должно быть положительным
+                    </mat-error>
+                </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Поле</mat-label>
-      <mat-select formControlName="field">
-        <mat-option *ngFor="let field of fields$ | async" [value]="field?.id">
-          {{ field?.name }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <app-admin-match-player-select formControlName="goals"></app-admin-match-player-select>
+                <mat-form-field class="admin-match-create__field">
+                    <mat-label>Вторая команда</mat-label>
+                    <mat-select formControlName="secondTeamId">
+                        <mat-option
+                                *ngFor="let team of secondTeams$ | async"
+                                [value]="team?.id"
+                        >
+                            {{ team?.players | playerList }}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="secondTeamForm.get('secondTeamId').errors">
+                        Поле команда обязательное
+                    </mat-error>
+                </mat-form-field>
 
-    <button mat-button class="admin-match-create__button">
-      Создать матч
-    </button>
-  </form>
+                <div class="admin-match-create__container">
+                    <button
+                            mat-button
+                            matStepperPrevious
+                            class="admin-match-create__button"
+                    >
+                        Назад
+                    </button>
+                    <button
+                            mat-button
+                            matStepperNext
+                            class="admin-match-create__button"
+                    >
+                        Вперед
+                    </button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="otherForm">
+            <form [formGroup]="otherForm">
+                <ng-template matStepLabel>Прочее</ng-template>
+
+                <mat-form-field class="admin-match-create__field">
+                    <mat-label>Продолжительность матча в минутах</mat-label>
+                    <input
+                            type="number"
+                            matInput
+                            placeholder="Продолжительность"
+                            formControlName="duration"
+                            autocomplete="off"
+                    />
+                    <mat-error *ngIf="otherForm.get('duration').hasError('min')">
+                        Продолжительность должна быть положительным
+                    </mat-error>
+                    <mat-error *ngIf="otherForm.get('duration').hasError('required')">
+                        Поле продолжительность обязательное
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="admin-match-create__field">
+                    <mat-label>Поле</mat-label>
+                    <mat-select formControlName="field">
+                        <mat-option
+                                *ngFor="let field of fields$ | async"
+                                [value]="field?.id"
+                        >
+                            {{ field?.name }}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="otherForm.get('field').hasError('required')">
+                        Поле обязательное
+                    </mat-error>
+                </mat-form-field>
+
+                <app-admin-match-player-select
+                        class="admin-match-create__field"
+                        [players]="players$ | async"
+                        [countPlayers]="firstTeamForm.get('firstScore').value + secondTeamForm.get('secondScore').value"
+                        formControlName="goals"
+                ></app-admin-match-player-select>
+
+                <div class="admin-match-create__container">
+                    <button
+                            mat-button
+                            matStepperPrevious
+                            class="admin-match-create__button"
+                    >
+                        Назад
+                    </button>
+                    <button
+                            mat-button
+                            class="admin-match-create__button"
+                            [disabled]="firstTeamForm.invalid || secondTeamForm.invalid || otherForm.invalid"
+                            (click)="onSubmit()"
+                    >
+                        Создать матч
+                    </button>
+                </div>
+            </form>
+        </mat-step>
+    </mat-horizontal-stepper>
 </div>

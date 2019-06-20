@@ -1,10 +1,7 @@
-import { ChangeDetectionStrategy, Component, forwardRef, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatSelectChange } from '@angular/material';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Observable } from 'rxjs';
-
-import { PlayerService } from '@shared/services/player.service';
 
 @Component({
     selector: 'app-admin-match-player-select',
@@ -19,8 +16,10 @@ import { PlayerService } from '@shared/services/player.service';
         }
     ]
 })
-export class AdminMatchPlayerSelectComponent implements OnInit, ControlValueAccessor {
-    public players$: Observable<any[]>;
+export class AdminMatchPlayerSelectComponent implements ControlValueAccessor {
+    @Input() public players: any[] = [];
+    @Input() public countPlayers = 10;
+
     public selectedPlayers: any[] = [];
 
     get value(): number[] {
@@ -39,10 +38,8 @@ export class AdminMatchPlayerSelectComponent implements OnInit, ControlValueAcce
     private onTouchedCallback: () => void = () => {};
     private onChangeCallback: (_: any) => void = () => {};
 
-    constructor(private playerService: PlayerService) {}
-
-    ngOnInit() {
-        this.players$ = this.playerService.getList();
+    onDelete(playerIndex: number): void {
+       this.selectedPlayers.splice(playerIndex, 1);
     }
 
     writeValue(value: number[]): void {
