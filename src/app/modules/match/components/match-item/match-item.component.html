@@ -31,6 +31,31 @@
             Цена - {{ match?.duration * match?.field?.pricePerMinute }} грн
         </mat-list-item>
     </mat-list>
+
+    <div class="match-item__field">
+        <h4 class="match-item__title">
+            Футболе поле
+        </h4>
+        <mat-list
+                role="list"
+                class="match-item__list"
+        >
+            <mat-list-item
+                    role="listitem"
+                    [routerLink]="['/field', match?.field?.id]"
+            >
+                <div class="match-item__field-container">
+                    <span matTooltip="Название поля">
+                        {{ match?.field?.name }}
+                    </span>
+                    <span matTooltip="Адрес поля">
+                         {{ match?.field | fieldAddress }}
+                    </span>
+                </div>
+            </mat-list-item>
+        </mat-list>
+    </div>
+
     <div class="match-item__container">
         <div class="match-item__team">
             <h4 class="match-item__title">
@@ -61,26 +86,24 @@
             </mat-list>
         </div>
     </div>
-    <div class="match-item__field">
+
+    <div
+            *ngIf="match?.goals?.length"
+            class="match-item__field"
+    >
         <h4 class="match-item__title">
-            Футболе поле
+            История голов
         </h4>
         <mat-list
                 role="list"
                 class="match-item__list"
         >
             <mat-list-item
+                    *ngFor="let goal of match?.goals"
                     role="listitem"
-                    [routerLink]="['/field', match?.field?.id]"
+                    [routerLink]="['/player', goal?.player?.id]"
             >
-                <div class="match-item__field-container">
-                    <span matTooltip="Название поля">
-                        {{ match?.field?.name }}
-                    </span>
-                    <span matTooltip="Адрес поля">
-                         {{ match?.field | fieldAddress }}
-                    </span>
-                </div>
+                {{ goal?.player?.name }}
             </mat-list-item>
         </mat-list>
     </div>
