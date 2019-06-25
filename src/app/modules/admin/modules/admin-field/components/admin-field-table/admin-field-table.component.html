@@ -31,7 +31,15 @@
       Веб сайт
     </th>
     <td mat-cell *matCellDef="let element">
-      <a mat-button [href]="element?.website" target="_blank">Сайт</a>
+      <a
+              role="link"
+              mat-button
+              target="_blank"
+              [href]="element?.website"
+              [matTooltip]="element?.website | url"
+      >
+        Сайт
+      </a>
     </td>
   </ng-container>
 
