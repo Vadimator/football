@@ -9,5 +9,36 @@
     <mat-list-item role="listitem" class="player-item__list-item">
       Количество голов: {{ player?.countGoals }}
     </mat-list-item>
+    <mat-list-item role="listitem" class="player-item__list-item">
+      Доля победы: {{ player?.winRate }}%
+    </mat-list-item>
+    <mat-list-item role="listitem" class="player-item__list-item">
+      Доля поражения: {{ player?.lostRate }}%
+    </mat-list-item>
   </mat-list>
+  <ng-container *ngIf="player?.matches?.length > 0">
+    <h4 class="player-item__title player-item__title--sub">
+      История матчей
+    </h4>
+    <mat-list role="list">
+      <mat-list-item
+          *ngFor="let match of player?.matches"
+          role="listitem"
+          [routerLink]="['/match', match?.id]"
+          [ngClass]="{
+            'player-item__item--win': match?.result === 1,
+            'player-item__item--lose': match?.result === 2
+            }"
+      >
+          <div class="player-item__container">
+            <span>
+                Cчет: {{ match?.firstScore }} - {{ match?.secondScore }}
+            </span>
+            <span>
+                Дата проведения: {{ match?.createdAt }}
+            </span>
+          </div>
+      </mat-list-item>
+    </mat-list>
+  </ng-container>
 </div>

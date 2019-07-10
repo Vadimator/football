@@ -1,3 +1,13 @@
+
+@mixin background-color-hover($color) {
+  background-color: $color;
+  border-color: darken($color, 5%);
+
+  &:hover {
+    background-color: lighten($color, 5%);
+  }
+}
+
 .player-item {
   color: white;
 
@@ -5,9 +15,32 @@
     font-size: 20px;
     text-align: center;
     margin-bottom: 20px;
+
+    &--sub {
+      margin-top: 10px;
+      font-size: 18px;
+    }
   }
 
   &__list-item {
     cursor: default;
+  }
+
+  &__item {
+    &--win {
+      @include background-color-hover(#4dc198);
+    }
+
+    &--lose {
+      @include background-color-hover(#764dc1);
+    }
+  }
+
+  &__container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
   }
 }
