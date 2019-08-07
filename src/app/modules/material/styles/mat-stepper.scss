@@ -12,3 +12,13 @@ div.mat-horizontal-content-container {
 mat-step-header.mat-step-header .mat-step-label.mat-step-label-active {
   color: white;
 }
+
+@media screen and (max-width: map-get($breakpoints, mobile)) {
+  .mat-step-header .mat-step-label {
+    display: none;
+  }
+
+  div.mat-horizontal-content-container {
+    padding: 12px;
+  }
+}
