@@ -35,7 +35,7 @@
                 Cчет: {{ match?.firstScore }} - {{ match?.secondScore }}
             </span>
             <span>
-                Дата проведения: {{ match?.createdAt }}
+                Дата проведения: {{ match?.createdAt | date: 'yyyy-MM-dd' }}
             </span>
           </div>
       </mat-list-item>
