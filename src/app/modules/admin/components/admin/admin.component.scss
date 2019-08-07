@@ -67,4 +67,22 @@ $margin: 20px;
       margin-top: auto;
     }
   }
+
+  @media screen and (max-width: map-get($breakpoints, tablet)) {
+    $margin: 5px;
+
+    &__toolbar {
+      min-height: 48px;
+    }
+
+    &__navbar {
+      margin-top: $margin;
+      margin-bottom: $margin;
+    }
+
+    &__content {
+      height: calc(100% - #{$margin} - #{$margin});
+      margin: $margin;
+    }
+  }
 }

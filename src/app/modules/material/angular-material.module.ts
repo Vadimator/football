@@ -17,6 +17,7 @@ import {
     MatTooltipModule
 } from '@angular/material';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { LayoutModule } from '@angular/cdk/layout';
 
 const modules = [
     MatListModule,
@@ -33,7 +34,8 @@ const modules = [
     MatDialogModule,
     DragDropModule,
     MatProgressSpinnerModule,
-    MatStepperModule
+    MatStepperModule,
+    LayoutModule
 ];
 
 @NgModule({

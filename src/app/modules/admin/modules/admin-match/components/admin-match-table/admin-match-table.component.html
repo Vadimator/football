@@ -4,7 +4,7 @@
     <th mat-header-cell *matHeaderCellDef>
       Номер
     </th>
-    <td mat-cell *matCellDef="let element">
+    <td mat-cell *matCellDef="let element" data-label="id">
       {{ element?.id }}
     </td>
   </ng-container>
@@ -14,7 +14,7 @@
     <th mat-header-cell *matHeaderCellDef>
       Продолжительность (минуты)
     </th>
-    <td mat-cell *matCellDef="let element">{{ element?.duration }}</td>
+    <td mat-cell *matCellDef="let element" data-label="duration">{{ element?.duration }}</td>
   </ng-container>
 
   <!-- Score Column -->
@@ -22,7 +22,7 @@
     <th mat-header-cell *matHeaderCellDef>
       Счет
     </th>
-    <td mat-cell *matCellDef="let element">{{ element?.firstScore }} - {{ element?.secondScore }}</td>
+    <td mat-cell *matCellDef="let element" data-label="score">{{ element?.firstScore }} - {{ element?.secondScore }}</td>
   </ng-container>
 
   <!-- CreatedAt Column -->
@@ -30,7 +30,7 @@
     <th mat-header-cell *matHeaderCellDef>
       Создан
     </th>
-    <td mat-cell *matCellDef="let element">
+    <td mat-cell *matCellDef="let element" data-label="createdAt">
       {{ element?.createdAt | date: 'dd/MM/yyyy' }}
     </td>
   </ng-container>
@@ -40,7 +40,7 @@
     <th mat-header-cell *matHeaderCellDef>
       Действия
     </th>
-    <td mat-cell *matCellDef="let element">
+    <td mat-cell *matCellDef="let element" data-label="action">
       <button
               type="button"
               role="link"

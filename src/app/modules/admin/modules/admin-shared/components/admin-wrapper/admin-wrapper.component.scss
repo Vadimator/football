@@ -21,4 +21,14 @@
   &__content {
     width: 100%;
   }
+
+  @media screen and (max-width: map-get($breakpoints, mobile)) {
+    &__header {
+      flex-direction: column;
+    }
+
+    &__title {
+      margin-bottom: 10px;
+    }
+  }
 }

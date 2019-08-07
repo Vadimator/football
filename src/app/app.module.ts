@@ -14,7 +14,7 @@ import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [AppComponent, PageNotFoundComponent, MainComponent, FooterComponent],
-  imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, SharedModule, HttpClientModule, FlexLayoutModule],
+  imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, SharedModule, HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
