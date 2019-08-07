@@ -51,4 +51,11 @@ $vertical-margin: 20px;
       margin-bottom: 5px;
     }
   }
+
+  @media screen and (max-width: map-get($breakpoints, tablet)) {
+    &__container {
+      margin-top: $vertical-margin / 2;
+      margin-bottom: $vertical-margin / 2;
+    }
+  }
 }
