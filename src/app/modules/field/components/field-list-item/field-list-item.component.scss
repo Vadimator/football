@@ -1,4 +1,17 @@
 .field-list-item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+
+  &__item {
+    text-align: center;
+
+    &:first-of-type {
+      text-align: left;
+    }
+
+    &:last-of-type {
+      text-align: right;
+    }
+  }
 }
