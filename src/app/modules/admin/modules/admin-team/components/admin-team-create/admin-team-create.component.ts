@@ -11,6 +11,7 @@ import { PlayerService } from '@shared/services/player.service';
 @Component({
   selector: 'app-admin-team-create',
   templateUrl: './admin-team-create.component.html',
+  styleUrls: ['./admin-team-create.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AdminTeamCreateComponent implements OnInit, OnDestroy {
