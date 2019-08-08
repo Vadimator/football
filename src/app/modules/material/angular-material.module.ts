@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 
 import {
     MatButtonModule,
+    MatDatepickerModule,
     MatDialogModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
-    MatListModule,
+    MatListModule, MatNativeDateModule,
     MatProgressSpinnerModule,
     MatSelectModule,
     MatSidenavModule,
@@ -35,7 +36,9 @@ const modules = [
     DragDropModule,
     MatProgressSpinnerModule,
     MatStepperModule,
-    LayoutModule
+    LayoutModule,
+    MatDatepickerModule,
+    MatNativeDateModule
 ];
 
 @NgModule({

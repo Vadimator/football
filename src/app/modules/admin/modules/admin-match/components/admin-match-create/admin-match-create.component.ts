@@ -101,6 +101,7 @@ export class AdminMatchCreateComponent implements OnInit, OnDestroy {
 
     private generateOtherForm(): void {
         this.otherForm = this.formBuilder.group({
+            date: [new Date(), [Validators.required]],
             duration: [0, [Validators.required, Validators.min(0)]],
             field: [null, Validators.required],
             goals: [[]]

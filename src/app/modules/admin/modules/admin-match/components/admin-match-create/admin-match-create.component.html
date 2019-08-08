@@ -112,6 +112,17 @@
                 <ng-template matStepLabel>Прочее</ng-template>
 
                 <mat-form-field class="admin-match-create__field">
+                    <mat-label>Дата проведения</mat-label>
+                    <input
+                            matInput
+                            [matDatepicker]="picker"
+                            formControlName="date"
+                    >
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field class="admin-match-create__field">
                     <mat-label>Продолжительность матча в минутах</mat-label>
                     <input
                             type="number"
