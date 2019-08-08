@@ -1,0 +1,153 @@
+<div class="admin-match-edit">
+    <h2 class="admin-match-edit__title">
+        Редактирование матча
+    </h2>
+
+    <form
+            class="admin-match-edit__form"
+            novalidate
+            autocomplete="off"
+            [formGroup]="form"
+            (ngSubmit)="onSubmit$.next()"
+    >
+        <fieldset class="admin-match-edit__fieldset">
+            <legend class="admin-match-edit__legend">
+                Первая команда
+            </legend>
+            <mat-form-field class="admin-match-create__field">
+                <mat-label>Количество голов первой команды</mat-label>
+                <input
+                        type="number"
+                        matInput
+                        placeholder="Количество голов"
+                        formControlName="firstScore"
+                        autocomplete="off"
+                />
+                <mat-error >
+                    Количество голов должно быть положительным
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="admin-match-create__field">
+                <mat-label>Первая команда</mat-label>
+                <mat-select formControlName="firstTeamId">
+                    <mat-option
+                            *ngFor="let team of teams$ | async"
+                            [value]="team?.id"
+                    >
+                        {{ team?.players | playerList }}
+                    </mat-option>
+                </mat-select>
+                <mat-error >
+                    Поле команда обязательное
+                </mat-error>
+            </mat-form-field>
+        </fieldset>
+
+        <fieldset class="admin-match-edit__fieldset">
+            <legend class="admin-match-edit__legend">
+                Вторая команда
+            </legend>
+            <mat-form-field class="admin-match-create__field">
+                <mat-label>Количество голов второй команды</mat-label>
+                <input
+                        type="number"
+                        matInput
+                        placeholder="Количество голов"
+                        formControlName="secondScore"
+                        autocomplete="off"
+                />
+                <mat-error >
+                    Количество голов должно быть положительным
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="admin-match-create__field">
+                <mat-label>Вторая команда</mat-label>
+                <mat-select formControlName="secondTeamId">
+                    <mat-option
+                            *ngFor="let team of teams$ | async"
+                            [value]="team?.id"
+                    >
+                        {{ team?.players | playerList }}
+                    </mat-option>
+                </mat-select>
+                <mat-error >
+                    Поле команда обязательное
+                </mat-error>
+            </mat-form-field>
+        </fieldset>
+
+        <fieldset class="admin-match-edit__fieldset">
+            <legend class="admin-match-edit__legend">
+                Прочее
+            </legend>
+
+            <mat-form-field class="admin-match-create__field">
+                <mat-label>Дата проведения</mat-label>
+                <input
+                        matInput
+                        [matDatepicker]="picker"
+                        formControlName="date"
+                >
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="admin-match-create__field">
+                <mat-label>Продолжительность матча в минутах</mat-label>
+                <input
+                        type="number"
+                        matInput
+                        placeholder="Продолжительность"
+                        formControlName="duration"
+                        autocomplete="off"
+                />
+                <mat-error >
+                    Продолжительность должна быть положительным
+                </mat-error>
+                <mat-error>
+                    Поле продолжительность обязательное
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="admin-match-edit__field">
+                <mat-label>Поле</mat-label>
+                <mat-select formControlName="field">
+                    <mat-option
+                            *ngFor="let field of fields$ | async"
+                            [value]="field?.id"
+                    >
+                        {{ field?.name }}
+                    </mat-option>
+                </mat-select>
+                <mat-error>
+                    Поле обязательное
+                </mat-error>
+            </mat-form-field>
+
+            <!--  TODO: Add goals history-->
+        </fieldset>
+
+        <div class="admin-match-edit__footer">
+            <button
+                    class="admin-match-edit__button"
+                    mat-button
+                    type="button"
+                    role="button"
+                    aria-label="cancel"
+                    routerLink="../"
+            >
+                Отмена
+            </button>
+            <button
+                    class="admin-match-edit__button"
+                    role="button"
+                    aria-label="edit a match"
+                    mat-button
+            >
+                Редактировать матч
+            </button>
+        </div>
+    </form>
+</div>

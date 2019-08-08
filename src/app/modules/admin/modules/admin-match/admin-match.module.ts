@@ -7,9 +7,16 @@ import { AdminMatchCreateComponent } from './components/admin-match-create/admin
 import { AdminMatchComponent } from './components/admin-match/admin-match.component';
 import { AdminMatchTableComponent } from './components/admin-match-table/admin-match-table.component';
 import { AdminMatchPlayerSelectComponent } from './components/admin-match-player-select/admin-match-player-select.component';
+import { AdminMatchEditComponent } from './components/admin-match-edit/admin-match-edit.component';
 
 @NgModule({
   imports: [AdminSharedModule, AdminMatchRoutingModule],
-  declarations: [AdminMatchCreateComponent, AdminMatchComponent, AdminMatchTableComponent, AdminMatchPlayerSelectComponent]
+  declarations: [
+      AdminMatchCreateComponent,
+    AdminMatchComponent,
+    AdminMatchTableComponent,
+    AdminMatchPlayerSelectComponent,
+    AdminMatchEditComponent
+  ]
 })
 export class AdminMatchModule {}

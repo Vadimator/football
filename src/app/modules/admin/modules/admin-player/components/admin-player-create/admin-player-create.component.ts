@@ -17,8 +17,7 @@ export class AdminPlayerCreateComponent implements OnInit, OnDestroy {
     public form: FormGroup;
     public onSubmit$: Subject<void> = new Subject<void>();
 
-    constructor(private formBuilder: FormBuilder, private router: Router, private playerService: PlayerService) {
-    }
+    constructor(private formBuilder: FormBuilder, private router: Router, private playerService: PlayerService) {}
 
     ngOnInit(): void {
         this.generateForm();
