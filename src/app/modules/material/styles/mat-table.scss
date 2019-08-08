@@ -8,6 +8,7 @@
 
   .mat-header-cell,
   .mat-cell {
+    text-align: center;
     vertical-align: middle;
     color: white;
     border-bottom-color: lighten(map-get($color, primary), 15%);
