@@ -5,8 +5,9 @@ const compression = require('compression');
 
 const app = express();
 
-// compressed files
+// Gzip
 app.use(compression());
+
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist/football'));
 
