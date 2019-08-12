@@ -1,5 +1,8 @@
 # Football
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.0.
-
-Trello: https://trello.com/b/YOrdh7Qo/football
+## TODO LIST:
+ ### Add loading for get collection
+ ### Replace scss variables to css variables
+ ### Add view for empty collection
+ ### Add custom fonts
+ ### Add google maps for field
