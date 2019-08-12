@@ -1,3 +1,5 @@
+@import "../../../../styles/variables";
+
 .match-list-item {
   display: flex;
   justify-content: space-between;
@@ -15,7 +17,17 @@
     }
   }
 
+  &__key {
+    margin-right: 5px;
+  }
+
   &__text {
     margin-left: 5px;
+  }
+
+  @media screen and (max-width: map-get($breakpoints, mobile)) {
+    &__key {
+      display: none;
+    }
   }
 }
