@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
-import { map, pluck, share } from 'rxjs/operators';
+import { map, pluck } from 'rxjs/operators';
 
 @Component({
     selector: 'app-admin',
@@ -18,10 +18,7 @@ export class AdminComponent implements OnInit {
     ngOnInit(): void {
         const isBreakPointTablet$ =  this.breakpointObserver
             .observe(['(max-width: 992px)'])
-            .pipe(
-                pluck('matches'),
-                share()
-            );
+            .pipe(pluck('matches'));
 
         this.drawerMode$ = isBreakPointTablet$
             .pipe(map((isTablet: boolean) => isTablet ? 'over' : 'side'));
