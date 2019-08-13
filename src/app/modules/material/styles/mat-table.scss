@@ -1,3 +1,5 @@
+@import "../../../styles/respond";
+
 .mat-table {
   width: 100%;
   box-shadow: none;
@@ -12,7 +14,7 @@
     border-bottom-color: var(--border-color);
   }
 
-  @media screen and (max-width: var(--grid-breakpoint-mobile)) {
+  @include respond-below(sm) {
     $padding: .625em;
 
     background-color: transparent;

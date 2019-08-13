@@ -1,3 +1,5 @@
+@import "../../styles/respond";
+
 $vertical-margin: 20px;
 
 .main {
@@ -17,7 +19,6 @@ $vertical-margin: 20px;
 
   &__content {
     background-color: var(--placeholder-color);
-    //background-color: darken(#3f51b5, 7.5%);
     display: flex;
     flex-direction: column;
   }
@@ -51,7 +52,7 @@ $vertical-margin: 20px;
     }
   }
 
-  @media screen and (max-width: var(--grid-breakpoint-tablet)) {
+  @include respond-below(lg) {
     &__container {
       margin-top: $vertical-margin / 2;
       margin-bottom: $vertical-margin / 2;

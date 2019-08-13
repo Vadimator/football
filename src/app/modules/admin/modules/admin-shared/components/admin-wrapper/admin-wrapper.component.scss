@@ -1,3 +1,5 @@
+@import "../../../../../../styles/respond";
+
 .admin-wrapper {
   color: var(--text-color);
 
@@ -20,7 +22,7 @@
     width: 100%;
   }
 
-  @media screen and (max-width: var(--grid-breakpoint-mobile)) {
+  @include respond-below(sm) {
     &__header {
       flex-direction: column;
     }
