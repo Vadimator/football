@@ -31,4 +31,8 @@ export class PlayerService {
   update(playerId: number, player: any): Observable<any> {
     return this.http.put<any>(`${this.url}/${playerId}`, player);
   }
+
+  changeActive(playerId: number): Observable<any> {
+    return this.http.put<any>(`${this.url}/active/${playerId}`, null);
+  }
 }

@@ -6,5 +6,6 @@
     <app-admin-player-table
             [dataSource]="collection$ | async"
             (onDelete)="onDelete($event)"
+            (onChangeActive)="onChangeActive($event)"
     ></app-admin-player-table>
 </app-admin-wrapper>

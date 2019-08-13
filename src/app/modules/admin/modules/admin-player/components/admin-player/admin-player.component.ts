@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { Observable } from 'rxjs';
+import { untilDestroyed } from 'ngx-take-until-destroy';
 
 import { PlayerService } from '@shared/services/player.service';
 import { AdminCrud } from '../../../../services/admin-crud';
@@ -13,6 +14,12 @@ import { AdminCrud } from '../../../../services/admin-crud';
 export class AdminPlayerComponent extends AdminCrud<any> {
     constructor(protected dialog: MatDialog, private playerService: PlayerService) {
         super(dialog);
+    }
+
+    onChangeActive(playerId: number): void {
+        this.playerService.changeActive(playerId)
+            .pipe(untilDestroyed(this))
+            .subscribe();
     }
 
     protected getCollection(): Observable<any[]> {

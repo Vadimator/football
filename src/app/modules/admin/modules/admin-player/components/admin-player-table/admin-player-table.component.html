@@ -41,6 +41,7 @@
                 color="primary"
                 [checked]="element?.isActive"
                 [disableRipple]="true"
+                (toggleChange)="onChangeActive.emit(element?.id)"
         ></mat-slide-toggle>
         <button
                 type="button"
