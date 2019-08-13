@@ -16,6 +16,5 @@ export class PlayerListComponent implements OnInit {
 
   ngOnInit() {
     this.players$ = this.playerService.getListStatistic();
-
   }
 }
