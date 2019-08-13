@@ -1,8 +1,6 @@
-@import "../../../styles/variables";
-
 .mat-stepper-horizontal {
-  border: 1px solid lighten(map-get($color, primary), 15%);
-  background-color: lighten(map-get($color, primary), 5%);
+  border: 1px solid var(--border-color);
+  background-color: var(--background-color);
 }
 
 div.mat-horizontal-content-container {
@@ -10,10 +8,10 @@ div.mat-horizontal-content-container {
 }
 
 mat-step-header.mat-step-header .mat-step-label.mat-step-label-active {
-  color: white;
+  color: var(--text-color);
 }
 
-@media screen and (max-width: map-get($breakpoints, mobile)) {
+@media screen and (max-width: var(--grid-breakpoint-mobile)) {
   .mat-step-header .mat-step-label {
     display: none;
   }

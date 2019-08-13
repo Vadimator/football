@@ -1,4 +1,3 @@
-
 @mixin background-color-hover($color) {
   background-color: $color;
   border-color: darken($color, 5%);
@@ -9,7 +8,7 @@
 }
 
 .player-item {
-  color: white;
+  color: var(--text-color);
 
   &__title {
     font-size: 20px;

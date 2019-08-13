@@ -1,5 +1,3 @@
-@import "../../../../styles/variables";
-
 .match-list-item {
   display: flex;
   justify-content: space-between;
@@ -25,7 +23,7 @@
     margin-left: 5px;
   }
 
-  @media screen and (max-width: map-get($breakpoints, mobile)) {
+  @media screen and (max-width: var(--grid-breakpoint-mobile)) {
     &__key {
       display: none;
     }

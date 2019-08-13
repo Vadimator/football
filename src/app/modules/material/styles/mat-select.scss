@@ -1,9 +1,4 @@
-@import "../../../styles/variables";
-
-.mat-select-value {
-  color: white;
-}
-
+.mat-select-value,
 .mat-select-arrow {
-  color: white;
+  color: var(--text-color);
 }

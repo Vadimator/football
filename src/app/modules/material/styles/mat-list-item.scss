@@ -1,16 +1,14 @@
-@import "../../../styles/variables";
-
 .mat-list-base .mat-list-item,
 .mat-list-base .mat-list-option {
-  border-radius: 4px;
   cursor: pointer;
-  border: 1px solid lighten(map-get($color, primary), 15%);
-  background-color: lighten(map-get($color, primary), 5%);
-  color: white;
-  transition: background-color map-get($duration, transition);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color var(--transition-duration);
 
   &:hover {
-    background-color: lighten(map-get($color, primary), 10%);
+    background-color: var(--border-color);
   }
 
   &:not(:last-child) {

@@ -1,11 +1,9 @@
-@import "./variables";
-
 @mixin skeleton($line-count: 7) {
   $separator: comma;
 
   $line-height: 48px;
   $line-padding: 5px;
-  $line-skeleton: linear-gradient(#4d5ec1 $line-height, transparent 0);
+  $line-skeleton: linear-gradient(var(--background-color) $line-height, transparent 0);
   $line-width: 100%;
 
   $blur-color: #7280ce;

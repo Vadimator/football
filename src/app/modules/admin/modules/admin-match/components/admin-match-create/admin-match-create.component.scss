@@ -1,7 +1,5 @@
-@import '../../../../../../styles/variables';
-
 .admin-match-create {
-  color: white;
+  color: var(--text-color);
 
   &__title {
     font-size: 18px;
@@ -14,7 +12,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 200px;
-    border: 1px solid lighten(map-get($color, primary), 15%);
+    border: 1px solid var(--border-color);
   }
 
   &__field {

@@ -1,7 +1,5 @@
-@import "../../../../../../styles/variables";
-
 .admin-match-edit {
-  color: white;
+  color: var(--text-color);
 
   &__title {
     font-size: 18px;
@@ -10,8 +8,8 @@
   }
 
   &__fieldset {
-    border: 1px solid lighten(map-get($color, primary), 15%);
-    border-radius: $border-radius;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
     padding: 10px;
 
     &:not(:last-of-type) {
@@ -29,7 +27,7 @@
   &__button {
     display: block;
     max-width: 200px;
-    border: 1px solid lighten(map-get($color, primary), 15%);
+    border: 1px solid var(--border-color);
 
     &:not(:last-of-type) {
       margin-right: 10px;

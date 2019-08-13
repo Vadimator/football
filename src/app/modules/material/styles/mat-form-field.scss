@@ -1,24 +1,22 @@
-@import "../../../styles/variables";
-
 .mat-form-field {
   width: 100%;
 }
 
 .mat-form-field-appearance-legacy .mat-form-field-label,
 .mat-form-field.mat-focused .mat-form-field-label {
-  color: white;
+  color: var(--text-color);
 }
 
 .mat-form-field.mat-form-field-invalid .mat-form-field-label {
-  color: #f44336;
+  color: var(--error-color);
 }
 
 .mat-form-field-appearance-legacy .mat-form-field-underline,
 .mat-form-field.mat-focused .mat-form-field-ripple {
-  background-color: lighten(map-get($color, primary), 15%);
+  background-color: var(--border-color);
 }
 
 .mat-input-element {
-  caret-color: lighten(map-get($color, primary), 15%);
+  caret-color: var(--border-color);
 }
 
