@@ -5,6 +5,8 @@ import { Subject } from 'rxjs';
 import { filter, withLatestFrom } from 'rxjs/operators';
 import { untilDestroyed } from 'ngx-take-until-destroy';
 
+import { UserFacade } from '../../../../store/facades/user.facade';
+
 @Component({
     selector: 'app-admin-login',
     templateUrl: 'admin-login.component.html',
@@ -15,7 +17,11 @@ export class AdminLoginComponent implements OnInit, OnDestroy {
     public form: FormGroup;
     public onSubmit$: Subject<void> = new Subject<void>();
 
-    constructor(private formBuilder: FormBuilder, private router: Router) {}
+    constructor(
+        private formBuilder: FormBuilder,
+        private router: Router,
+        private userFacade: UserFacade
+    ) {}
 
     ngOnInit(): void {
         this.generateForm();
@@ -24,7 +30,7 @@ export class AdminLoginComponent implements OnInit, OnDestroy {
             withLatestFrom(this.form.valueChanges, this.form.statusChanges, (_, value, status) => ({ value, status })),
             filter(({ status }) => status === 'VALID'),
             untilDestroyed(this)
-        ).subscribe(() => this.router.navigate(['/admin']));
+        ).subscribe(({ value }) => this.userFacade.login(value.username, value.password));
     }
 
     ngOnDestroy(): void {}
