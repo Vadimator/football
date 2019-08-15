@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
@@ -17,7 +18,7 @@ export class UserEffect {
             .login(username, password)
             .pipe(
                 map((user: TokenModel) => LoginSuccess(user)),
-                catchError(error => of(LoginFailed()))
+                catchError((error: HttpErrorResponse) => of(LoginFailed({ message: error.error.message })))
             )
         )
     ));
@@ -31,5 +32,6 @@ export class UserEffect {
         private actions$: Actions,
         private router: Router,
         private userService: UserService
-    ) {}
+    ) {
+    }
 }

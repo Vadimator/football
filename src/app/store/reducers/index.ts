@@ -1,11 +1,10 @@
 import { Action, ActionReducerMap } from '@ngrx/store';
 import { InjectionToken } from '@angular/core';
 
-import { TokenModel } from '@shared/models/user/token.model';
 import * as fromUser from './user.reducer';
 
 export interface State {
-    user: TokenModel;
+    user: fromUser.UserState;
 }
 
 export const ROOT_REDUCERS = new InjectionToken<ActionReducerMap<State, Action>>('Root reducers token', {

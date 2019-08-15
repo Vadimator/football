@@ -38,7 +38,7 @@ const modules = [
     MatStepperModule,
     LayoutModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
 ];
 
 @NgModule({

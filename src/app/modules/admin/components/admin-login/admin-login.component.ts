@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
@@ -20,11 +20,23 @@ export class AdminLoginComponent implements OnInit, OnDestroy {
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,
-        private userFacade: UserFacade
+        private userFacade: UserFacade,
+        private changeDetectionRef: ChangeDetectorRef
     ) {}
 
     ngOnInit(): void {
         this.generateForm();
+
+        this.userFacade.message$
+            .pipe(
+                filter((message: string) => !!message),
+                untilDestroyed(this)
+            )
+            .subscribe(() => {
+                this.form.get('password').setErrors({ serverError: true });
+                this.form.get('username').setErrors({ serverError: true });
+                this.changeDetectionRef.detectChanges();
+            });
 
         this.onSubmit$.pipe(
             withLatestFrom(this.form.valueChanges, this.form.statusChanges, (_, value, status) => ({ value, status })),

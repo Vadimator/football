@@ -1,17 +1,22 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { State } from '../reducers';
-import { TokenModel } from '@shared/models/user/token.model';
 
-export const getUserState = createFeatureSelector<State, TokenModel>('user');
+import { State } from '../reducers';
+import { UserState } from '../reducers/user.reducer';
+
+export const getUserState = createFeatureSelector<State, UserState>('user');
 export const getToken = createSelector(
     getUserState,
-    (state: TokenModel) => state.token
+    (state: UserState) => state.token
 );
 export const getUser = createSelector(
     getUserState,
-    (state: TokenModel) => {
-        const { token, ...result } = state;
-        return result;
-    }
+    (state: UserState) => state.user
 );
-
+export const getMessage = createSelector(
+    getUserState,
+    (state: UserState) => state.message
+);
+export const getIsLoading = createSelector(
+    getUserState,
+    (state: UserState) => state.isLoading
+);

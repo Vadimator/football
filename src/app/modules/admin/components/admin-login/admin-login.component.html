@@ -16,8 +16,11 @@
                         placeholder="Имя пользователя"
                         formControlName="username"
                 >
-                <mat-error *ngIf="form.get('username').invalid">
+                <mat-error *ngIf="form.get('username').getError('required')">
                     Имя пользователя является обьязателным полем
+                </mat-error>
+                <mat-error *ngIf="form.get('username').getError('serverError')">
+                    Неправильное имя пользователя
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="admin-login__field">
@@ -27,8 +30,11 @@
                         placeholder="Пароль"
                         formControlName="password"
                 >
-                <mat-error *ngIf="form.get('password').invalid">
+                <mat-error *ngIf="form.get('password').getError('required')">
                    Пароль является обьязателным полем
+                </mat-error>
+                <mat-error *ngIf="form.get('password').getError('serverError')">
+                    Неправильный пароль
                 </mat-error>
             </mat-form-field>
             <button
