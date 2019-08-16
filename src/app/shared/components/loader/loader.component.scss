@@ -26,17 +26,14 @@ $loader-size: 200px;
 
   &__ball {
     position: absolute;
+    background: transparent url("/assets/ball.svg") no-repeat center;
+    background-size: $ball-size;
     width: $ball-size;
     height: $ball-size;
     border-radius: 50%;
-    background: var(--background-color);
     left: 74px;
     top: 20px;
     animation: ball 1s linear infinite;
-  }
-
-  &__content {
-
   }
 }
 

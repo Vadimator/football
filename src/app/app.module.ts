@@ -15,7 +15,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { MainComponent } from './components/main/main.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { environment } from '../environments/environment';
-import { ROOT_REDUCERS } from './store/reducers';
+import { metaReducers, ROOT_REDUCERS } from './store/reducers';
 import { UserEffect } from './store/effects/user.effect';
 
 @NgModule({
@@ -27,7 +27,15 @@ import { UserEffect } from './store/effects/user.effect';
         SharedModule,
         HttpClientModule,
         ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-        StoreModule.forRoot(ROOT_REDUCERS),
+        StoreModule.forRoot(ROOT_REDUCERS, {
+            metaReducers,
+            runtimeChecks: {
+                strictStateImmutability: true,
+                strictActionImmutability: true,
+                strictStateSerializability: true,
+                strictActionSerializability: true
+            }
+        }),
         EffectsModule.forRoot([UserEffect]),
         StoreDevtoolsModule.instrument({
             // In a production build you would want to disable the Store Devtools
@@ -36,4 +44,5 @@ import { UserEffect } from './store/effects/user.effect';
     ],
     bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+}

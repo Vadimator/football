@@ -29,7 +29,7 @@ export const reducer = createReducer(
             user,
             token,
             isLoading: false,
-            errors: null
+            message: null
         };
     }),
     on(LoginFailed, (state: UserState, { message }) => ({ ...state, message, isLoading: false }))
