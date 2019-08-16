@@ -36,7 +36,6 @@ export const reducer = createReducer(
     on(LoadSelectedFailed, (state: MatchState) => ({ ...state, isLoading: false, selectedEntity: null })),
 );
 
-
 /** Provide reducer in AoT-compilation happy way */
 export function reducers(state: State, action: Action) {
     return combineReducers({
