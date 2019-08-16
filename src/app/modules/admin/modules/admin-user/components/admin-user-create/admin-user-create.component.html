@@ -1,59 +1,64 @@
 <div class="admin-user-create">
-    <h2 class="admin-user-create__title">
-        Создание пользователя
-    </h2>
+    <app-loader [isLoading]="isLoading$ | async">
+        <h2 class="admin-user-create__title">
+            Создание пользователя
+        </h2>
 
-    <form
-            class="admin-user-create__form"
-            novalidate
-            autocomplete="off"
-            [formGroup]="form"
-            (ngSubmit)="onSubmit$.next()"
-    >
-        <mat-form-field class="admin-user-create__field">
-            <input
-                    matInput
-                    placeholder="Имя"
-                    formControlName="username"
-            />
-            <mat-error *ngIf="form.get('username').invalid">
-                Имя пользователя поле обязательное
-            </mat-error>
-        </mat-form-field>
-
-        <mat-form-field class="admin-user-create__field">
-            <input
-                    type="password"
-                    matInput
-                    placeholder="Пароль"
-                    formControlName="password"
-            />
-            <mat-error *ngIf="form.get('password').invalid">
-                Пароль поле обязательное
-            </mat-error>
-        </mat-form-field>
-
-        <mat-form-field class="admin-user-create__field">
-            <input
-                    type="password"
-                    matInput
-                    placeholder="Пароль"
-                    formControlName="confirmPassword"
-            />
-            <mat-error *ngIf="form.get('confirmPassword').hasError('required')">
-                Пароль поле обязательное
-            </mat-error>
-            <mat-error *ngIf="form.get('confirmPassword').hasError('NoPasswordMatch')">
-                Пароли не совпадают
-            </mat-error>
-        </mat-form-field>
-
-        <button
-                mat-button
-                role="button"
-                class="admin-user-create__button"
+        <form
+                class="admin-user-create__form"
+                novalidate
+                autocomplete="off"
+                [formGroup]="form"
+                (ngSubmit)="onSubmit$.next()"
         >
-            Создать пользователя
-        </button>
-    </form>
+            <mat-form-field class="admin-user-create__field">
+                <input
+                        matInput
+                        placeholder="Имя"
+                        formControlName="username"
+                />
+                <mat-error *ngIf="form.get('username').hasError('required')">
+                    Имя пользователя поле обязательное
+                </mat-error>
+                <mat-error *ngIf="form.get('username').hasError('serverError')">
+                    Имя пользователя поле обязательное
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="admin-user-create__field">
+                <input
+                        type="password"
+                        matInput
+                        placeholder="Пароль"
+                        formControlName="password"
+                />
+                <mat-error *ngIf="form.get('password').invalid">
+                    Пароль поле обязательное
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="admin-user-create__field">
+                <input
+                        type="password"
+                        matInput
+                        placeholder="Пароль"
+                        formControlName="confirmPassword"
+                />
+                <mat-error *ngIf="form.get('confirmPassword').hasError('required')">
+                    Пароль поле обязательное
+                </mat-error>
+                <mat-error *ngIf="form.get('confirmPassword').hasError('NoPasswordMatch')">
+                    Пароли не совпадают
+                </mat-error>
+            </mat-form-field>
+
+            <button
+                    mat-button
+                    role="button"
+                    class="admin-user-create__button"
+            >
+                Создать пользователя
+            </button>
+        </form>
+    </app-loader>
 </div>

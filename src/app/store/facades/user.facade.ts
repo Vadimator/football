@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { UserModel } from '@shared/models/user/user.model';
 import { getIsLoading, getMessage, getToken, getUser } from '../selectors/user.selector';
 import { State } from '../reducers';
-import { Login } from '../actions/user.action';
+import { Login, Register } from '../actions/user.action';
 
 @Injectable({ providedIn: 'root' })
 export class UserFacade {
@@ -23,5 +23,9 @@ export class UserFacade {
 
     login(username: string, password: string): void {
         this.store.dispatch(Login({ username, password }));
+    }
+
+    register(username: string, password: string): void {
+        this.store.dispatch(Register({ username, password }));
     }
 }

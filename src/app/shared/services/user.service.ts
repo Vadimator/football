@@ -15,6 +15,10 @@ export class UserService {
         return this.http.post<TokenModel>(`${this.url}/login`, { username, password });
     }
 
+    register(username: string, password: string): Observable<any> {
+        return this.http.post<any>(`${this.url}/register`, { username, password });
+    }
+
     getList(): Observable<UserModel[]> {
         return this.http.get<UserModel[]>(this.url);
     }

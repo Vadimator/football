@@ -1,9 +1,10 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { filter, withLatestFrom } from 'rxjs/operators';
 import { untilDestroyed } from 'ngx-take-until-destroy';
+
+import { UserFacade } from '../../../../../../store/facades/user.facade';
 
 @Component({
     selector: 'app-admin-user-create',
@@ -14,13 +15,30 @@ import { untilDestroyed } from 'ngx-take-until-destroy';
 export class AdminUserCreateComponent implements OnInit, OnDestroy {
     public form: FormGroup;
     public onSubmit$: Subject<void> = new Subject<void>();
+    public isLoading$: Observable<boolean>;
 
-    constructor(private formBuilder: FormBuilder, private router: Router) {}
+    constructor(
+        private formBuilder: FormBuilder,
+        private userFacade: UserFacade,
+        private changeDetectionRef: ChangeDetectorRef
+    ) {
+        this.isLoading$ = this.userFacade.isLoading$;
+    }
 
     ngOnDestroy(): void {}
 
     ngOnInit() {
         this.generateForm();
+
+        this.userFacade.message$
+            .pipe(
+                filter((message: string) => !!message),
+                untilDestroyed(this)
+            )
+            .subscribe(() => {
+                this.form.get('username').setErrors({ serverError: true });
+                this.changeDetectionRef.detectChanges();
+            });
 
         this.onSubmit$
             .pipe(
@@ -31,7 +49,7 @@ export class AdminUserCreateComponent implements OnInit, OnDestroy {
                 filter(({ status }) => status === 'VALID'),
                 untilDestroyed(this)
             )
-            .subscribe(() => this.router.navigate(['/admin', 'user']));
+            .subscribe(({ value }) => this.userFacade.register(value.username, value.password));
     }
 
     private generateForm(): void {
@@ -46,6 +64,7 @@ export class AdminUserCreateComponent implements OnInit, OnDestroy {
         const password: string = control.get('password').value;
         const confirmPassword: string = control.get('confirmPassword').value;
 
+        // TODO: fix bug, when use change confirmPassword
         if (password !== confirmPassword) {
             control.get('confirmPassword').setErrors({ NoPasswordMatch: true });
         }

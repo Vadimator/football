@@ -7,7 +7,7 @@ import { catchError, exhaustMap, map, tap } from 'rxjs/operators';
 
 import { UserService } from '@shared/services/user.service';
 import { TokenModel } from '@shared/models/user/token.model';
-import { Login, LoginFailed, LoginSuccess } from '../actions/user.action';
+import { Login, LoginFailed, LoginSuccess, Register, RegisterFailed, RegisterSuccess } from '../actions/user.action';
 
 @Injectable()
 export class UserEffect {
@@ -23,9 +23,26 @@ export class UserEffect {
         )
     ));
 
+    public register = createEffect(() => this.actions$.pipe(
+        ofType(Register),
+        map(action => ({ username: action.username, password: action.password })),
+        exhaustMap(({ username, password }) => this.userService
+            .register(username, password)
+            .pipe(
+                map((user: TokenModel) => RegisterSuccess(user)),
+                catchError((error: HttpErrorResponse) => of(RegisterFailed({ message: error.error.message })))
+            )
+        )
+    ));
+
     public loginSuccess$ = createEffect(() => this.actions$.pipe(
         ofType(LoginSuccess),
         tap(() => this.router.navigate(['/admin']))
+    ), { dispatch: false });
+
+    public registerSuccess$ = createEffect(() => this.actions$.pipe(
+        ofType(RegisterSuccess),
+        tap(() => this.router.navigate(['/admin', 'user']))
     ), { dispatch: false });
 
     constructor(
