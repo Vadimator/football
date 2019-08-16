@@ -18,6 +18,11 @@ $margin: 20px;
     font-size: 24px;
   }
 
+  &__username {
+    margin-left: auto;
+    text-transform: capitalize;
+  }
+
   &__hamburger-button {
     display: none;
   }

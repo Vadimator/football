@@ -3,6 +3,9 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, pluck } from 'rxjs/operators';
 
+import { UserModel } from '@shared/models/user/user.model';
+import { UserFacade } from '../../../../store/facades/user.facade';
+
 @Component({
     selector: 'app-admin',
     templateUrl: 'admin.component.html',
@@ -12,8 +15,11 @@ import { map, pluck } from 'rxjs/operators';
 export class AdminComponent implements OnInit {
     public drawerMode$: Observable<'over' | 'push' | 'side'>;
     public isOpened$: Observable<boolean>;
+    public user$: Observable<UserModel>;
 
-    constructor(private breakpointObserver: BreakpointObserver) {}
+    constructor(private breakpointObserver: BreakpointObserver, private userFacade: UserFacade) {
+        this.user$ = this.userFacade.user$;
+    }
 
     ngOnInit(): void {
         const isBreakPointTablet$ =  this.breakpointObserver

@@ -14,8 +14,11 @@
                 <mat-icon>menu</mat-icon>
             </button>
             <span class="admin__logo">
-        Админ центр
-      </span>
+                Админ центр
+            </span>
+            <span class="admin__username">
+                {{ (user$ | async)?.username }}
+            </span>
         </mat-toolbar-row>
     </mat-toolbar>
 
