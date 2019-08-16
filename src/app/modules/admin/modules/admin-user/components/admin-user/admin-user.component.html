@@ -1,0 +1,10 @@
+<app-admin-wrapper
+        heading="Информация об пользователях"
+        buttonName="Создать нового пользователя"
+        [buttonLink]="['/admin', 'user', 'create']"
+>
+    <app-admin-user-table
+            [dataSource]="collection$ | async"
+            (onDelete)="onDelete($event)"
+    ></app-admin-user-table>
+</app-admin-wrapper>

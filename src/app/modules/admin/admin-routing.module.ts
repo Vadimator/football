@@ -28,6 +28,10 @@ const routes: Routes = [
       {
         path: 'field',
         loadChildren: () => import('./modules/admin-field/admin-field.module').then(m => m.AdminFieldModule)
+      },
+      {
+        path: 'user',
+        loadChildren: () => import('./modules/admin-user/admin-user.module').then(m => m.AdminUserModule)
       }
     ]
   },
