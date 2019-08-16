@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { MatchService } from '@shared/services/match.service';
+import { MatchFacade } from '../../store/match.facade';
 
 @Component({
   selector: 'app-match-list',
@@ -11,10 +11,14 @@ import { MatchService } from '@shared/services/match.service';
 })
 export class MatchListComponent implements OnInit {
   public matches$: Observable<any[]>;
+  public isLoading$: Observable<boolean>;
 
-  constructor(private matchService: MatchService) {}
+  constructor(private matchFacade: MatchFacade) {
+    this.matches$ = this.matchFacade.collection$;
+    this.isLoading$ = this.matchFacade.isLoading$;
+  }
 
   ngOnInit(): void {
-    this.matches$ = this.matchService.getList();
+    this.matchFacade.loadCollection();
   }
 }

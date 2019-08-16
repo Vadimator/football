@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { MatchResolver } from '@shared/resolvers/match.resolver';
-import { MatchListComponent } from './components/match-list/match-list.component';
+import { MatchListComponent } from './containers/match-list/match-list.component';
 import { MatchItemComponent } from './components/match-item/match-item.component';
 
 const routes: Routes = [

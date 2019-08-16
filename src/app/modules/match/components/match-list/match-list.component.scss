@@ -1,9 +1,0 @@
-@import "../../../../styles/skeleton";
-
-.match-list {
-  @include skeleton-empty();
-
-  &__item {
-    width: 100%;
-  }
-}
