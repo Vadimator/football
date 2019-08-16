@@ -1,9 +1,46 @@
+$ball-size: 52px;
+$loader-size: 200px;
+
 .loader {
+  position: relative;
   height: 100%;
+
+  &__container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: rgba(114, 128, 206, 0.8);
+
+  }
+
+  &__loader {
+    position: relative;
+    margin: auto;
+    width: $loader-size;
+    height: $loader-size;
+    transform: translate(-$loader-size / 2, -$loader-size / 2) scale(1) translate($loader-size / 2, $loader-size / 2);
+  }
+
+  &__ball {
+    position: absolute;
+    width: $ball-size;
+    height: $ball-size;
+    border-radius: 50%;
+    background: var(--background-color);
+    left: 74px;
+    top: 20px;
+    animation: ball 1s linear infinite;
+  }
+
+  &__content {
+
+  }
 }
 
-
-@keyframes lds-ball {
+@keyframes ball {
   0%, 100% {
     animation-timing-function: cubic-bezier(0.45, 0, 0.9, 0.55);
   }
@@ -15,29 +52,6 @@
     animation-timing-function: cubic-bezier(0, 0.45, 0.55, 0.9);
   }
   100% {
-    -webkit-transform: translate(0, 0);
     transform: translate(0, 0);
   }
-}
-
-.lds-ball {
-  position: relative;
-}
-
-.lds-ball div {
-  position: absolute;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: #337ab7;
-  left: 74px;
-  top: 20px;
-  -webkit-animation: lds-ball 1s linear infinite;
-  animation: lds-ball 1s linear infinite;
-}
-
-.lds-ball {
-  width: 200px !important;
-  height: 200px !important;
-  transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
 }

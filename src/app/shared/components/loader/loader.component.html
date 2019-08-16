@@ -1,11 +1,14 @@
 <div class="loader">
-    <div class="lds-css ng-scope">
-        <div class="lds-ball">
-            <div></div>
+    <div
+            *ngIf="isLoading"
+            class="loader__container"
+    >
+        <div class="loader__loader">
+            <div class="loader__ball"></div>
         </div>
     </div>
-    <ng-content></ng-content>
+    <div class="loader__content">
+        <ng-content></ng-content>
+    </div>
 </div>
-
-
 

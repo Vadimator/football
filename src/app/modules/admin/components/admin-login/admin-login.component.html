@@ -1,48 +1,50 @@
 <div class="admin-login">
     <div class="admin-login__container">
-        <h2 class="admin-login__title">
-            Авторизация
-        </h2>
-        <form
-                autocomplete="off"
-                novalidate
-                class="admin-login__form"
-                [formGroup]="form"
-                (ngSubmit)="onSubmit$.next()"
-        >
-            <mat-form-field class="admin-login__field">
-                <input
-                        matInput
-                        placeholder="Имя пользователя"
-                        formControlName="username"
-                >
-                <mat-error *ngIf="form.get('username').getError('required')">
-                    Имя пользователя является обьязателным полем
-                </mat-error>
-                <mat-error *ngIf="form.get('username').getError('serverError')">
-                    Неправильное имя пользователя
-                </mat-error>
-            </mat-form-field>
-            <mat-form-field class="admin-login__field">
-                <input
-                        type="password"
-                        matInput
-                        placeholder="Пароль"
-                        formControlName="password"
-                >
-                <mat-error *ngIf="form.get('password').getError('required')">
-                   Пароль является обьязателным полем
-                </mat-error>
-                <mat-error *ngIf="form.get('password').getError('serverError')">
-                    Неправильный пароль
-                </mat-error>
-            </mat-form-field>
-            <button
-                    mat-button
-                    class="admin-login__button"
+        <app-loader [isLoading]="isLoading$ | async">
+            <h2 class="admin-login__title">
+                Авторизация
+            </h2>
+            <form
+                    autocomplete="off"
+                    novalidate
+                    class="admin-login__form"
+                    [formGroup]="form"
+                    (ngSubmit)="onSubmit$.next()"
             >
-                войти
-            </button>
-        </form>
+                <mat-form-field class="admin-login__field">
+                    <input
+                            matInput
+                            placeholder="Имя пользователя"
+                            formControlName="username"
+                    >
+                    <mat-error *ngIf="form.get('username').getError('required')">
+                        Имя пользователя является обьязателным полем
+                    </mat-error>
+                    <mat-error *ngIf="form.get('username').getError('serverError')">
+                        Неправильное имя пользователя
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="admin-login__field">
+                    <input
+                            type="password"
+                            matInput
+                            placeholder="Пароль"
+                            formControlName="password"
+                    >
+                    <mat-error *ngIf="form.get('password').getError('required')">
+                        Пароль является обьязателным полем
+                    </mat-error>
+                    <mat-error *ngIf="form.get('password').getError('serverError')">
+                        Неправильный пароль
+                    </mat-error>
+                </mat-form-field>
+                <button
+                        mat-button
+                        class="admin-login__button"
+                >
+                    войти
+                </button>
+            </form>
+        </app-loader>
     </div>
 </div>
