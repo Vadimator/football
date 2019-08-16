@@ -11,3 +11,7 @@ export const getIsLoading = createSelector(
     getMatchState,
     (state: MatchState) => state.isLoading
 );
+export const getSelectedEntity = createSelector(
+    getMatchState,
+    (state: MatchState) => state.selectedEntity
+);

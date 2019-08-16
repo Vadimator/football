@@ -7,7 +7,7 @@ import { MatchRoutingModule } from './math-routing.module';
 
 import { MatchListComponent } from './containers/match-list/match-list.component';
 import { MatchListItemComponent } from './components/match-list-item/match-list-item.component';
-import { MatchItemComponent } from './components/match-item/match-item.component';
+import { MatchItemComponent } from './containers/match-item/match-item.component';
 import { MatchEffect } from './store/match.effect';
 import { MatchFacade } from './store/match.facade';
 import { reducer } from './store/match.reducer';

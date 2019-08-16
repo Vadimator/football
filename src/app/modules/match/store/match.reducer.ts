@@ -1,10 +1,18 @@
 import { createReducer, on } from '@ngrx/store';
-import { LoadCollection, LoadCollectionFailed, LoadCollectionSuccess } from './match.action';
+
+import {
+    LoadCollection,
+    LoadCollectionFailed,
+    LoadCollectionSuccess,
+    LoadSelected, LoadSelectedFailed,
+    LoadSelectedSuccess
+} from './match.action';
 import * as fromRoot from '../../../store/reducers';
 
 export interface MatchState {
     isLoading: boolean;
     collection: [];
+    selectedEntity: any;
 }
 
 export interface State extends fromRoot.State {
@@ -13,12 +21,17 @@ export interface State extends fromRoot.State {
 
 export const initialState: MatchState = {
     isLoading: false,
-    collection: []
+    collection: [],
+    selectedEntity: null
 };
 
 export const reducer = createReducer(
     initialState,
     on(LoadCollection, (state: MatchState) => ({ ...state, isLoading: true })),
     on(LoadCollectionSuccess, (state: MatchState, { collection }) => ({ ...state, isLoading: false, collection })),
-    on(LoadCollectionFailed, (state: MatchState) => ({ ...state, isLoading: false, collection: [] }))
+    on(LoadCollectionFailed, (state: MatchState) => ({ ...state, isLoading: false, collection: [] })),
+
+    on(LoadSelected, (state: MatchState) => ({ ...state, isLoading: true })),
+    on(LoadSelectedSuccess, (state: MatchState, { match }) => ({ ...state, isLoading: false, selectedEntity: match })),
+    on(LoadSelectedFailed, (state: MatchState) => ({ ...state, isLoading: false, selectedEntity: null })),
 );

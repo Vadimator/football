@@ -4,7 +4,14 @@ import { of } from 'rxjs';
 import { catchError, exhaustMap, map } from 'rxjs/operators';
 
 import { MatchService } from '@shared/services/match.service';
-import { LoadCollection, LoadCollectionFailed, LoadCollectionSuccess } from './match.action';
+import {
+    LoadCollection,
+    LoadCollectionFailed,
+    LoadCollectionSuccess,
+    LoadSelected,
+    LoadSelectedFailed,
+    LoadSelectedSuccess
+} from './match.action';
 
 @Injectable()
 export class MatchEffect {
@@ -15,6 +22,18 @@ export class MatchEffect {
             .pipe(
                 map((collection: []) => LoadCollectionSuccess({ collection })),
                 catchError(() => of(LoadCollectionFailed))
+            )
+        )
+    ));
+
+    public loadSelected$ = createEffect(() => this.actions$.pipe(
+        ofType(LoadSelected),
+        map(action => action.selectedId),
+        exhaustMap((selectedId: number) => this.matchService
+            .getOneById(selectedId)
+            .pipe(
+                map((match) => LoadSelectedSuccess({ match })),
+                catchError(() => of(LoadSelectedFailed))
             )
         )
     ));

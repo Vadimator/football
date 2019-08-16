@@ -14,7 +14,7 @@ export class MatchService {
     return this.http.get<any[]>(this.url);
   }
 
-  getOneById(matchId: string): Observable<any> {
+  getOneById(matchId: number): Observable<any> {
     return this.http.get<any>(`${this.url}/${matchId}`);
   }
 
