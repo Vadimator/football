@@ -38,7 +38,7 @@ export const reducer = createReducer(
 
 
 /** Provide reducer in AoT-compilation happy way */
-export function reducers(state: MatchState, action: Action) {
+export function reducers(state: State, action: Action) {
     return combineReducers({
         ['match']: reducer
     })(state, action);
