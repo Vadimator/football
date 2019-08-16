@@ -1,110 +1,112 @@
 <div class="match-item">
-    <h2 class="match-item__header">
-        Подробная информация о матче
-    </h2>
-    <mat-list
-            role="list"
-            class="match-item__list"
-    >
-        <mat-list-item
-                role="listitem"
-                class="match-item__list-item"
-        >
-            Продолжительность матча - {{ (match$ | async)?.duration }} минут
-        </mat-list-item>
-        <mat-list-item
-                role="listitem"
-                class="match-item__list-item"
-        >
-            Cчет - {{ (match$ | async)?.firstScore }} - {{ (match$ | async)?.secondScore }}
-        </mat-list-item>
-        <mat-list-item
-                role="listitem"
-                class="match-item__list-item"
-        >
-            Дата проведения - {{ (match$ | async)?.date | date: 'dd/MM/yyyy' }}
-        </mat-list-item>
-        <mat-list-item
-                role="listitem"
-                class="match-item__list-item"
-        >
-            Цена - {{ (match$ | async)?.duration * (match$ | async)?.field?.pricePerMinute }} грн
-        </mat-list-item>
-    </mat-list>
-
-    <div class="match-item__field">
-        <h4 class="match-item__title">
-            Футболе поле
-        </h4>
+    <app-loader [isLoading]="isLoading$ | async">
+        <h2 class="match-item__header">
+            Подробная информация о матче
+        </h2>
         <mat-list
                 role="list"
                 class="match-item__list"
         >
             <mat-list-item
                     role="listitem"
-                    [routerLink]="['/field', (match$ | async)?.field?.id]"
+                    class="match-item__list-item"
             >
-                <div class="match-item__field-container">
+                Продолжительность матча - {{ (match$ | async)?.duration }} минут
+            </mat-list-item>
+            <mat-list-item
+                    role="listitem"
+                    class="match-item__list-item"
+            >
+                Cчет - {{ (match$ | async)?.firstScore }} - {{ (match$ | async)?.secondScore }}
+            </mat-list-item>
+            <mat-list-item
+                    role="listitem"
+                    class="match-item__list-item"
+            >
+                Дата проведения - {{ (match$ | async)?.date | date: 'dd/MM/yyyy' }}
+            </mat-list-item>
+            <mat-list-item
+                    role="listitem"
+                    class="match-item__list-item"
+            >
+                Цена - {{ (match$ | async)?.duration * (match$ | async)?.field?.pricePerMinute }} грн
+            </mat-list-item>
+        </mat-list>
+
+        <div class="match-item__field">
+            <h4 class="match-item__title">
+                Футболе поле
+            </h4>
+            <mat-list
+                    role="list"
+                    class="match-item__list"
+            >
+                <mat-list-item
+                        role="listitem"
+                        [routerLink]="['/field', (match$ | async)?.field?.id]"
+                >
+                    <div class="match-item__field-container">
                     <span matTooltip="Название поля">
                         {{ (match$ | async)?.field?.name }}
                     </span>
-                    <span matTooltip="Адрес поля">
+                        <span matTooltip="Адрес поля">
                          {{ (match$ | async)?.field | fieldAddress }}
                     </span>
-                </div>
-            </mat-list-item>
-        </mat-list>
-    </div>
-
-    <div class="match-item__container">
-        <div class="match-item__team">
-            <h4 class="match-item__title">
-                Первая команда
-            </h4>
-            <mat-list role="list">
-                <mat-list-item
-                        *ngFor="let player of (match$ | async)?.firstTeam?.players"
-                        role="listitem"
-                        [routerLink]="['/player', player?.id]"
-                >
-                    {{ player?.name }}
+                    </div>
                 </mat-list-item>
             </mat-list>
         </div>
-        <div class="match-item__team">
-            <h4 class="match-item__title">
-                Вторая команда
-            </h4>
-            <mat-list role="list">
-                <mat-list-item
-                        *ngFor="let player of (match$ | async)?.secondTeam?.players"
-                        role="listitem"
-                        [routerLink]="['/player', player?.id]"
-                >
-                    {{ player?.name }}
-                </mat-list-item>
-            </mat-list>
-        </div>
-    </div>
 
-    <div
-            *ngIf="(match$ | async)?.goals?.length"
-            class="match-item__field"
-    >
-        <h4 class="match-item__title">
-            История голов
-        </h4>
-        <mat-list
-                role="list"
-                class="match-item__list"
+        <div class="match-item__container">
+            <div class="match-item__team">
+                <h4 class="match-item__title">
+                    Первая команда
+                </h4>
+                <mat-list role="list">
+                    <mat-list-item
+                            *ngFor="let player of (match$ | async)?.firstTeam?.players"
+                            role="listitem"
+                            [routerLink]="['/player', player?.id]"
+                    >
+                        {{ player?.name }}
+                    </mat-list-item>
+                </mat-list>
+            </div>
+            <div class="match-item__team">
+                <h4 class="match-item__title">
+                    Вторая команда
+                </h4>
+                <mat-list role="list">
+                    <mat-list-item
+                            *ngFor="let player of (match$ | async)?.secondTeam?.players"
+                            role="listitem"
+                            [routerLink]="['/player', player?.id]"
+                    >
+                        {{ player?.name }}
+                    </mat-list-item>
+                </mat-list>
+            </div>
+        </div>
+
+        <div
+                *ngIf="(match$ | async)?.goals?.length"
+                class="match-item__field"
         >
-            <mat-list-item
-                    *ngFor="let goal of (match$ | async)?.goals"
-                    role="listitem"
-                    [routerLink]="['/player', goal?.player?.id]"
+            <h4 class="match-item__title">
+                История голов
+            </h4>
+            <mat-list
+                    role="list"
+                    class="match-item__list"
             >
-                {{ goal?.player?.name }}
-            </mat-list-item>
-        </mat-list>
-    </div>
+                <mat-list-item
+                        *ngFor="let goal of (match$ | async)?.goals"
+                        role="listitem"
+                        [routerLink]="['/player', goal?.player?.id]"
+                >
+                    {{ goal?.player?.name }}
+                </mat-list-item>
+            </mat-list>
+        </div>
+    </app-loader>
 </div>
