@@ -11,10 +11,16 @@
                 [routerLink]="['/field', field?.id]"
         >
             <div class="match-item-field__container">
-                <span matTooltip="Название поля">
+                <span
+                        class="match-item-field__item"
+                        matTooltip="Название поля"
+                >
                     {{ field?.name }}
                 </span>
-                <span matTooltip="Адрес поля">
+                <span
+                        class="match-item-field__item"
+                        matTooltip="Адрес поля"
+                >
                      {{ field | fieldAddress }}
                 </span>
             </div>
