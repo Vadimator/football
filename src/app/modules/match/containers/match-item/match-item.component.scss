@@ -36,17 +36,7 @@
   }
 
   &__field {
+    display: block;
     margin-top: 20px;
-    border: 1px solid var(--border-color);
-    background-color: var(--background-color);
-    border-radius: var(--border-radius);
-    padding: 10px;
-  }
-
-  &__field-container {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
   }
 }

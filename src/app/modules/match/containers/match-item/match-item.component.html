@@ -5,29 +5,11 @@
         </h2>
         <app-match-item-details [match]="match$ | async"></app-match-item-details>
 
-        <div class="match-item__field">
-            <h4 class="match-item__title">
-                Футболе поле
-            </h4>
-            <mat-list
-                    role="list"
-                    class="match-item__list"
-            >
-                <mat-list-item
-                        role="listitem"
-                        [routerLink]="['/field', (match$ | async)?.field?.id]"
-                >
-                    <div class="match-item__field-container">
-                    <span matTooltip="Название поля">
-                        {{ (match$ | async)?.field?.name }}
-                    </span>
-                        <span matTooltip="Адрес поля">
-                         {{ (match$ | async)?.field | fieldAddress }}
-                    </span>
-                    </div>
-                </mat-list-item>
-            </mat-list>
-        </div>
+        <app-match-item-field
+                class="match-item__field"
+                [field]="(match$ | async)?.field"
+        ></app-match-item-field>
+
 
         <div class="match-item__container">
             <div class="match-item__team">

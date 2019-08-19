@@ -9,6 +9,7 @@ import { MatchListComponent } from './containers/match-list/match-list.component
 import { MatchItemComponent } from './containers/match-item/match-item.component';
 import { MatchListItemComponent } from './components/match-list-item/match-list-item.component';
 import { MatchItemDetailsComponent } from './components/match-item-details/match-item-details.component';
+import { MatchItemFieldComponent } from './components/match-item-field/match-item-field.component';
 import { MatchEffect } from './store/match.effect';
 import { MatchFacade } from './store/match.facade';
 import { reducer } from './store/match.reducer';
@@ -20,7 +21,13 @@ import { reducer } from './store/match.reducer';
         StoreModule.forFeature('match', reducer),
         EffectsModule.forFeature([MatchEffect]),
     ],
-    declarations: [MatchListComponent, MatchListItemComponent, MatchItemComponent, MatchItemDetailsComponent],
+    declarations: [
+        MatchListComponent,
+        MatchListItemComponent,
+        MatchItemComponent,
+        MatchItemDetailsComponent,
+        MatchItemFieldComponent
+    ],
     providers: [MatchFacade]
 })
 export class MatchModule {}

@@ -1,0 +1,23 @@
+<div class="match-item-field">
+    <h4 class="match-item-field__title">
+        Футболе поле
+    </h4>
+    <mat-list
+            role="list"
+            class="match-item__list"
+    >
+        <mat-list-item
+                role="listitem"
+                [routerLink]="['/field', field?.id]"
+        >
+            <div class="match-item-field__container">
+                <span matTooltip="Название поля">
+                    {{ field?.name }}
+                </span>
+                <span matTooltip="Адрес поля">
+                     {{ field | fieldAddress }}
+                </span>
+            </div>
+        </mat-list-item>
+    </mat-list>
+</div>
