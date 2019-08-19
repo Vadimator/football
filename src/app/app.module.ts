@@ -11,7 +11,6 @@ import { SharedModule } from '@shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './components/app/app.component';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { MainComponent } from './components/main/main.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { environment } from '../environments/environment';
@@ -19,7 +18,7 @@ import { metaReducers, ROOT_REDUCERS } from './store/reducers';
 import { UserEffect } from './store/effects/user.effect';
 
 @NgModule({
-    declarations: [AppComponent, PageNotFoundComponent, MainComponent, FooterComponent],
+    declarations: [AppComponent, MainComponent, FooterComponent],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,

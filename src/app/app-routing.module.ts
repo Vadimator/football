@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { MainComponent } from './components/main/main.component';
 
 const routes: Routes = [
+    {
+        path: 'admin',
+        loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)
+    },
     {
         path: '',
         component: MainComponent,
@@ -26,13 +29,12 @@ const routes: Routes = [
                 redirectTo: '/match',
                 pathMatch: 'full'
             },
-            { path: 'page-not-found', component: PageNotFoundComponent },
+            {
+                path: 'page-not-found',
+                loadChildren: () => import('./modules/not-found/not-found.module').then(m => m.NotFoundModule)
+            },
             { path: '**', redirectTo: '/page-not-found' }
         ]
-    },
-    {
-        path: 'admin',
-        loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)
     }
 ];
 
