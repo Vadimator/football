@@ -3,40 +3,21 @@
         <h2 class="match-item__header">
             Подробная информация о матче
         </h2>
-
-        <app-match-item-details [match]="match$ | async"></app-match-item-details>
-
+        <app-match-item-details
+                [match]="match$ | async"
+        ></app-match-item-details>
         <app-match-item-field
                 class="match-item__item"
                 [field]="(match$ | async)?.field"
         ></app-match-item-field>
-
         <app-match-item-teams
                 class="match-item__item"
                 [firstTeam]="(match$ | async)?.firstTeam"
                 [secondTeam]="(match$ | async)?.secondTeam"
         ></app-match-item-teams>
-
-
-        <div
-                *ngIf="(match$ | async)?.goals?.length"
-                class="match-item__field"
-        >
-            <h4 class="match-item__title">
-                История голов
-            </h4>
-            <mat-list
-                    role="list"
-                    class="match-item__list"
-            >
-                <mat-list-item
-                        *ngFor="let goal of (match$ | async)?.goals"
-                        role="listitem"
-                        [routerLink]="['/player', goal?.player?.id]"
-                >
-                    {{ goal?.player?.name }}
-                </mat-list-item>
-            </mat-list>
-        </div>
+        <app-match-item-goals
+                class="match-item__item"
+                [goals]="(match$ | async)?.goals"
+        ></app-match-item-goals>
     </app-loader>
 </div>

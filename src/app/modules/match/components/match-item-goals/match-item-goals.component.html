@@ -1,0 +1,19 @@
+<div
+        *ngIf="goals?.length"
+        class="match-item-goals"
+>
+    <h4 class="match-item-goals__title">
+        История голов
+    </h4>
+    <mat-list
+            role="list"
+    >
+        <mat-list-item
+                *ngFor="let goal of goals"
+                role="listitem"
+                [routerLink]="['/player', goal?.player?.id]"
+        >
+            {{ goal?.player?.name }}
+        </mat-list-item>
+    </mat-list>
+</div>
