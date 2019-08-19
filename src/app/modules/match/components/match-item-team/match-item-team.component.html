@@ -1,0 +1,14 @@
+<div class="match-item-team">
+    <h4 class="match-item-team__title">
+        {{ heading }}
+    </h4>
+    <mat-list role="list">
+        <mat-list-item
+                *ngFor="let player of team?.players"
+                role="listitem"
+                [routerLink]="['/player', player?.id]"
+        >
+            {{ player?.name }}
+        </mat-list-item>
+    </mat-list>
+</div>

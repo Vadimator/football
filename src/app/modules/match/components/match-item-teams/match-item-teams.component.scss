@@ -1,0 +1,12 @@
+.match-item-teams {
+  display: flex;
+  justify-content: space-between;
+
+  &__item {
+    flex-grow: 1;
+
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+}

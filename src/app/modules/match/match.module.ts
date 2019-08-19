@@ -10,6 +10,9 @@ import { MatchItemComponent } from './containers/match-item/match-item.component
 import { MatchListItemComponent } from './components/match-list-item/match-list-item.component';
 import { MatchItemDetailsComponent } from './components/match-item-details/match-item-details.component';
 import { MatchItemFieldComponent } from './components/match-item-field/match-item-field.component';
+import { MatchItemTeamsComponent } from './components/match-item-teams/match-item-teams.component';
+import { MatchItemGoalsComponent } from './components/match-item-goals/match-item-goals.component';
+import { MatchItemTeamComponent } from './components/match-item-team/match-item-team.component';
 import { MatchEffect } from './store/match.effect';
 import { MatchFacade } from './store/match.facade';
 import { reducer } from './store/match.reducer';
@@ -26,7 +29,10 @@ import { reducer } from './store/match.reducer';
         MatchListItemComponent,
         MatchItemComponent,
         MatchItemDetailsComponent,
-        MatchItemFieldComponent
+        MatchItemFieldComponent,
+        MatchItemTeamsComponent,
+        MatchItemTeamComponent,
+        MatchItemGoalsComponent
     ],
     providers: [MatchFacade]
 })
