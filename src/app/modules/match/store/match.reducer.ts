@@ -1,10 +1,11 @@
-import { Action, combineReducers, createReducer, on } from '@ngrx/store';
+import { Action, createReducer, on } from '@ngrx/store';
 
 import {
     LoadCollection,
     LoadCollectionFailed,
     LoadCollectionSuccess,
-    LoadSelected, LoadSelectedFailed,
+    LoadSelected,
+    LoadSelectedFailed,
     LoadSelectedSuccess
 } from './match.action';
 import * as fromRoot from '../../../store/reducers';
@@ -25,7 +26,7 @@ export const initialState: MatchState = {
     selectedEntity: null
 };
 
-export const reducer = createReducer(
+const matchReducer = createReducer(
     initialState,
     on(LoadCollection, (state: MatchState) => ({ ...state, isLoading: true })),
     on(LoadCollectionSuccess, (state: MatchState, { collection }) => ({ ...state, isLoading: false, collection })),
@@ -36,9 +37,6 @@ export const reducer = createReducer(
     on(LoadSelectedFailed, (state: MatchState) => ({ ...state, isLoading: false, selectedEntity: null })),
 );
 
-/** Provide reducer in AoT-compilation happy way */
-export function reducers(state: State, action: Action) {
-    return combineReducers({
-        ['match']: reducer
-    })(state, action);
+export function reducer(state: MatchState | undefined, action: Action) {
+    return matchReducer(state, action);
 }
