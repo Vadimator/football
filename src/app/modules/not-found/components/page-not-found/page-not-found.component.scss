@@ -1,0 +1,29 @@
+.page-not-found {
+  text-align: center;
+  color: var(--text-color);
+  height: 100%;
+  display: flex;
+
+  &__container {
+    margin: auto;
+  }
+
+  &__title {
+    font-size: 62px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  &__description {
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+
+  &__link {
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    line-height: normal;
+    text-transform: uppercase;
+    padding: 8px;
+  }
+}
