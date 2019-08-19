@@ -5,6 +5,10 @@ $vertical-margin: 20px;
 .main {
   height: 100%;
 
+  &__toolbar {
+    background-color: var(--primary-color);
+  }
+
   &__menu {
     margin-left: auto;
   }
