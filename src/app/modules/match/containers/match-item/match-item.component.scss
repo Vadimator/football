@@ -1,32 +1,8 @@
 .match-item {
   color: var(--text-color);
 
-  &__header {
-    font-size: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
   &__list-item {
     cursor: default;
-  }
-
-  &__container {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  &__team {
-    border: 1px solid var(--border-color);
-    background-color: var(--background-color);
-    border-radius: var(--border-radius);
-    padding: 10px;
-    flex-grow: 1;
-
-    &:not(:last-child) {
-      margin-right: 20px;
-    }
   }
 
   &__title {
