@@ -12,6 +12,7 @@ import {
     LoadSelectedFailed,
     LoadSelectedSuccess
 } from './match.action';
+import { IMatchListItem } from '@shared/models/match/match-list-item.model';
 
 @Injectable()
 export class MatchEffect {
@@ -20,7 +21,7 @@ export class MatchEffect {
         exhaustMap(() => this.matchService
             .getList()
             .pipe(
-                map((collection: []) => LoadCollectionSuccess({ collection })),
+                map((collection: IMatchListItem[]) => LoadCollectionSuccess({ collection })),
                 catchError(() => of(LoadCollectionFailed))
             )
         )

@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { IMatchListItem } from '@shared/models/match/match-list-item.model';
 
 @Component({
   selector: 'app-match-list-item',
@@ -7,5 +8,5 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MatchListItemComponent {
-  @Input() public match: any;
+  @Input() public match: IMatchListItem;
 }

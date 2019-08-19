@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
+import { IMatchItem } from '@shared/models/match/match-item.model';
 import { MatchFacade } from '../../store/match.facade';
 
 @Component({
@@ -11,7 +12,7 @@ import { MatchFacade } from '../../store/match.facade';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MatchItemComponent implements OnInit {
-    public match$: Observable<any>;
+    public match$: Observable<IMatchItem>;
     public isLoading$: Observable<boolean>;
 
     constructor(private matchFacade: MatchFacade, private route: ActivatedRoute) {

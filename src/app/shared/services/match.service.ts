@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
-import { CreateMatchDto } from '../models/create-match.dto';
+import { IMatchListItem } from '../models/match/match-list-item.model';
+import { CreateMatchDto } from '../models/match/create-match.dto';
+import { IMatchItem } from '../models/match/match-item.model';
 
 @Injectable({ providedIn: 'root' })
 export class MatchService {
@@ -10,12 +12,12 @@ export class MatchService {
 
   constructor(private http: HttpClient) {}
 
-  getList(): Observable<any[]> {
-    return this.http.get<any[]>(this.url);
+  getList(): Observable<IMatchListItem[]> {
+    return this.http.get<IMatchListItem[]>(this.url);
   }
 
-  getOneById(matchId: number): Observable<any> {
-    return this.http.get<any>(`${this.url}/${matchId}`);
+  getOneById(matchId: number): Observable<IMatchItem> {
+    return this.http.get<IMatchItem>(`${this.url}/${matchId}`);
   }
 
   create(body: CreateMatchDto): Observable<any> {

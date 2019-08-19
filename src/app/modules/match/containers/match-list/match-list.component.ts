@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
+import { IMatchListItem } from '@shared/models/match/match-list-item.model';
 import { MatchFacade } from '../../store/match.facade';
 
 @Component({
@@ -10,7 +11,7 @@ import { MatchFacade } from '../../store/match.facade';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MatchListComponent implements OnInit {
-  public matches$: Observable<any[]>;
+  public matches$: Observable<IMatchListItem[]>;
   public isLoading$: Observable<boolean>;
 
   constructor(private matchFacade: MatchFacade) {
