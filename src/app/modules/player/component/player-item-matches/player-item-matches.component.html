@@ -9,6 +9,7 @@
         <mat-list-item
                 *ngFor="let match of matches"
                 role="link"
+                class="player-item-matches__item"
                 [routerLink]="['/match', match?.id]"
                 [ngClass]="{
                             'player-item-matches__item--win': match?.result === 1,

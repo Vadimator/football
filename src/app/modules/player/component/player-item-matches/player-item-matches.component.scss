@@ -10,7 +10,7 @@
 }
 
 .player-item-matches {
-  &__item {
+  mat-list-item.player-item-matches__item {
     &--win {
       @include background-color-hover(#4dc198);
     }
