@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { IPlayerListItem } from '@shared/models/player/player-list-item.model';
 
 @Component({
   selector: 'app-player-list-item',
@@ -7,5 +8,5 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlayerListItemComponent {
-  @Input() public player: any;
+  @Input() public player: IPlayerListItem;
 }

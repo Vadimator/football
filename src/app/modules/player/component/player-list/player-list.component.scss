@@ -1,9 +1,0 @@
-@import "../../../../styles/skeleton";
-
-.player-list {
-  @include skeleton-empty();
-
-  &__item {
-    width: 100%;
-  }
-}

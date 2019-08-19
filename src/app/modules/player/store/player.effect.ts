@@ -4,9 +4,9 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, exhaustMap, map, tap } from 'rxjs/operators';
 
-import { MatchService } from '@shared/services/match.service';
-import { IMatchListItem } from '@shared/models/match/match-list-item.model';
-import { IMatchItem } from '@shared/models/match/match-item.model';
+import { PlayerService } from '@shared/services/player.service';
+import { IPlayerListItem } from '@shared/models/player/player-list-item.model';
+import { IPlayerItem } from '@shared/models/player/player-item.model';
 import {
     LoadCollection,
     LoadCollectionFailed,
@@ -14,16 +14,16 @@ import {
     LoadSelected,
     LoadSelectedFailed,
     LoadSelectedSuccess
-} from './match.action';
+} from './player.action';
 
 @Injectable()
-export class MatchEffect {
+export class PlayerEffect {
     public loadCollection$ = createEffect(() => this.actions$.pipe(
         ofType(LoadCollection),
-        exhaustMap(() => this.matchService
+        exhaustMap(() => this.playerService
             .getList()
             .pipe(
-                map((collection: IMatchListItem[]) => LoadCollectionSuccess({ collection })),
+                map((collection: IPlayerListItem[]) => LoadCollectionSuccess({ collection })),
                 catchError(() => of(LoadCollectionFailed()))
             )
         )
@@ -32,10 +32,10 @@ export class MatchEffect {
     public loadSelected$ = createEffect(() => this.actions$.pipe(
         ofType(LoadSelected),
         map(action => action.selectedId),
-        exhaustMap((selectedId: number) => this.matchService
+        exhaustMap((selectedId: number) => this.playerService
             .getOneById(selectedId)
             .pipe(
-                map((match: IMatchItem) => LoadSelectedSuccess({ match })),
+                map((player: IPlayerItem) => LoadSelectedSuccess({ player })),
                 catchError(() => of(LoadSelectedFailed()))
             )
         )
@@ -49,6 +49,6 @@ export class MatchEffect {
     constructor(
         private actions$: Actions,
         private router: Router,
-        private matchService: MatchService
+        private playerService: PlayerService
     ) {}
 }

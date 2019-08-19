@@ -1,5 +1,11 @@
 <div class="player-list-item">
-    <span class="player-list-item__text"> Имя: {{ player?.name }} </span>
-    <span class="player-list-item__text"> Победа: {{ player?.winRate }}% </span>
-    <span class="player-list-item__text"> Количество голов: {{ player?.countGoals }} </span>
+    <span class="player-list-item__text">
+        Имя: {{ player?.name }}
+    </span>
+    <span class="player-list-item__text">
+        Победа: {{ player?.winRate || 0 }}%
+    </span>
+    <span class="player-list-item__text">
+        Количество голов: {{ player?.countGoals || 0 }}
+    </span>
 </div>

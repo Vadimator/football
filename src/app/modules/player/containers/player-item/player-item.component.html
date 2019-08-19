@@ -1,0 +1,64 @@
+<div class="player-item">
+    <app-loader [isLoading]="isLoading$ | async">
+        <h2>
+            Подробная информация об игроке
+        </h2>
+        <mat-list
+                role="list"
+                class="player-item__list"
+        >
+            <mat-list-item
+                    role="listitem"
+                    class="player-item__list-item"
+            >
+                Имя: {{ (player$ | async)?.name }}
+            </mat-list-item>
+            <mat-list-item
+                    role="listitem"
+                    class="player-item__list-item"
+            >
+                Количество голов: {{ (player$ | async)?.countGoals }}
+            </mat-list-item>
+            <mat-list-item
+                    role="listitem"
+                    class="player-item__list-item"
+            >
+                Доля победы: {{ (player$ | async)?.winRate }}%
+            </mat-list-item>
+            <mat-list-item
+                    role="listitem"
+                    class="player-item__list-item"
+            >
+                Доля поражения: {{ (player$ | async)?.lostRate }}%
+            </mat-list-item>
+        </mat-list>
+        <div
+                *ngIf="(player$ | async)?.matches?.length > 0"
+                class="block player-item__matches"
+        >
+            <h4>
+                История матчей
+            </h4>
+            <mat-list role="list">
+                <mat-list-item
+                        *ngFor="let match of (player$ | async)?.matches"
+                        role="listitem"
+                        [routerLink]="['/match', match?.id]"
+                        [ngClass]="{
+                            'player-item__item--win': match?.result === 1,
+                            'player-item__item--lose': match?.result === 2
+                            }"
+                >
+                    <div class="player-item__container">
+                    <span>
+                        Cчет: {{ match?.firstScore }} - {{ match?.secondScore }}
+                    </span>
+                        <span>
+                        Дата проведения: {{ match?.createdAt | date: 'yyyy-MM-dd' }}
+                    </span>
+                    </div>
+                </mat-list-item>
+            </mat-list>
+        </div>
+    </app-loader>
+</div>

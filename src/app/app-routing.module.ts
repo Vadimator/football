@@ -25,14 +25,15 @@ const routes: Routes = [
                 path: '',
                 redirectTo: '/match',
                 pathMatch: 'full'
-            }
+            },
+            { path: 'page-not-found', component: PageNotFoundComponent },
+            { path: '**', redirectTo: '/page-not-found' }
         ]
     },
     {
         path: 'admin',
         loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)
-    },
-    { path: '**', component: PageNotFoundComponent }
+    }
 ];
 
 @NgModule({
