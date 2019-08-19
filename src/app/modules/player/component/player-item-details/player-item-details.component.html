@@ -12,18 +12,18 @@
             role="listitem"
             class="player-item-details__item"
     >
-        Количество голов: {{ player?.countGoals }}
+        Количество голов: {{ player?.countGoals || 0 }}
     </mat-list-item>
     <mat-list-item
             role="listitem"
             class="player-item-details__item"
     >
-        Доля победы: {{ player?.winRate }}%
+        Доля победы: {{ player?.winRate || 0 }}%
     </mat-list-item>
     <mat-list-item
             role="listitem"
             class="player-item-details__item"
     >
-        Доля поражения: {{ player?.lostRate }}%
+        Доля поражения: {{ player?.lostRate || 0 }}%
     </mat-list-item>
 </mat-list>

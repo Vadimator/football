@@ -1,0 +1,28 @@
+<div
+        *ngIf="matches?.length > 0"
+        class="block player-item-matches"
+>
+    <h4>
+        История матчей
+    </h4>
+    <mat-list role="list">
+        <mat-list-item
+                *ngFor="let match of matches"
+                role="listitem"
+                [routerLink]="['/match', match?.id]"
+                [ngClass]="{
+                            'player-item-matches__item--win': match?.result === 1,
+                            'player-item-matches__item--lose': match?.result === 2
+                }"
+        >
+            <div class="player-item-matches__container">
+                <span>
+                    Cчет: {{ match?.firstScore }} - {{ match?.secondScore }}
+                </span>
+                <span>
+                    Дата проведения: {{ match?.createdAt | date: 'yyyy-MM-dd' }}
+                </span>
+            </div>
+        </mat-list-item>
+    </mat-list>
+</div>

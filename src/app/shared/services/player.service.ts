@@ -10,12 +10,12 @@ export class PlayerService {
 
   constructor(private http: HttpClient) {}
 
-  getList(): Observable<IPlayerListItem[]> {
-    return this.http.get<IPlayerListItem[]>(this.url);
+  getList(): Observable<any[]> {
+    return this.http.get<any[]>(this.url);
   }
 
-  getListStatistic(): Observable<any[]> {
-    return this.http.get<any>(`${this.url}/statistic`);
+  getListStatistic(): Observable<IPlayerListItem[]> {
+    return this.http.get<IPlayerListItem[]>(`${this.url}/statistic`);
   }
 
   getOneById(playerId: number): Observable<any> {

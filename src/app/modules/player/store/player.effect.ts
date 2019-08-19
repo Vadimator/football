@@ -21,7 +21,7 @@ export class PlayerEffect {
     public loadCollection$ = createEffect(() => this.actions$.pipe(
         ofType(LoadCollection),
         exhaustMap(() => this.playerService
-            .getList()
+            .getListStatistic()
             .pipe(
                 map((collection: IPlayerListItem[]) => LoadCollectionSuccess({ collection })),
                 catchError(() => of(LoadCollectionFailed()))

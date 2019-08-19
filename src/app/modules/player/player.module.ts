@@ -9,6 +9,7 @@ import { PlayerListComponent } from './containers/player-list/player-list.compon
 import { PlayerItemComponent } from './containers/player-item/player-item.component';
 import { PlayerListItemComponent } from './component/player-list-item/player-list-item.component';
 import { PlayerItemDetailsComponent } from './component/player-item-details/player-item-details.component';
+import { PlayerItemMatchesComponent } from './component/player-item-matches/player-item-matches.component';
 import { PlayerEffect } from './store/player.effect';
 import { reducer } from './store/player.reducer';
 import { PlayerFacade } from './store/player.facade';
@@ -24,7 +25,8 @@ import { PlayerFacade } from './store/player.facade';
         PlayerListComponent,
         PlayerListItemComponent,
         PlayerItemComponent,
-        PlayerItemDetailsComponent
+        PlayerItemDetailsComponent,
+        PlayerItemMatchesComponent
     ],
     providers: [PlayerFacade]
 })

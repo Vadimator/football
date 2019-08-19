@@ -1,37 +1,9 @@
-@import "../../../../styles/block";
-
-@mixin background-color-hover($color) {
-  background-color: $color;
-  border-color: darken($color, 5%);
-
-  &:hover {
-    background-color: lighten($color, 5%);
-  }
-}
-
 .player-item {
   height: 100%;
   color: var(--text-color);
 
-  &__item {
-    &--win {
-      @include background-color-hover(#4dc198);
-    }
-
-    &--lose {
-      @include background-color-hover(#ff3d71);
-    }
-  }
-
   &__matches {
+    display: block;
     margin-top: 20px;
-  }
-
-  &__container {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
   }
 }

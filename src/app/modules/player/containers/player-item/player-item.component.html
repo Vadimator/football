@@ -4,33 +4,9 @@
             Подробная информация об игроке
         </h2>
         <app-player-item-details [player]="player$ | async"></app-player-item-details>
-        <div
-                *ngIf="(player$ | async)?.matches?.length > 0"
-                class="block player-item__matches"
-        >
-            <h4>
-                История матчей
-            </h4>
-            <mat-list role="list">
-                <mat-list-item
-                        *ngFor="let match of (player$ | async)?.matches"
-                        role="listitem"
-                        [routerLink]="['/match', match?.id]"
-                        [ngClass]="{
-                            'player-item__item--win': match?.result === 1,
-                            'player-item__item--lose': match?.result === 2
-                            }"
-                >
-                    <div class="player-item__container">
-                    <span>
-                        Cчет: {{ match?.firstScore }} - {{ match?.secondScore }}
-                    </span>
-                        <span>
-                        Дата проведения: {{ match?.createdAt | date: 'yyyy-MM-dd' }}
-                    </span>
-                    </div>
-                </mat-list-item>
-            </mat-list>
-        </div>
+        <app-player-item-matches
+                class="player-item__matches"
+                [matches]="(player$ | async)?.matches"
+        ></app-player-item-matches>
     </app-loader>
 </div>
