@@ -1,8 +1,4 @@
-@import "../../../../styles/skeleton";
-
 .field-list {
-  @include skeleton-empty(3);
-
   &__item {
     width: 100%;
   }

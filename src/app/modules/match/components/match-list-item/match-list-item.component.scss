@@ -17,17 +17,24 @@
     }
   }
 
-  &__key {
-    margin-right: 5px;
-  }
-
   &__text {
     margin-left: 5px;
   }
 
   @include respond-below(sm) {
-    &__key {
-      display: none;
+    flex-direction: column;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    &__item {
+      &:not(:last-child) {
+        margin-right: 0;
+        margin-bottom: 5px;
+      }
+
+      &:last-child {
+        margin-left: 0;
+      }
     }
   }
 }

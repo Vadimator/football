@@ -1,3 +1,5 @@
+@import "../../../../styles/respond";
+
 .player-list-item {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -12,6 +14,19 @@
 
     &:last-of-type {
       text-align: right;
+    }
+  }
+
+  @include respond-below(sm) {
+    grid-template-columns: 1fr;
+    grid-gap: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    &__text,
+    &__text:first-of-type,
+    &__text:last-of-type {
+      text-align: left;
     }
   }
 }

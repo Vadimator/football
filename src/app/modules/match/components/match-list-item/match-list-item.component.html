@@ -1,20 +1,29 @@
 <div class="match-list-item">
-    <div class="match-list-item__item">
+    <div
+            class="match-list-item__item"
+            matTooltip="Дата проведения"
+    >
         <mat-icon class="match-list-item__icon">date_range</mat-icon>
         <span class="match-list-item__text">
             {{ match?.date | date: 'dd/MM/yyyy' }}
         </span>
     </div>
-    <div class="match-list-item__item">
+    <div
+            class="match-list-item__item"
+            matTooltip="Продолжительность матча"
+    >
         <mat-icon class="match-list-item__icon">timer</mat-icon>
         <span class="match-list-item__text">
             {{ match?.duration }}
         </span>
     </div>
-    <div class="match-list-item__item">
-        <span class="match-list-item__key">
-          Счет:
+    <div
+            class="match-list-item__item"
+            matTooltip="Счет"
+    >
+        <mat-icon class="match-list-item__icon">poll</mat-icon>
+        <span class="match-list-item__text">
+            {{ match?.firstScore }} - {{ match?.secondScore }}
         </span>
-        {{ match?.firstScore }} - {{ match?.secondScore }}
     </div>
 </div>
