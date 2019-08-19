@@ -13,10 +13,6 @@
   height: 100%;
   color: var(--text-color);
 
-  &__list-item {
-    cursor: default;
-  }
-
   &__item {
     &--win {
       @include background-color-hover(#4dc198);

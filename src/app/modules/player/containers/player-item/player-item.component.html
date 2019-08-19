@@ -3,35 +3,7 @@
         <h2>
             Подробная информация об игроке
         </h2>
-        <mat-list
-                role="list"
-                class="player-item__list"
-        >
-            <mat-list-item
-                    role="listitem"
-                    class="player-item__list-item"
-            >
-                Имя: {{ (player$ | async)?.name }}
-            </mat-list-item>
-            <mat-list-item
-                    role="listitem"
-                    class="player-item__list-item"
-            >
-                Количество голов: {{ (player$ | async)?.countGoals }}
-            </mat-list-item>
-            <mat-list-item
-                    role="listitem"
-                    class="player-item__list-item"
-            >
-                Доля победы: {{ (player$ | async)?.winRate }}%
-            </mat-list-item>
-            <mat-list-item
-                    role="listitem"
-                    class="player-item__list-item"
-            >
-                Доля поражения: {{ (player$ | async)?.lostRate }}%
-            </mat-list-item>
-        </mat-list>
+        <app-player-item-details [player]="player$ | async"></app-player-item-details>
         <div
                 *ngIf="(player$ | async)?.matches?.length > 0"
                 class="block player-item__matches"
