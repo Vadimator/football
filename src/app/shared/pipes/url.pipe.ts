@@ -5,6 +5,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class UrlPipe implements PipeTransform {
     transform(url: string): string {
-        return url.replace(/(^\w+:|^)\/\//, '');
+        if (url && url.replace) {
+            return url.replace(/(^\w+:|^)\/\//, '');
+        } else {
+            return url;
+        }
     }
 }

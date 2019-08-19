@@ -1,18 +1,14 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
-import { FieldResolver } from '@shared/resolvers/field.resolver';
-import { FieldListComponent } from './components/field-list/field-list.component';
-import { FieldItemComponent } from './components/field-item/field-item.component';
+import { FieldListComponent } from './containers/field-list/field-list.component';
+import { FieldItemComponent } from './containers/field-item/field-item.component';
 
 const routes: Routes = [
   { path: '', component: FieldListComponent },
   {
     path: ':id',
-    component: FieldItemComponent,
-    resolve: {
-      field: FieldResolver
-    }
+    component: FieldItemComponent
   }
 ];
 

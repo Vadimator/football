@@ -1,0 +1,8 @@
+<div class="field-item">
+    <app-loader [isLoading]="isLoading$ | async">
+        <h2>
+            Подробная информация об поле
+        </h2>
+        <app-field-item-details [field]="field$ | async"></app-field-item-details>
+    </app-loader>
+</div>

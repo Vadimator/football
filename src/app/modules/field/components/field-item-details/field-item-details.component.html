@@ -1,0 +1,36 @@
+<mat-list
+        role="list"
+        class="field-item-details"
+>
+    <mat-list-item
+            role="listitem"
+            class="field-item-details__item"
+    >
+        Имя - {{ field?.name }}
+    </mat-list-item>
+    <mat-list-item
+            role="listitem"
+            class="field-item-details__item"
+    >
+        Адрес - {{ field | fieldAddress }}
+    </mat-list-item>
+    <mat-list-item
+            role="listitem"
+            class="field-item-details__item"
+    >
+        Веб-сайт -
+        <a
+                class="field-item-details__link"
+                [href]="field?.website"
+                target="_blank"
+        >
+            {{ field?.website | url }}
+        </a>
+    </mat-list-item>
+    <mat-list-item
+            role="listitem"
+            class="field-item-details__item"
+    >
+        Цена за минуту - {{ field?.pricePerMinute }}
+    </mat-list-item>
+</mat-list>

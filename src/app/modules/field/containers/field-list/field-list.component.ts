@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { FieldService } from '@shared/services/field.service';
 import { FieldModel } from '@shared/models/field/field.model';
+import { FieldFacade } from '../../store/field.facade';
 
 @Component({
   selector: 'app-field-list',
@@ -12,10 +12,14 @@ import { FieldModel } from '@shared/models/field/field.model';
 })
 export class FieldListComponent implements OnInit {
   public fields$: Observable<FieldModel[]>;
+  public isLoading$: Observable<boolean>;
 
-  constructor(private fieldService: FieldService) {}
+  constructor(private fieldFacade: FieldFacade) {
+    this.fields$ = this.fieldFacade.collection$;
+    this.isLoading$ = this.fieldFacade.isLoading$;
+  }
 
   ngOnInit() {
-    this.fields$ = this.fieldService.getList();
+    this.fieldFacade.loadCollection();
   }
 }
