@@ -4,7 +4,7 @@
 >
     <app-loader [isLoading]="isLoading$ | async">
         <mat-list-item
-                role="listitem"
+                role="link"
                 *ngFor="let player of players$ | async"
                 [routerLink]="[player?.id]"
         >

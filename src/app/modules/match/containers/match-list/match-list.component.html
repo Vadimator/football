@@ -4,7 +4,7 @@
 >
     <app-loader [isLoading]="isLoading$ | async">
         <mat-list-item
-                role="listitem"
+                role="link"
                 *ngFor="let match of matches$ | async"
                 [routerLink]="[match?.id]"
         >

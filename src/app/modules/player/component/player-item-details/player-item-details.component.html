@@ -1,29 +1,14 @@
-<mat-list
-        role="list"
-        class="player-item-details"
->
-    <mat-list-item
-            role="listitem"
-            class="player-item-details__item"
-    >
+<mat-list role="list">
+    <mat-list-item role="listitem">
         Имя: {{ player?.name }}
     </mat-list-item>
-    <mat-list-item
-            role="listitem"
-            class="player-item-details__item"
-    >
+    <mat-list-item role="listitem">
         Количество голов: {{ player?.countGoals || 0 }}
     </mat-list-item>
-    <mat-list-item
-            role="listitem"
-            class="player-item-details__item"
-    >
+    <mat-list-item role="listitem">
         Доля победы: {{ player?.winRate || 0 }}%
     </mat-list-item>
-    <mat-list-item
-            role="listitem"
-            class="player-item-details__item"
-    >
+    <mat-list-item role="listitem">
         Доля поражения: {{ player?.lostRate || 0 }}%
     </mat-list-item>
 </mat-list>

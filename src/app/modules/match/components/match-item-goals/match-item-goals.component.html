@@ -8,7 +8,7 @@
     <mat-list role="list">
         <mat-list-item
                 *ngFor="let goal of goals"
-                role="listitem"
+                role="link"
                 [routerLink]="['/player', goal?.player?.id]"
         >
             {{ goal?.player?.name }}
