@@ -1,12 +1,12 @@
+@import "../../../../styles/respond";
+
 .match-item-teams {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
 
-  &__item {
-    flex-grow: 1;
-
-    &:not(:last-child) {
-      margin-right: 20px;
-    }
+  @include respond-below(sm){
+    grid-gap: 10px;
+    grid-template-columns: 1fr;
   }
 }
