@@ -6,8 +6,9 @@ import { SharedModule } from '@shared/shared.module';
 import { MatchRoutingModule } from './math-routing.module';
 
 import { MatchListComponent } from './containers/match-list/match-list.component';
-import { MatchListItemComponent } from './components/match-list-item/match-list-item.component';
 import { MatchItemComponent } from './containers/match-item/match-item.component';
+import { MatchListItemComponent } from './components/match-list-item/match-list-item.component';
+import { MatchItemDetailsComponent } from './components/match-item-details/match-item-details.component';
 import { MatchEffect } from './store/match.effect';
 import { MatchFacade } from './store/match.facade';
 import { reducer } from './store/match.reducer';
@@ -19,7 +20,7 @@ import { reducer } from './store/match.reducer';
         StoreModule.forFeature('match', reducer),
         EffectsModule.forFeature([MatchEffect]),
     ],
-    declarations: [MatchListComponent, MatchListItemComponent, MatchItemComponent],
+    declarations: [MatchListComponent, MatchListItemComponent, MatchItemComponent, MatchItemDetailsComponent],
     providers: [MatchFacade]
 })
 export class MatchModule {}

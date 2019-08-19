@@ -34,4 +34,5 @@ const modules = [
     providers: [httpInterceptorProviders],
     entryComponents: [ConfirmComponent]
 })
-export class SharedModule {}
+export class SharedModule {
+}

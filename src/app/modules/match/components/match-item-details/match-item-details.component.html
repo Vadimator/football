@@ -1,0 +1,29 @@
+<mat-list
+        role="list"
+        class="match-item-details"
+>
+    <mat-list-item
+            role="listitem"
+            class="match-item-details__item"
+    >
+        Продолжительность матча - {{ match?.duration }} минут
+    </mat-list-item>
+    <mat-list-item
+            role="listitem"
+            class="match-item-details__item"
+    >
+        Cчет - {{ match?.firstScore }} - {{ match?.secondScore }}
+    </mat-list-item>
+    <mat-list-item
+            role="listitem"
+            class="match-item-details__item"
+    >
+        Дата проведения - {{ match?.date | date: 'dd/MM/yyyy' }}
+    </mat-list-item>
+    <mat-list-item
+            role="listitem"
+            class="match-item-details__item"
+    >
+        Цена - {{ match?.duration * match?.field?.pricePerMinute }} грн
+    </mat-list-item>
+</mat-list>
