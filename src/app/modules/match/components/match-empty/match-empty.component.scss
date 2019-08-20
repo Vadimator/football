@@ -1,0 +1,21 @@
+.match-empty {
+  height: 100%;
+  text-align: center;
+  color: var(--text-color);
+  display: flex;
+
+  &__container {
+    margin: 5% auto auto auto;
+  }
+
+  &__image {
+    height: 100px;
+    background: transparent url("/assets/images/referee.svg") no-repeat center;
+    background-size: 100px;
+  }
+
+  &__text {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+}
