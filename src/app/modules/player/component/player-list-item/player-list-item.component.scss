@@ -2,7 +2,7 @@
 
 .player-list-item {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   align-items: center;
 
   &__text {
@@ -17,7 +17,7 @@
     }
   }
 
-  @include respond-below(sm) {
+  @include respond-below(md) {
     grid-template-columns: 1fr;
     grid-gap: 5px;
     padding-top: 5px;

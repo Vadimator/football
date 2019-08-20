@@ -3,4 +3,6 @@ export interface IPlayerListItem {
     id: number;
     name: string;
     winRate: string;
+    loseRate: string;
+    countMatches: string;
 }
