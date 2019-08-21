@@ -9,6 +9,6 @@
   }
 }
 
-::ng-deep .loader__content {
+:host ::ng-deep .loader__content {
   height: 100%;
 }
