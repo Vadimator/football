@@ -14,3 +14,24 @@ export const getSelectedEntity = createSelector(
     getMatchState,
     (state: PlayerState) => state.selectedEntity
 );
+export const getPage =  createSelector(
+    getMatchState,
+    (state: PlayerState) => state.page
+);
+export const getLimit =  createSelector(
+    getMatchState,
+    (state: PlayerState) => state.limit
+);
+export const getSort = createSelector(
+    getMatchState,
+    (state: PlayerState) => state.sort
+);
+export const getDirection =  createSelector(
+    getMatchState,
+    (state: PlayerState) => state.direction
+);
+export const getCount =  createSelector(
+    getMatchState,
+    (state: PlayerState) => state.count
+);
+

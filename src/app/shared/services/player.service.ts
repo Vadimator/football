@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { SortDirection } from '@angular/material';
 import { Observable } from 'rxjs';
 
-import { IPlayerListItem } from '../models/player/player-list-item.model';
+import { IPlayerListResponse } from '@shared/models/player/player-list-response.model';
 
 @Injectable({ providedIn: 'root' })
 export class PlayerService {
@@ -14,8 +15,16 @@ export class PlayerService {
     return this.http.get<any[]>(this.url);
   }
 
-  getListStatistic(): Observable<IPlayerListItem[]> {
-    return this.http.get<IPlayerListItem[]>(`${this.url}/statistic`);
+  getListStatistic(page: number = 0, limit: number = 10, sort: string, direction: SortDirection): Observable<IPlayerListResponse> {
+    let params: HttpParams = new HttpParams()
+        .set('page', page.toString())
+        .set('limit', limit.toString());
+
+    if (direction !== '') {
+      params = params.append('sort', sort).append('direction', direction.toUpperCase());
+    }
+
+    return this.http.get<IPlayerListResponse>(`${this.url}/statistic`, { params });
   }
 
   getOneById(playerId: number): Observable<any> {

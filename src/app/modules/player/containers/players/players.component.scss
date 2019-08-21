@@ -1,0 +1,14 @@
+.players {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__pagination {
+    margin-top: 10px;
+  }
+}
+
+::ng-deep .loader__content {
+  height: 100%;
+}

@@ -7,11 +7,14 @@ import {
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
-    MatListModule, MatNativeDateModule,
+    MatListModule,
+    MatNativeDateModule, MatPaginatorIntl,
+    MatPaginatorModule,
     MatProgressSpinnerModule,
     MatSelectModule,
     MatSidenavModule,
     MatSlideToggleModule,
+    MatSortModule,
     MatStepperModule,
     MatTableModule,
     MatToolbarModule,
@@ -19,6 +22,8 @@ import {
 } from '@angular/material';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { LayoutModule } from '@angular/cdk/layout';
+
+import { CustomPaginatorIntl } from './services/custom-paginator.intl';
 
 const modules = [
     MatListModule,
@@ -39,10 +44,13 @@ const modules = [
     LayoutModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatSortModule,
+    MatPaginatorModule
 ];
 
 @NgModule({
-    exports: modules
+    exports: modules,
+    providers: [{ provide: MatPaginatorIntl, useClass: CustomPaginatorIntl }]
 })
 export class AngularMaterialModule {
 }

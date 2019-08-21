@@ -1,0 +1,16 @@
+<app-loader [isLoading]="isLoading$ | async">
+    <div class="players">
+        <app-player-table
+                [players]="players$ | async"
+                (changeSort)="changeSort($event)"
+        ></app-player-table>
+        <mat-paginator
+                class="players__pagination"
+                [hidePageSize]="true"
+                [pageIndex]="page$ | async"
+                [length]="count$ | async"
+                [pageSize]="limit$ | async"
+                (page)="onChangePage($event)"
+        ></mat-paginator>
+    </div>
+</app-loader>

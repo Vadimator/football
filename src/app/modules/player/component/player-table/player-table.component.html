@@ -1,0 +1,108 @@
+<table
+        mat-table
+        matSort
+        class="mat-elevation-z8"
+        [dataSource]="players"
+        (matSortChange)="changeSort.emit($event)"
+>
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+        <th
+                mat-header-cell
+                *matHeaderCellDef
+                mat-sort-header
+        >
+            Имя
+        </th>
+        <td
+                mat-cell
+                *matCellDef="let element"
+                class="player-table__td player-table__td--name"
+                data-label="Имя"
+        >
+            {{ element.name }}
+        </td>
+    </ng-container>
+
+    <!-- winRate Column -->
+    <ng-container matColumnDef="win">
+        <th
+                mat-header-cell
+                *matHeaderCellDef
+                mat-sort-header
+        >
+            Доля победы
+        </th>
+        <td
+                mat-cell
+                *matCellDef="let element"
+                data-label="Доля победы"
+        >
+            {{ element?.win || 0 }} %
+        </td>
+    </ng-container>
+
+    <!-- loseRate Column -->
+    <ng-container matColumnDef="lose">
+        <th
+                mat-header-cell
+                *matHeaderCellDef
+                mat-sort-header
+        >
+            Доля поражения
+        </th>
+        <td
+                mat-cell
+                *matCellDef="let element"
+                data-label="Доля поражения"
+        >
+            {{ element?.lose || 0 }} %
+        </td>
+    </ng-container>
+
+    <!-- countGoals Column -->
+    <ng-container matColumnDef="matches">
+        <th
+                mat-header-cell
+                *matHeaderCellDef
+                mat-sort-header
+        >
+            Количество матчей
+        </th>
+        <td
+                mat-cell
+                *matCellDef="let element"
+                data-label="Количество матчей"
+        >
+            {{ element?.matches || 0 }}
+        </td>
+    </ng-container>
+
+    <!-- countGoals Column -->
+    <ng-container matColumnDef="goals">
+        <th
+                mat-header-cell
+                *matHeaderCellDef
+                mat-sort-header
+        >
+            Количество голов
+        </th>
+        <td
+                mat-cell
+                *matCellDef="let element"
+                data-label="Количество голов"
+        >
+            {{ element?.goals || 0 }}
+        </td>
+    </ng-container>
+
+    <tr
+            mat-header-row
+            *matHeaderRowDef="displayedColumns"
+    ></tr>
+    <tr
+            mat-row
+            *matRowDef="let row; columns: displayedColumns;"
+            [routerLink]="row?.id"
+    ></tr>
+</table>

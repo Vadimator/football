@@ -1,11 +1,11 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
-import { PlayerListComponent } from './containers/player-list/player-list.component';
 import { PlayerItemComponent } from './containers/player-item/player-item.component';
+import { PlayersComponent } from './containers/players/players.component';
 
 const routes: Routes = [
-    { path: '', component: PlayerListComponent },
+    { path: '', component: PlayersComponent },
     {
         path: ':id',
         component: PlayerItemComponent
