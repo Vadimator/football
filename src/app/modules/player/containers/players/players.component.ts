@@ -19,6 +19,7 @@ export class PlayersComponent implements OnInit {
     public sort$: Observable<string>;
     public direction$: Observable<SortDirection>;
     public count$: Observable<number>;
+    public isShowPaginator$: Observable<boolean>;
 
     constructor(private playerFacade: PlayerFacade) {
         this.players$ = this.playerFacade.collection$;
@@ -28,6 +29,7 @@ export class PlayersComponent implements OnInit {
         this.sort$ = this.playerFacade.sort$;
         this.direction$ = this.playerFacade.direction$;
         this.count$ = this.playerFacade.count$;
+        this.isShowPaginator$ = this.playerFacade.isShowPaginator$;
     }
 
     ngOnInit() {

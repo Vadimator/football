@@ -5,6 +5,7 @@
                 (changeSort)="changeSort($event)"
         ></app-player-table>
         <mat-paginator
+                *ngIf="isShowPaginator$ | async"
                 class="players__pagination"
                 [hidePageSize]="true"
                 [pageIndex]="page$ | async"

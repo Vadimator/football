@@ -10,7 +10,7 @@ import { State } from './player.reducer';
 import {
     getCollection, getCount,
     getDirection,
-    getIsLoading,
+    getIsLoading, getIsShowPaginator,
     getLimit,
     getPage,
     getSelectedEntity,
@@ -27,6 +27,7 @@ export class PlayerFacade {
     public sort$: Observable<string>;
     public direction$: Observable<SortDirection>;
     public count$: Observable<number>;
+    public isShowPaginator$: Observable<boolean>;
 
     constructor(private store$: Store<State>) {
         this.collection$ = this.store$.pipe(select(getCollection));
@@ -37,6 +38,7 @@ export class PlayerFacade {
         this.sort$ = this.store$.pipe(select(getSort));
         this.direction$ = this.store$.pipe(select(getDirection));
         this.count$ = this.store$.pipe(select(getCount));
+        this.isShowPaginator$ = this.store$.pipe(select(getIsShowPaginator));
     }
 
     loadCollection(): void {

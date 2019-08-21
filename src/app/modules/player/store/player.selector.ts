@@ -34,4 +34,8 @@ export const getCount =  createSelector(
     getMatchState,
     (state: PlayerState) => state.count
 );
+export const getIsShowPaginator =  createSelector(
+    getMatchState,
+    (state: PlayerState) => state.count > state.limit
+);
 
