@@ -1,4 +1,5 @@
-@import "../../../styles/respond";
+@import "../../../styles/mixins/respond";
+@import "../../../styles/mixins/quantity-queries";
 
 .mat-table {
   width: 100%;
@@ -20,6 +21,19 @@
 
   .mat-sort-header-arrow {
     color: var(--text-color);
+  }
+
+  &--equal-column {
+    .mat-header-cell,
+    .mat-cell {
+      @include respond-above(sm){
+        @for $i from 1 through 5 {
+          @include exactly($i) {
+            width: 100% / $i;
+          }
+        }
+      }
+    }
   }
 
   @include respond-below(sm) {
