@@ -7,7 +7,15 @@ import { catchError, exhaustMap, map, tap } from 'rxjs/operators';
 
 import { UserService } from '@shared/services/user.service';
 import { TokenModel } from '@shared/models/user/token.model';
-import { Login, LoginFailed, LoginSuccess, Register, RegisterFailed, RegisterSuccess } from '../actions/user.action';
+import {
+    Login,
+    LoginFailed,
+    LoginSuccess,
+    Clear,
+    Register,
+    RegisterFailed,
+    RegisterSuccess
+} from '../actions/user.action';
 
 @Injectable()
 export class UserEffect {
@@ -43,6 +51,11 @@ export class UserEffect {
     public registerSuccess$ = createEffect(() => this.actions$.pipe(
         ofType(RegisterSuccess),
         tap(() => this.router.navigate(['/admin', 'user']))
+    ), { dispatch: false });
+
+    public clear$ = createEffect(() => this.actions$.pipe(
+        ofType(Clear),
+        tap(() => this.router.navigate(['/admin', 'login']))
     ), { dispatch: false });
 
     constructor(

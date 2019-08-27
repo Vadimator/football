@@ -19,6 +19,16 @@
             <span class="admin__username">
                 {{ (user$ | async)?.username }}
             </span>
+            <button
+                    class="admin__logout-button"
+                    type="button"
+                    role="button"
+                    mat-icon-button
+                    disableRipple
+                    (click)="logout()"
+            >
+                <mat-icon>exit_to_app</mat-icon>
+            </button>
         </mat-toolbar-row>
     </mat-toolbar>
 

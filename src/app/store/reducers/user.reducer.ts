@@ -2,7 +2,15 @@ import { createReducer, on } from '@ngrx/store';
 
 import { UserModel } from '@shared/models/user/user.model';
 import { TokenModel } from '@shared/models/user/token.model';
-import { Login, LoginFailed, LoginSuccess, Register, RegisterFailed, RegisterSuccess } from '../actions/user.action';
+import {
+    Login,
+    LoginFailed,
+    LoginSuccess,
+    Clear,
+    Register,
+    RegisterFailed,
+    RegisterSuccess
+} from '../actions/user.action';
 
 export interface UserState {
     token: string;
@@ -32,5 +40,6 @@ export const reducer = createReducer(
             message: null
         };
     }),
-    on(LoginFailed, RegisterFailed, (state: UserState, { message }) => ({ ...state, message, isLoading: false }))
+    on(LoginFailed, RegisterFailed, (state: UserState, { message }) => ({ ...state, message, isLoading: false })),
+    on(Clear, (state: UserState) => ({ ...state, ...initialState }))
 );

@@ -32,4 +32,8 @@ export class AdminComponent implements OnInit {
         this.isOpened$ = isBreakPointTablet$
             .pipe(map((isTablet: boolean) => !isTablet));
     }
+
+    logout(): void {
+        this.userFacade.clear();
+    }
 }

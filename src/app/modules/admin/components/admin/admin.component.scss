@@ -94,4 +94,14 @@ $margin: 20px;
       margin: $margin;
     }
   }
+
+  @include respond-below(sm) {
+    &__username {
+      display: none;
+    }
+
+    &__logout-button {
+      margin-left: auto;
+    }
+  }
 }

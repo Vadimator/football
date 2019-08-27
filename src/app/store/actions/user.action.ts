@@ -8,3 +8,5 @@ export const LoginFailed = createAction('[AuthActionTypes] Login failed', props<
 export const Register = createAction('[AuthActionTypes] Register', props<{ username: string; password: string }>());
 export const RegisterSuccess = createAction('[AuthActionTypes] Register success', props<TokenModel>());
 export const RegisterFailed = createAction('[AuthActionTypes] Register failed', props<{ message: string }>());
+
+export const Clear = createAction('[AuthActionTypes] Clear');
