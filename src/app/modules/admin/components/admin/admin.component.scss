@@ -4,7 +4,7 @@
 .admin {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 50%);
+  grid-template-rows: repeat(2, 43vh);
   grid-gap: 10px;
   height: 100%;
   color: var(--text-color);
@@ -24,7 +24,7 @@
 
   @include respond-below(md) {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, 32%);
+    grid-template-rows: repeat(3, 28vh);
 
     &__title {
       font-size: 14px;
