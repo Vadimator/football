@@ -4,6 +4,7 @@ import { SortDirection } from '@angular/material';
 import { Observable } from 'rxjs';
 
 import { IPlayerListResponse } from '@shared/models/player/player-list-response.model';
+import { IPlayer } from '@shared/models/player/player.model';
 
 @Injectable({ providedIn: 'root' })
 export class PlayerService {
@@ -25,6 +26,10 @@ export class PlayerService {
     }
 
     return this.http.get<IPlayerListResponse>(`${this.url}/statistic`, { params });
+  }
+
+  getListByLatestMonth(): Observable<IPlayer[]> {
+    return this.http.get<IPlayer[]>(`${this.url}/latest-month`);
   }
 
   getOneById(playerId: number): Observable<any> {

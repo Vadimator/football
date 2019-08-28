@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-
 import {
     MatButtonModule,
     MatDatepickerModule,
@@ -8,7 +7,8 @@ import {
     MatIconModule,
     MatInputModule,
     MatListModule,
-    MatNativeDateModule, MatPaginatorIntl,
+    MatNativeDateModule,
+    MatPaginatorIntl,
     MatPaginatorModule,
     MatProgressSpinnerModule,
     MatSelectModule,

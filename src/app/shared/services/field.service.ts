@@ -16,6 +16,10 @@ export class FieldService {
     return this.http.get<FieldModel[]>(this.url);
   }
 
+  getListByLatestMonth(): Observable<FieldModel[]> {
+    return this.http.get<FieldModel[]>(`${this.url}/latest-month`);
+  }
+
   getOneById(fieldId: number): Observable<FieldModel> {
     return this.http.get<FieldModel>(`${this.url}/${fieldId}`);
   }

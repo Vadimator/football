@@ -16,6 +16,10 @@ export class MatchService {
     return this.http.get<IMatchListItem[]>(this.url);
   }
 
+  getListByLatestMonth(): Observable<IMatchListItem[]> {
+    return this.http.get<IMatchListItem[]>(`${this.url}/latest-month`);
+  }
+
   getOneById(matchId: number): Observable<IMatchItem> {
     return this.http.get<IMatchItem>(`${this.url}/${matchId}`);
   }

@@ -1,107 +1,38 @@
+@import "../../../../styles/sizing";
 @import "../../../../styles/mixins/respond";
 
-$margin: 20px;
-
 .admin {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 50%);
+  grid-gap: 10px;
   height: 100%;
+  color: var(--text-color);
 
-  &__toolbar {
-    position: relative;
-    z-index: 2;
-  }
-
-  &__logo {
-    font-weight: 500;
-    white-space: nowrap;
-    font-size: 24px;
-  }
-
-  &__username {
-    margin-left: auto;
-    text-transform: capitalize;
-  }
-
-  &__hamburger-button {
-    display: none;
-  }
-
-  &__container {
-    flex-grow: 1;
-    background-color: var(--placeholder-color);
-  }
-
-  &__navbar {
-    width: 200px;
-    border-top-right-radius: var(--border-radius);
-    border-bottom-right-radius: var(--border-radius);
-    background-color: var(--primary-color);
-    margin: $margin 0;
-    padding: $margin / 2;
-
-    ::ng-deep .mat-drawer-inner-container {
-      display: flex;
-      flex-direction: column;
-    }
-  }
-
-  &__content {
-    height: calc(100% - #{$margin} - #{$margin});
-    background-color: var(--primary-color);
+  &__block {
+    background-color: var(--background-color);
+    padding: 10px;
     border-radius: var(--border-radius);
-    margin: $margin;
-    padding: $margin / 2;
-    overflow-y: auto;
   }
 
-  &__link {
-    padding: 5px 10px;
-    border-radius: var(--border-radius);
+  &__pairs {
     display: block;
-    width: 100%;
-    color: var(--text-color);
-    text-transform: capitalize;
-    text-decoration: none;
-    font-size: 14px;
-    border: 1px solid var(--border-color);
-
-    &:not(:last-of-type) {
-      margin-bottom: 5px;
-    }
-
-    &:last-of-type {
-      margin-top: auto;
-    }
+    height: calc(100% - 40px);
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
-  @include respond-below(lg) {
-    &__toolbar {
-      min-height: 48px;
+  @include respond-below(md) {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 32%);
+
+    &__title {
+      font-size: 14px;
+      margin-bottom: 10px;
     }
 
-    &__hamburger-button {
-      display: block;
-    }
-
-    &__navbar {
-      margin-top: $margin;
-      margin-bottom: $margin;
-    }
-
-    &__content {
-      height: calc(100% - #{$margin} - #{$margin});
-      margin: $margin;
-    }
-  }
-
-  @include respond-below(sm) {
-    &__username {
-      display: none;
-    }
-
-    &__logout-button {
-      margin-left: auto;
+    &__pairs {
+      height: calc(100% - 24px);
     }
   }
 }

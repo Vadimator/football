@@ -2,17 +2,22 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 // components
-import { AdminComponent } from './components/admin/admin.component';
+import { AdminContainerComponent } from './components/admin-container/admin-container.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { AdminComponent } from './components/admin/admin.component';
 // guards
 import { AdminAuthGuard } from './guards/admin-auth.guard';
 
 const routes: Routes = [
   {
     path: '',
-    component: AdminComponent,
+    component: AdminContainerComponent,
     canActivate: [AdminAuthGuard],
     children: [
+      {
+        path: '',
+        component: AdminComponent
+      },
       {
         path: 'player',
         loadChildren: () => import('./modules/admin-player/admin-player.module').then(m => m.AdminPlayerModule)

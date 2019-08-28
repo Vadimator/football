@@ -1,10 +1,12 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { BreakpointObserver } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
-import { map, pluck } from 'rxjs/operators';
 
-import { UserModel } from '@shared/models/user/user.model';
-import { UserFacade } from '../../../../store/facades/user.facade';
+import { PlayerService } from '@shared/services/player.service';
+import { IPlayer } from '@shared/models/player/player.model';
+import { IMatchListItem } from '@shared/models/match/match-list-item.model';
+import { MatchService } from '@shared/services/match.service';
+import { FieldModel } from '@shared/models/field/field.model';
+import { FieldService } from '@shared/services/field.service';
 
 @Component({
     selector: 'app-admin',
@@ -13,27 +15,19 @@ import { UserFacade } from '../../../../store/facades/user.facade';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AdminComponent implements OnInit {
-    public drawerMode$: Observable<'over' | 'push' | 'side'>;
-    public isOpened$: Observable<boolean>;
-    public user$: Observable<UserModel>;
+    public players$: Observable<IPlayer[]>;
+    public matches$: Observable<IMatchListItem[]>;
+    public fields$: Observable<FieldModel[]>;
 
-    constructor(private breakpointObserver: BreakpointObserver, private userFacade: UserFacade) {
-        this.user$ = this.userFacade.user$;
-    }
+    constructor(
+        private playerService: PlayerService,
+        private matchService: MatchService,
+        private fieldService: FieldService
+    ) {}
 
-    ngOnInit(): void {
-        const isBreakPointTablet$ =  this.breakpointObserver
-            .observe(['(max-width: 992px)'])
-            .pipe(pluck('matches'));
-
-        this.drawerMode$ = isBreakPointTablet$
-            .pipe(map((isTablet: boolean) => isTablet ? 'over' : 'side'));
-
-        this.isOpened$ = isBreakPointTablet$
-            .pipe(map((isTablet: boolean) => !isTablet));
-    }
-
-    logout(): void {
-        this.userFacade.clear();
+    ngOnInit() {
+        this.players$ = this.playerService.getListByLatestMonth();
+        this.matches$ = this.matchService.getListByLatestMonth();
+        this.fields$ = this.fieldService.getListByLatestMonth();
     }
 }

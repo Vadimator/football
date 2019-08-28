@@ -1,9 +1,11 @@
+@import "../../../styles/mixins/respond";
+
 .mat-list-base mat-list-item.mat-list-item,
 .mat-list-base .mat-list-option {
   display: flex;
   align-items: center;
   min-height: 48px;
-  height: 100%;
+  height: auto;
   border-radius: var(--border-radius);
   border: 1px solid var(--border-color);
   background-color: var(--background-color);
@@ -29,4 +31,11 @@
 
 mat-list.mat-list-base {
   padding-top: 0;
+}
+
+@include respond-below(sm) {
+  .mat-list-base mat-list-item.mat-list-item,
+  .mat-list-base .mat-list-option {
+    min-height: 32px;
+  }
 }
