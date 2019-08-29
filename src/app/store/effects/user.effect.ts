@@ -33,9 +33,8 @@ export class UserEffect {
 
     public register = createEffect(() => this.actions$.pipe(
         ofType(Register),
-        map(action => ({ username: action.username, password: action.password })),
-        exhaustMap(({ username, password }) => this.userService
-            .register(username, password)
+        exhaustMap(({ username, password, role }) => this.userService
+            .register(username, password, role)
             .pipe(
                 map((user: TokenModel) => RegisterSuccess(user)),
                 catchError((error: HttpErrorResponse) => of(RegisterFailed({ message: error.error.message })))

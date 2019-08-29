@@ -52,6 +52,23 @@
                 </mat-error>
             </mat-form-field>
 
+            <mat-form-field class="admin-user-create__field">
+                <mat-label>
+                    Роль
+                </mat-label>
+                <mat-select formControlName="role">
+                    <mat-option
+                            *ngFor="let role of roles"
+                            [value]="role"
+                    >
+                        {{ role }}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('role').hasError('required')">
+                    Поле роль обязательно
+                </mat-error>
+            </mat-form-field>
+
             <button
                     mat-button
                     role="button"

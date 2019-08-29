@@ -5,6 +5,7 @@ import { filter, withLatestFrom } from 'rxjs/operators';
 import { untilDestroyed } from 'ngx-take-until-destroy';
 
 import { UserFacade } from '../../../../../../store/facades/user.facade';
+import { RoleEnum } from '@shared/enums/role.enum';
 
 @Component({
     selector: 'app-admin-user-create',
@@ -16,6 +17,8 @@ export class AdminUserCreateComponent implements OnInit, OnDestroy {
     public form: FormGroup;
     public onSubmit$: Subject<void> = new Subject<void>();
     public isLoading$: Observable<boolean>;
+    public roles = Object.keys(RoleEnum)
+        .map(key => RoleEnum[key]);
 
     constructor(
         private formBuilder: FormBuilder,
@@ -49,14 +52,15 @@ export class AdminUserCreateComponent implements OnInit, OnDestroy {
                 filter(({ status }) => status === 'VALID'),
                 untilDestroyed(this)
             )
-            .subscribe(({ value }) => this.userFacade.register(value.username, value.password));
+            .subscribe(({ value }) => this.userFacade.register(value.username, value.password, value.role));
     }
 
     private generateForm(): void {
         this.form = this.formBuilder.group({
             username: ['', Validators.required],
             password: ['', Validators.required],
-            confirmPassword: ['', Validators.required]
+            confirmPassword: ['', Validators.required],
+            role: [null, Validators.required]
         }, { validator: this.checkPasswords });
     }
 

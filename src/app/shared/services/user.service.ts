@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { TokenModel } from '@shared/models/user/token.model';
 import { UserModel } from '@shared/models/user/user.model';
+import { RoleType } from '@shared/types/role.type';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
@@ -15,8 +16,8 @@ export class UserService {
         return this.http.post<TokenModel>(`${this.url}/login`, { username, password });
     }
 
-    register(username: string, password: string): Observable<any> {
-        return this.http.post<any>(`${this.url}/register`, { username, password });
+    register(username: string, password: string, role: RoleType): Observable<any> {
+        return this.http.post<any>(`${this.url}/register`, { username, password, role });
     }
 
     getList(): Observable<UserModel[]> {
