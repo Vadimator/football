@@ -1,0 +1,23 @@
+.player-item-chart {
+  height: 100%;
+  width: 100%;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+
+  &__container {
+    position: relative;
+    flex-grow: 1;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+  }
+
+  &__text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+  }
+}

@@ -7,4 +7,5 @@ export interface IPlayerItem {
     matches: IMatchListItem[];
     name: string;
     winRate: string;
+    goals: { matchId: number; countGoals: string }[];
 }

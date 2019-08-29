@@ -1,12 +1,24 @@
 <div class="player-item">
     <app-loader [isLoading]="isLoading$ | async">
-        <h2>
-            Подробная информация об игроке
-        </h2>
-        <app-player-item-details [player]="player$ | async"></app-player-item-details>
-        <app-player-item-matches
-                class="player-item__matches"
-                [matches]="(player$ | async)?.matches"
-        ></app-player-item-matches>
+        <div class="container">
+            <h2>
+                Подробная информация об игроке
+            </h2>
+            <div class="row">
+                <app-player-item-details
+                        class="col-12 col-md-6"
+                        [player]="player$ | async"
+                ></app-player-item-details>
+                <app-player-item-chart
+                        class="col-12 col-md-6 mt-3 mt-md-0"
+                        [data]="(player$ | async)?.goals"
+                ></app-player-item-chart>
+            </div>
+
+            <app-player-item-matches
+                    class="player-item__matches"
+                    [matches]="(player$ | async)?.matches"
+            ></app-player-item-matches>
+        </div>
     </app-loader>
 </div>

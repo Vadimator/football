@@ -1,0 +1,26 @@
+<div class="player-item-chart">
+    <h4 class="player-item-chart__title">
+        Зависимость голов от матчей
+    </h4>
+    <div class="player-item-chart__container">
+        <ngx-charts-line-chart
+                *ngIf="isShowChart"
+                scheme="nightLights"
+                [results]="results"
+        >
+            <ng-template
+                #tooltipTemplate
+                let-model="model"
+            >
+                Матч id: {{ model?.name }} <br>
+                Количество голов: {{ model?.value }}
+            </ng-template>
+        </ngx-charts-line-chart>
+        <p
+                *ngIf="!isShowChart"
+                class="player-item-chart__text"
+        >
+            К сожалению, пока нет голов у этого игрока
+        </p>
+    </div>
+</div>
